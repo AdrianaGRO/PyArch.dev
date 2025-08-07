@@ -1,0 +1,25 @@
+Project Structure
+python-journey-blog/
+├── app.py                 # Main Flask application
+├── config.py             # Configuration settings
+├── requirements.txt      # Python dependencies
+├── README.md            # Project documentation
+├── .gitignore           # Version control exclusions
+├── data/
+│   └── posts.json       # Blog posts storage (Phase 1)
+├── static/
+│   ├── css/
+│   │   └── style.css    # Main stylesheet
+│   ├── js/
+│   │   └── main.js      # JavaScript functionality
+│   └── images/
+│       └── logo.png     # Blog assets
+├── templates/
+│   ├── base.html        # Base template
+│   ├── index.html       # Homepage
+│   ├── post.html        # Individual post view
+│   ├── create_post.html # Post creation form
+│   ├── edit_post.html   # Post editing form
+│   └── about.html       # About page
+└── utils/
+    └── post_manager.py  # Post CRUD operations

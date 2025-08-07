@@ -1,0 +1,26 @@
+[
+    {
+        "id": 3,
+        "title": "wha",
+        "content": "why"
+    },
+    {
+        "id": 5,
+        "title": "ONLY the title",
+        "content": "not the content?"
+    },
+    {
+        "id": 6,
+        "title": "18:16",
+        "content": "Today is",
+        "category": "None sense",
+        "created_at": "2025-08-01 18:26:33"
+    },
+    {
+        "id": 7,
+        "title": "Starting My Python Adventure: Variables and First Steps",
+        "content": "Just completed my first set of Python projects focusing on variables, and I'm amazed at how much you can accomplish with such simple concepts! Here's what I learned building 10 different projects.\r\n\r\n## Projects Summary\r\n\r\n### Personalized Greeting Project  \r\nThis was my first hands-on experience with Python. Despite the simplicity of using `input()` and basic string manipulation, seeing an interactive result from just a few lines of code felt incredibly rewarding. It gave me the foundation I needed and boosted my motivation to keep going.\r\n\r\n### Name Length Calculator  \r\nI got comfortable with the `len()` function and string methods. Even simple tools can be powerful when used well. This project reminded me how important clear user feedback is.\r\n\r\n### Band Name Generator  \r\nThis was where things got fun! Combining creativity with logic, asking for input, and creating playful results made programming feel alive. It showed me that code can be both functional and entertaining.\r\n\r\n### Variable Swap Project  \r\nThis introduced me to a classic programming challenge and showed me Python's elegant solution: swapping values in a single line. These early projects taught me that Python often has shortcuts for common patterns.\r\n\r\n## Key Lessons Learned\r\n\r\n- Input validation is crucial from day one  \r\n- Small projects build confidence quickly  \r\n- User experience matters even in simple programs  \r\n- Python's simplicity doesn't mean it's not powerful\r\n\r\n## What's Next\r\n\r\nMoving into data types and more complex logic!\r\n",
+        "category": "beginner, variables, fundamentals, first-project",
+        "created_at": "2025-08-07 16:17:29"
+    }
+]
