@@ -1,8 +1,18 @@
 {% extends "base.html" %}
-{% block title %}Abou                    <li style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; gap: var(--space-sm);">
+{% block title %}About Me - PyArch.dev{%                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; gap: var(--space-sm);">
                         <span style="color: var(--accent-green);">🔹</span>
                         <span style="color: var(--text-secondary);">Complete numerous mini projects to apply and reinforce my skills</span>
-                    </li> - PyArch.dev{% endblock %}
+                    </li>
+                    <li style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; gap: var(--space-sm);">
+                        <span style="color: var(--accent-green);">🔹</span>
+                        <span style="color: var(--text-secondary);">Continue deepening my understanding of Python through focused learning</span>
+                    </li>
+                    <li style="padding: var(--space-sm) 0; display: flex; align-items: center; gap: var(--space-sm);">
+                        <span style="color: var(--accent-green);">🔹</span>
+                        <span style="color: var(--text-secondary);">Grow as a technology professional, creating solutions that bridge business needs with technology</span>
+                    </li>
+                </ul>%}
 {% block content %}
     <div class="page-header">
         <h1 class="page-title">About Me</h1>
@@ -15,14 +25,20 @@
         <div class="card">
             <h2 class="text-2xl font-semibold" style="margin-bottom: var(--space-lg); text-align: left;">My Programming Journey</h2>
             <p style="margin-bottom: var(--space-lg); color: var(--text-secondary); line-height: 1.7;">
-                I discover programming because, as a business analyst, I face limitations when trying to implement ideas. 
-                I often hear that what I want to achieve is impossible. Learning Python empowers me to take control and 
-                create solutions on my own. What begins as frustration quickly turns into curiosity and a genuine 
-                passion for problem-solving and continuous growth.
+                As a business analyst, I often faced limitations when trying to implement ideas. I frequently heard 
+                that what I wanted to achieve was impossible. This frustration led me to discover programming. 
+                Learning Python empowered me to take control and create solutions on my own. What began as frustration 
+                quickly turned into curiosity and a genuine passion for problem-solving and continuous growth.
             </p>
             <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-lg);">
                 I also find strength in the developer community — a space full of collaboration, support, 
                 and shared learning that motivates me every day.
+            </p>
+            <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-lg);">
+                I stepped out of my comfort zone and began learning Python, AI, and machine learning, driven by 
+                genuine curiosity about their potential to solve business problems. Repetitive tasks have always 
+                been something I strongly dislike, which makes automation one of my favorite aspects of programming 
+                - turning tedious manual work into elegant, efficient solutions.
             </p>
         </div>
 
@@ -38,9 +54,25 @@
                         <span style="color: var(--accent-blue);">📚</span>
                         <span style="color: var(--text-secondary);">Mastering Git and version control</span>
                     </li>
-                    <li style="padding: var(--space-sm) 0; display: flex; align-items: center; gap: var(--space-sm);">
+                    <li style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; gap: var(--space-sm);">
                         <span style="color: var(--accent-blue);">✨</span>
                         <span style="color: var(--text-secondary);">Writing clean, readable, and maintainable Python code</span>
+                    </li>
+                    <li style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; gap: var(--space-sm);">
+                        <span style="color: var(--accent-blue);">🌐</span>
+                        <span style="color: var(--text-secondary);">Building web applications using Flask, HTML, and CSS</span>
+                    </li>
+                    <li style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; gap: var(--space-sm);">
+                        <span style="color: var(--accent-blue);">📊</span>
+                        <span style="color: var(--text-secondary);">Analyzing data with Pandas and Matplotlib to uncover actionable business insights</span>
+                    </li>
+                    <li style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; gap: var(--space-sm);">
+                        <span style="color: var(--accent-blue);">⚙️</span>
+                        <span style="color: var(--text-secondary);">Developing simple automation and web scraping tools to streamline repetitive tasks</span>
+                    </li>
+                    <li style="padding: var(--space-sm) 0; display: flex; align-items: center; gap: var(--space-sm);">
+                        <span style="color: var(--accent-blue);">🧠</span>
+                        <span style="color: var(--text-secondary);">Getting comfortable with core AI concepts and their applications in business</span>
                     </li>
                 </ul>
             </div>
@@ -60,17 +92,6 @@
             </div>
         </div>
         
-        <div class="card" style="margin-top: var(--space-xl);">
-            <h3 class="text-xl font-semibold" style="margin-bottom: var(--space-lg);">Mindset and Exploration</h3>
-            <p style="margin-bottom: var(--space-lg); color: var(--text-secondary); line-height: 1.7;">
-                My goal for 2025 is to fully shift my mindset to that of a programmer and become autonomous in 
-                writing Python code confidently and clearly.
-            </p>
-            <p style="color: var(--text-secondary); line-height: 1.7;">
-                In addition to Python, I am exploring artificial intelligence, experimenting with MCP servers by Antropic, 
-                Vibe Coding, and introductory concepts in Retrieval-Augmented Generation (RAG). This exploration 
-                complements my Python learning and prepares me for future AI-driven development challenges.
-            </p>
-        </div>
+
     </div>
 {% endblock %}
