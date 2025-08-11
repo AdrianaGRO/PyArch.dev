@@ -64,7 +64,10 @@ def index():
 
 @app.route('/about')
 def about():
-    return render_template('about.html')
+    # Pass 3 most recent posts for the about page
+    posts = load_posts()
+    recent_posts = sorted(posts, key=lambda x: x.get('created_at', ''), reverse=True)[:3] if posts else []
+    return render_template('about.html', recent_posts=recent_posts)
 
 @app.route('/post/<id>')
 def post(id):

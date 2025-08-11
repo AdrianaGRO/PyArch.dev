@@ -1,24 +1,51 @@
 {% extends "base.html" %}
+{% block title %}Python Journey - PyArch.dev{% endblock %}
 {% block content %}
-    <h1 class="fade-in">Python Journey Blog</h1>
-    <p>Total posts: {{ posts|length }}</p>
-    
-    {% for post in posts %}
-    <article class="post fade-in">
-        <h2 class="post-title">
-            <a href="{{ url_for('post', id=post['id']) }}">{{ post['title'] }}</a>
-        </h2>
+    <div class="page-header">
+        <h1 class="page-title">Python Journey</h1>
+        <p class="page-subtitle">
+            Welcome to my learning journal. I'm documenting my path from beginner to Python developer, 
+            sharing the challenges, breakthroughs, and lessons learned along the way.
+        </p>
+    </div>
+
+    <div class="content-section">
+        <h2 class="section-title">Journal Entries</h2>
         
-        <div class="post-meta">
-            <span>Category: {{ post['category'] }}</span>
-            <span>Posted on: {{ post['created_at'] }}</span>
-        </div>
+        {% if posts|length == 0 %}
+            <p class="text-center">No posts available yet. Why not <a href="{{ url_for('create') }}">create one</a>?</p>
+        {% endif %}
         
-        <div class="post-content">
-            {{ post['content'][:200]|md|safe }}{% if post['content']|length > 200 %}...{% endif %}
-        </div>
-        
-        <a href="{{ url_for('post', id=post['id']) }}" class="read-more">Read more</a>
-    </article>
-    {% endfor %}
+        {% for post in posts %}
+        <article class="card post-card">
+            <h3 class="post-title">
+                <a href="{{ url_for('post', id=post['id']) }}">{{ post['title'] }}</a>
+            </h3>
+            
+            <div class="post-meta">
+                {% if post.category %}
+                <span class="post-category">{{ post['category'].split(',')[0] }}</span>
+                {% endif %}
+                
+                {% if post.created_at %}
+                <time datetime="{{ post['created_at'] }}">{{ post['created_at'] }}</time>
+                {% endif %}
+                
+                {% if post.category %}
+                    {% for tag in post.category.split(',')[1:] %}
+                        {% if tag|trim %}
+                        <span class="post-tag">{{ tag|trim }}</span>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+            
+            <div class="post-excerpt">
+                {{ post['content'][:300]|md|safe }}{% if post['content']|length > 300 %}...{% endif %}
+            </div>
+            
+            <a href="{{ url_for('post', id=post['id']) }}" class="read-more">Continue reading</a>
+        </article>
+        {% endfor %}
+    </div>
 {% endblock %}

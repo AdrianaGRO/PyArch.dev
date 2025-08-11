@@ -1,24 +1,72 @@
 {% extends "base.html" %}
+{% block title %}About Me - PyArch.dev{% endblock %}
 {% block content %}
-    <article class="post fade-in">
-        <h1>About PyArch.dev Blog</h1>
-        <div class="post-content">
-            <p>This blog is dedicated to sharing insights and tutorials on Python architecture and development practices.</p>
-        </div>
-    </article>
-    
-    {% if posts %}
-    <div class="recent-posts">
-        <h2>Recent Posts</h2>
-        <ul>
-            {% for post in posts %}
-                <li>
-                    <a href="{{ url_for('post', id=post.id) }}">{{ post['title'] }}</a>
-                </li>
-            {% endfor %}
-        </ul>
+    <div class="page-header">
+        <h1 class="page-title">About Me</h1>
+        <p class="page-subtitle">
+            I'm Adriana, a passionate learner on a mission to master Python and web development.
+        </p>
     </div>
-    {% else %}
-        <p>No posts available.</p>
-    {% endif %}
+
+    <div class="content-section">
+        <div class="card">
+            <h2 class="text-2xl font-semibold" style="margin-bottom: var(--space-lg); text-align: left;">My Programming Journey</h2>
+            <p style="margin-bottom: var(--space-lg); color: var(--text-secondary); line-height: 1.7;">
+                I discovered programming because I wanted to build something meaningful with technology. 
+                Python drew me in with its elegant syntax and powerful ecosystem. What started as curiosity 
+                has become a passion for problem-solving and continuous learning.
+            </p>
+            <p style="color: var(--text-secondary); line-height: 1.7;">
+                This blog serves as my learning journal, documenting both successes and failures. 
+                I believe in learning in public and hope my experiences can help other beginners 
+                navigate their own programming journey.
+            </p>
+        </div>
+
+        <div class="grid grid-2">
+            <div class="card">
+                <h3 class="text-xl font-semibold" style="margin-bottom: var(--space-lg);">Current Focus</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; gap: var(--space-sm);">
+                        <span style="color: var(--accent-blue);">🌐</span>
+                        <span style="color: var(--text-secondary);">Building web applications with Flask</span>
+                    </li>
+                    <li style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; gap: var(--space-sm);">
+                        <span style="color: var(--accent-blue);">🗄️</span>
+                        <span style="color: var(--text-secondary);">Understanding databases and SQL</span>
+                    </li>
+                    <li style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; gap: var(--space-sm);">
+                        <span style="color: var(--accent-blue);">📚</span>
+                        <span style="color: var(--text-secondary);">Learning Git and version control</span>
+                    </li>
+                    <li style="padding: var(--space-sm) 0; display: flex; align-items: center; gap: var(--space-sm);">
+                        <span style="color: var(--accent-blue);">✨</span>
+                        <span style="color: var(--text-secondary);">Writing clean, readable Python code</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h3 class="text-xl font-semibold" style="margin-bottom: var(--space-lg);">Goals for 2025</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; gap: var(--space-sm);">
+                        <span style="color: var(--accent-green);">🚀</span>
+                        <span style="color: var(--text-secondary);">Deploy my first web application</span>
+                    </li>
+                    <li style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; gap: var(--space-sm);">
+                        <span style="color: var(--accent-green);">🤝</span>
+                        <span style="color: var(--text-secondary);">Contribute to an open-source project</span>
+                    </li>
+                    <li style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; gap: var(--space-sm);">
+                        <span style="color: var(--accent-green);">🔌</span>
+                        <span style="color: var(--text-secondary);">Learn API development and integration</span>
+                    </li>
+                    <li style="padding: var(--space-sm) 0; display: flex; align-items: center; gap: var(--space-sm);">
+                        <span style="color: var(--accent-green);">📊</span>
+                        <span style="color: var(--text-secondary);">Explore data science and visualization</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 {% endblock %}

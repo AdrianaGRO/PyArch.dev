@@ -1,121 +1,137 @@
 {% extends "base.html" %}
+{% block title %}Create New Post - PyArch.dev{% endblock %}
 {% block content %}
-    <h1 class="fade-in">Create New Post</h1>
-    <form method="POST" action="{{ url_for('create') }}" class="post fade-in" enctype="multipart/form-data">
-        <div class="form-group">
-            <label>Title</label>
-            <input type="text" name="title" required>
+    <div class="page-header">
+        <h1 class="page-title">Create New Post</h1>
+        <p class="page-subtitle">
+            Share your latest Python learnings, projects, or thoughts.
+        </p>
+    </div>
+
+    <div class="content-section">
+        <div class="card">
+            <form method="POST" action="{{ url_for('create') }}" enctype="multipart/form-data">
+                <div class="form-group" style="margin-bottom: var(--space-lg);">
+                    <label style="display: block; margin-bottom: var(--space-sm); font-weight: 600; color: var(--text-primary);">Title</label>
+                    <input type="text" name="title" required placeholder="Give your post a descriptive title">
+                </div>
+                
+                <div class="form-group" style="margin-bottom: var(--space-lg);">
+                    <label style="display: block; margin-bottom: var(--space-sm); font-weight: 600; color: var(--text-primary);">Content <small>(Supports Markdown formatting)</small></label>
+                    <textarea name="content" rows="15" required placeholder="Write your post content here..."></textarea>
+                </div>
+                
+                <div class="form-group" style="margin-bottom: var(--space-lg);">
+                    <label style="display: block; margin-bottom: var(--space-sm); font-weight: 600; color: var(--text-primary);">Categories & Tags</label>
+                    <input type="text" name="category" required placeholder="Main category, tag1, tag2, tag3">
+                    <p style="margin-top: var(--space-xs); font-size: 0.8rem; color: var(--text-muted);">
+                        Format: Main category, tag1, tag2, etc. The first item will be the main category.
+                    </p>
+                </div>
+                
+                <div class="form-group" style="margin-bottom: var(--space-lg);">
+                    <label style="display: block; margin-bottom: var(--space-sm); font-weight: 600; color: var(--text-primary);">Upload Image <small>(Optional)</small></label>
+                    <div class="image-upload-container">
+                        <input type="file" name="image" id="image-upload" accept="image/png, image/jpeg, image/gif, image/webp">
+                        <label for="image-upload" class="image-upload-label">
+                            <span class="upload-icon">🖼️</span>
+                            <span>Choose an image</span>
+                        </label>
+                        <div id="image-preview" class="image-preview"></div>
+                    </div>
+                </div>
+                
+                <div class="form-group formatting-help">
+                    <h3>Markdown Formatting Guide</h3>
+                    <div class="format-box-container">
+                        <div class="format-box">
+                            <div class="format-icon">H1</div>
+                            <div class="format-content">
+                                <strong>Heading 1</strong>
+                                <code># Your Heading</code>
+                            </div>
+                        </div>
+                        <div class="format-box">
+                            <div class="format-icon">H2</div>
+                            <div class="format-content">
+                                <strong>Heading 2</strong>
+                                <code>## Your Heading</code>
+                            </div>
+                        </div>
+                        <div class="format-box">
+                            <div class="format-icon">B</div>
+                            <div class="format-content">
+                                <strong>Bold</strong>
+                                <code>**bold text**</code>
+                            </div>
+                        </div>
+                        <div class="format-box">
+                            <div class="format-icon">I</div>
+                            <div class="format-content">
+                                <strong>Italic</strong>
+                                <code>*italic text*</code>
+                            </div>
+                        </div>
+                        <div class="format-box">
+                            <div class="format-icon">🔗</div>
+                            <div class="format-content">
+                                <strong>Link</strong>
+                                <code>[text](url)</code>
+                            </div>
+                        </div>
+                        <div class="format-box">
+                            <div class="format-icon">🖼️</div>
+                            <div class="format-content">
+                                <strong>Image</strong>
+                                <code>![alt](url)</code>
+                            </div>
+                        </div>
+                        <div class="format-box">
+                            <div class="format-icon">•</div>
+                            <div class="format-content">
+                                <strong>List</strong>
+                                <code>- item</code>
+                            </div>
+                        </div>
+                        <div class="format-box">
+                            <div class="format-icon">1.</div>
+                            <div class="format-content">
+                                <strong>Numbered</strong>
+                                <code>1. item</code>
+                            </div>
+                        </div>
+                        <div class="format-box">
+                            <div class="format-icon">{ }</div>
+                            <div class="format-content">
+                                <strong>Code</strong>
+                                <code>```code```</code>
+                            </div>
+                        </div>
+                        <div class="format-box">
+                            <div class="format-icon">❞</div>
+                            <div class="format-content">
+                                <strong>Quote</strong>
+                                <code>> quote</code>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="image-upload-guide">
+                        <h4>Adding Images</h4>
+                        <p>You can add images to your post in two ways:</p>
+                        <ol>
+                            <li><strong>Direct Upload:</strong> Use the file upload field above to directly upload an image</li>
+                            <li><strong>External Image:</strong> If you want to use an image from the web, use the syntax: <code>![description](image-url)</code></li>
+                        </ol>
+                        <p><small>Supported formats: JPEG, PNG, GIF, WEBP (Max 16MB)</small></p>
+                    </div>
+                </div>
+                
+                <div style="display: flex; gap: var(--space-md); margin-top: var(--space-xl);">
+                    <button type="submit">Create Post</button>
+                    <a href="{{ url_for('index') }}" class="button" style="background: var(--bg-elevated); color: var(--text-primary);">Cancel</a>
+                </div>
+            </form>
         </div>
-        
-        <div class="form-group">
-            <label>Content <small>(Supports Markdown formatting)</small></label>
-            <textarea name="content" rows="20" cols="48" required></textarea>
-        </div>
-        
-        <div class="form-group">
-            <label>Category</label>
-            <input type="text" name="category" required>
-        </div>
-        
-        <div class="form-group">
-            <label>Upload Image <small>(Optional)</small></label>
-            <div class="image-upload-container">
-                <input type="file" name="image" id="image-upload" accept="image/png, image/jpeg, image/gif, image/webp">
-                <label for="image-upload" class="image-upload-label">
-                    <span class="upload-icon">🖼️</span>
-                    <span>Choose an image</span>
-                </label>
-                <div id="image-preview" class="image-preview"></div>
-            </div>
-        </div>
-        
-        <div class="form-group formatting-help">
-            <h3>Formatting Options</h3>
-            <div class="format-box-container">
-                <div class="format-box">
-                    <div class="format-icon">H1</div>
-                    <div class="format-content">
-                        <strong>Heading 1</strong>
-                        <code># Your Heading</code>
-                    </div>
-                </div>
-                <div class="format-box">
-                    <div class="format-icon">H2</div>
-                    <div class="format-content">
-                        <strong>Heading 2</strong>
-                        <code>## Your Heading</code>
-                    </div>
-                </div>
-                <div class="format-box">
-                    <div class="format-icon">B</div>
-                    <div class="format-content">
-                        <strong>Bold</strong>
-                        <code>**bold text**</code>
-                    </div>
-                </div>
-                <div class="format-box">
-                    <div class="format-icon">I</div>
-                    <div class="format-content">
-                        <strong>Italic</strong>
-                        <code>*italic text*</code>
-                    </div>
-                </div>
-                <div class="format-box">
-                    <div class="format-icon">🔗</div>
-                    <div class="format-content">
-                        <strong>Link</strong>
-                        <code>[text](url)</code>
-                    </div>
-                </div>
-                <div class="format-box">
-                    <div class="format-icon">🖼️</div>
-                    <div class="format-content">
-                        <strong>Image</strong>
-                        <code>![alt](url)</code>
-                    </div>
-                </div>
-                <div class="format-box">
-                    <div class="format-icon">•</div>
-                    <div class="format-content">
-                        <strong>List</strong>
-                        <code>- item</code>
-                    </div>
-                </div>
-                <div class="format-box">
-                    <div class="format-icon">1.</div>
-                    <div class="format-content">
-                        <strong>Numbered</strong>
-                        <code>1. item</code>
-                    </div>
-                </div>
-                <div class="format-box">
-                    <div class="format-icon">{ }</div>
-                    <div class="format-content">
-                        <strong>Code</strong>
-                        <code>```code```</code>
-                    </div>
-                </div>
-                <div class="format-box">
-                    <div class="format-icon">❞</div>
-                    <div class="format-content">
-                        <strong>Quote</strong>
-                        <code>> quote</code>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="image-upload-guide">
-                <h4>Adding Images</h4>
-                <p>You can add images to your post in two ways:</p>
-                <ol>
-                    <li><strong>Direct Upload:</strong> Use the file upload field above to directly upload an image</li>
-                    <li><strong>External Image:</strong> If you want to use an image from the web, use the syntax: <code>![description](image-url)</code></li>
-                </ol>
-                <p><small>Supported formats: JPEG, PNG, GIF, WEBP (Max 16MB)</small></p>
-            </div>
-        </div>
-        
-        <button type="submit">Create Post</button>
-    </form>
-    <a href="{{ url_for('index') }}" class="button">Back to Home</a>
+    </div>
 {% endblock %}
