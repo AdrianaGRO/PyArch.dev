@@ -1,14 +1,19 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
-from utils.post_manager import load_posts, save_posts 
+from flask import Flask, render_template, request, redirect, url_for, flash, session
+from utils.post_manager import load_posts, save_posts
+from utils.auth import login, logout, login_required, is_authenticated
 from datetime import datetime
 import markdown
 import re
 import os
 import uuid
 from werkzeug.utils import secure_filename
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'your-secret-key-here'
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'your-secret-key-here')
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB max upload
 app.config['ALLOWED_EXTENSIONS'] = {'png', 'jpg', 'jpeg', 'gif', 'webp'}
@@ -79,17 +84,18 @@ def post(id):
 
 
 @app.route('/create', methods=['GET', 'POST'])
+@login_required
 def create():
     if request.method == 'POST':
         title = request.form['title']
         content = request.form['content']
         category = request.form.get('category', '')
         
-        # Handle image upload if present
+        # Handle image upload 
         if 'image' in request.files and request.files['image'].filename:
             image_path = handle_image_upload(request.files['image'])
             if image_path:
-                # Insert the image Markdown at the cursor position or append to content
+                # Insert the image Markdown 
                 image_md = f"\n\n![{title}]({image_path})\n\n"
                 content += image_md
         
@@ -108,6 +114,7 @@ def create():
     return render_template('create_post.html')        
 
 @app.route('/edit/<id>', methods=['GET', 'POST'])
+@login_required
 def edit(id):
     posts = load_posts()
     post = next((p for p in posts if str(p['id']) == str(id)), None) 
@@ -134,11 +141,43 @@ def edit(id):
 
 
 @app.route('/delete/<id>', methods=['POST'])
+@login_required
 def delete(id):
     posts = load_posts()
     posts = [p for p in posts if str(p['id']) != str(id)]
     save_posts(posts)
     return redirect(url_for('index'))
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login_page():
+    if is_authenticated():
+        return redirect(url_for('index'))
+        
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+        
+        if login(username, password):
+            flash('Login successful!', 'success')
+            next_page = request.args.get('next')
+            if next_page and next_page.startswith('/'):  # Only redirect to relative URLs
+                return redirect(next_page)
+            return redirect(url_for('index'))
+        else:
+            flash('Invalid username or password', 'error')
+            
+    return render_template('login.html')
+
+
+@app.route('/logout')
+def logout_page():
+    logout()
+    flash('You have been logged out', 'success')
+    return redirect(url_for('index'))
+
+
+# Authentication has been applied directly to the route functions
 
 
 if __name__ == '__main__':

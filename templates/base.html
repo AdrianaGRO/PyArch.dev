@@ -6,7 +6,10 @@
     <title>{% block title %}Adriana's Python Journey{% endblock %}</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/social-icons.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/blog-images.css') }}">
 </head>
 <body data-theme="light">
     <!-- Scroll Progress Indicator -->
@@ -26,7 +29,12 @@
                     <ul class="nav-links">
                         <li><a href="{{ url_for('index') }}" class="nav-link {% if request.path == '/' %}active{% endif %}">Journal</a></li>
                         <li><a href="{{ url_for('about') }}" class="nav-link {% if request.path == '/about' %}active{% endif %}">About</a></li>
-                        <li><a href="{{ url_for('create') }}" class="nav-link {% if request.path == '/create' %}active{% endif %}">Create Post</a></li>
+                        {% if session.authenticated %}
+                            <li><a href="{{ url_for('create') }}" class="nav-link {% if request.path == '/create' %}active{% endif %}">Create Post</a></li>
+                            <li><a href="{{ url_for('logout_page') }}" class="nav-link">Logout</a></li>
+                        {% else %}
+                            <li><a href="{{ url_for('login_page') }}" class="nav-link {% if request.path == '/login' %}active{% endif %}">Login</a></li>
+                        {% endif %}
                     </ul>
                 </nav>
                 <button class="theme-toggle" aria-label="Toggle theme">
@@ -40,6 +48,27 @@
     <main>
         <div class="page-content active">
             <div class="container">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            {% if category == 'error' %}
+                            <div class="alert error" style="padding: var(--space-md); margin-bottom: var(--space-lg); 
+                                       border-radius: var(--radius-md); 
+                                       background-color: #fee2e2;
+                                       color: #991b1b;">
+                                {{ message }}
+                            </div>
+                            {% else %}
+                            <div class="alert success" style="padding: var(--space-md); margin-bottom: var(--space-lg); 
+                                       border-radius: var(--radius-md); 
+                                       background-color: #dcfce7;
+                                       color: #166534;">
+                                {{ message }}
+                            </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
                 {% block content %}{% endblock %}
             </div>
         </div>
@@ -54,9 +83,15 @@
                     Following my journey from Python beginner to developer, sharing lessons learned along the way.
                 </p>
                 <div style="display: flex; gap: var(--space-md);">
-                    <a href="https://github.com/AdrianaGRO?tab=repositories" style="color: var(--text-muted); font-size: 1rem; transition: color var(--transition-base); background: var(--bg-elevated); padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm); font-weight: 500;" title="GitHub" target="_blank">GitHub</a>
-                    <a href="https://www.linkedin.com/in/adriana-gropan/" style="color: var(--text-muted); font-size: 1rem; transition: color var(--transition-base); background: var(--bg-elevated); padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm); font-weight: 500;" title="LinkedIn" target="_blank">LinkedIn</a>
-                    <a href="mailto:email.adriana.gropan@gmail.com" style="color: var(--text-muted); font-size: 1rem; transition: color var(--transition-base); background: var(--bg-elevated); padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm); font-weight: 500;" title="Email">Email</a>
+                    <a href="https://github.com/AdrianaGRO?tab=repositories" class="social-icon github-icon" title="GitHub" target="_blank">
+                        <i class="fab fa-github" style="font-size: 1.5rem;"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/adriana-gropan/" class="social-icon linkedin-icon" title="LinkedIn" target="_blank">
+                        <i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i>
+                    </a>
+                    <a href="mailto:email.adriana.gropan@gmail.com" class="social-icon email-icon" title="Email">
+                        <i class="fas fa-envelope" style="font-size: 1.5rem;"></i>
+                    </a>
                 </div>
             </div>
             

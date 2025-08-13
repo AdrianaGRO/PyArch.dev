@@ -29,10 +29,12 @@
             </div>
             
             <div class="post-actions">
+                {% if session.authenticated %}
                 <a href="{{ url_for('edit', id=post['id']) }}" class="button">Edit Post</a>
                 <form action="{{ url_for('delete', id=post['id']) }}" method="post" style="display:inline;">
                     <button type="submit" class="delete-button" onclick="return confirm('Are you sure you want to delete this post?');">Delete Post</button>
                 </form>
+                {% endif %}
                 <a href="{{ url_for('index') }}" class="button" style="background: var(--bg-elevated); color: var(--text-primary);">Back to Journal</a>
             </div>
         </article>
