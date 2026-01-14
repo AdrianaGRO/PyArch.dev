@@ -45,4 +45,5 @@ env/
 static/uploads/
 
 # Logs
-*.log
+*.log.DS_Store
+**/.DS_Store
