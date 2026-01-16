@@ -6,7 +6,8 @@ python-journey-blog/
 ├── README.md            # Project documentation
 ├── .gitignore           # Version control exclusions
 ├── data/
-│   └── posts.json       # Blog posts storage (Phase 1)
+│   ├── posts.json       # Blog posts storage (Phase 1)
+│   └── projects.json    # Projects metadata storage
 ├── static/
 │   ├── css/
 │   │   └── style.css    # Main stylesheet
@@ -14,12 +15,18 @@ python-journey-blog/
 │   │   └── main.js      # JavaScript functionality
 │   └── images/
 │       └── logo.png     # Blog assets
+│   └── projects/        # Project images/assets
 ├── templates/
 │   ├── base.html        # Base template
 │   ├── index.html       # Homepage
 │   ├── post.html        # Individual post view
 │   ├── create_post.html # Post creation form
 │   ├── edit_post.html   # Post editing form
-│   └── about.html       # About page
+│   ├── about.html       # About page
+│   └── projects/
+│       ├── index.html       # Projects listing page
+│       ├── detail.html      # Fallback project detail page
+│       └── data_cleaner.html# Specific project page
 └── utils/
-    └── post_manager.py  # Post CRUD operations
+    ├── post_manager.py      # Post CRUD operations
+    └── project_manager.py   # Project CRUD operations

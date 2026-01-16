@@ -1,89 +1,176 @@
 {% extends "base.html" %}
-{% block title %}About Me - PyArch.dev{% endblock %}
+{% block title %}About Me - Adriana Gropan{% endblock %}
 {% block content %}
-    <div class="page-header">
-        <h1 class="page-title">About Me</h1>
-        <p class="page-subtitle">
+
+    <!-- =============================================== -->
+    <!-- PAGE HEADER WITH OPENING STATEMENT            -->
+    <!-- =============================================== -->
+    <div class="page-header" style="text-align: center; padding: var(--space-2xl) 0;">
+        <h1 class="page-title" style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; color: var(--text-primary); margin-bottom: var(--space-lg);">About Me</h1>
+        <p class="page-subtitle" style="font-size: 1.25rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto var(--space-xl); line-height: 1.6;">
             I'm Adriana, a dedicated learner focused on mastering Python and developing strong programming skills.
         </p>
-        <p class="page-subtitle" style="font-style: italic; margin-top: var(--space-md); color: var(--accent-blue);">
-            "It's not impossible, you just haven't found a way yet."
-        </p>
+        
+        <!-- Pull Quote - Prominently Styled -->
+        <div style="background: linear-gradient(135deg, var(--accent-blue-light), var(--bg-card)); border-left: 4px solid var(--accent-blue); padding: var(--space-xl); border-radius: var(--radius-lg); max-width: 500px; margin: 0 auto; box-shadow: var(--shadow-md); position: relative;">
+            <p style="font-size: 1.5rem; font-style: italic; font-weight: 600; color: var(--text-primary); margin: 0; text-align: center; line-height: 1.4;">
+                "It's not impossible, you just haven't found a way yet."
+            </p>
+            <span style="position: absolute; bottom: var(--space-sm); right: var(--space-md); font-size: 0.8rem; color: var(--text-muted); font-weight: 500;">— AJ</span>
+        </div>
     </div>
 
-    <div class="content-section">
-        <div class="card">
-            <h2 class="text-2xl font-semibold" style="margin-bottom: var(--space-lg); text-align: left;">My Programming Journey</h2>
-            <p style="margin-bottom: var(--space-lg); color: var(--text-secondary); line-height: 1.7;">
-                As a business analyst, I often faced limitations when trying to implement ideas. I frequently heard 
-                that what I wanted to achieve was impossible. This frustration led me to discover programming. 
-                Learning Python empowered me to take control and create solutions on my own. What began as frustration 
-                quickly turned into curiosity and a genuine passion for problem-solving and continuous growth.
-            </p>
-            <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-lg);">
-                I also find strength in the developer community — a space full of collaboration, support, 
-                and shared learning that motivates me every day.
-            </p>
-            <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-lg);">
-                I stepped out of my comfort zone and began learning Python, AI, and machine learning, driven by 
-                genuine curiosity about their potential to solve business problems. Repetitive tasks have always 
-                been something I strongly dislike, which makes automation one of my favorite aspects of programming 
-                - turning tedious manual work into elegant, efficient solutions.
+    <!-- =============================================== -->
+    <!-- SECTION 1: MY PROGRAMMING JOURNEY             -->
+    <!-- =============================================== -->
+    <div class="content-section" style="padding: var(--space-2xl) 0;">
+        <div class="card" style="max-width: 800px; margin: 0 auto; padding: var(--space-xl);">
+            <h2 style="font-size: 2rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-xl); text-align: center;">My Programming Journey</h2>
+            
+            <div style="display: flex; flex-direction: column; gap: var(--space-lg);">
+                <p style="font-size: 1.125rem; color: var(--text-secondary); line-height: 1.7;">
+                    As a business analyst, I often faced limitations when trying to implement ideas. I frequently heard that what I wanted to achieve was impossible. This frustration led me to discover programming. Learning Python empowered me to take control and create solutions on my own. What began as frustration quickly turned into curiosity and a genuine passion for problem-solving and continuous growth.
+                </p>
+                
+                <p style="font-size: 1.125rem; color: var(--text-secondary); line-height: 1.7;">
+                    I also find strength in the developer community — a space full of collaboration, support, and shared learning that motivates me every day.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- =============================================== -->
+    <!-- SECTION 2: THE TRANSITION                     -->
+    <!-- =============================================== -->
+    <div style="background: var(--bg-secondary); padding: var(--space-2xl) 0;">
+        <div class="card" style="max-width: 800px; margin: 0 auto; padding: var(--space-xl); background: var(--bg-card);">
+            <p style="font-size: 1.125rem; color: var(--text-secondary); line-height: 1.7; text-align: center; font-style: italic;">
+                I stepped out of my comfort zone and began learning Python, AI, and machine learning, driven by genuine curiosity about their potential to solve business problems. Repetitive tasks have always been something I strongly dislike, which makes automation one of my favorite aspects of programming — turning tedious manual work into elegant, efficient solutions.
             </p>
         </div>
+    </div>
 
-        <div class="grid grid-2">
-            <div class="card">
-                <h3 class="text-xl font-semibold" style="margin-bottom: var(--space-lg);">Current Focus</h3>
-                <ul style="list-style: none; padding: 0;">
-                    <li style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; gap: var(--space-sm);">
-                        <span style="color: var(--accent-blue);">🐍</span>
-                        <span style="color: var(--text-secondary);">Building strong Python programming fundamentals</span>
-                    </li>
-                    <li style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; gap: var(--space-sm);">
-                        <span style="color: var(--accent-blue);">📚</span>
-                        <span style="color: var(--text-secondary);">Mastering Git and version control</span>
-                    </li>
-                    <li style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; gap: var(--space-sm);">
-                        <span style="color: var(--accent-blue);">✨</span>
-                        <span style="color: var(--text-secondary);">Writing clean, readable, and maintainable Python code</span>
-                    </li>
-                    <li style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; gap: var(--space-sm);">
-                        <span style="color: var(--accent-blue);">🌐</span>
-                        <span style="color: var(--text-secondary);">Building web applications using Flask, HTML, and CSS</span>
-                    </li>
-                    <li style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; gap: var(--space-sm);">
-                        <span style="color: var(--accent-blue);">📊</span>
-                        <span style="color: var(--text-secondary);">Analyzing data with Pandas and Matplotlib to uncover actionable business insights</span>
-                    </li>
-                    <li style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; gap: var(--space-sm);">
-                        <span style="color: var(--accent-blue);">⚙️</span>
-                        <span style="color: var(--text-secondary);">Developing simple automation and web scraping tools to streamline repetitive tasks</span>
-                    </li>
-                    <li style="padding: var(--space-sm) 0; display: flex; align-items: center; gap: var(--space-sm);">
-                        <span style="color: var(--accent-blue);">🧠</span>
-                        <span style="color: var(--text-secondary);">Getting comfortable with core AI concepts and their applications in business</span>
-                    </li>
-                </ul>
+    <!-- =============================================== -->
+    <!-- SECTION 3: PROFESSIONAL BACKGROUND            -->
+    <!-- =============================================== -->
+    <div class="content-section" style="padding: var(--space-2xl) 0;">
+        <div style="max-width: 900px; margin: 0 auto;">
+            <h2 style="font-size: 2rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-xl); text-align: center;">Professional Background</h2>
+            
+            <!-- Timeline -->
+            <div style="position: relative; padding-left: var(--space-xl);">
+                <!-- Timeline line -->
+                <div style="position: absolute; left: var(--space-md); top: 0; bottom: 0; width: 2px; background: var(--accent-blue);"></div>
+                
+                <!-- Timeline Item 1 -->
+                <div class="card" style="position: relative; margin-bottom: var(--space-xl); padding: var(--space-xl); margin-left: var(--space-xl);">
+                    <div style="position: absolute; left: calc(-1 * var(--space-xl) - var(--space-md)); top: var(--space-lg); width: 12px; height: 12px; background: var(--accent-blue); border-radius: 50%; border: 3px solid var(--bg-card);"></div>
+                    <div style="color: var(--accent-blue); font-weight: 600; font-size: 0.875rem; margin-bottom: var(--space-sm);">2007-2013</div>
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-sm);">real,- Hypermarket</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: var(--space-sm);"><strong>Roles:</strong> Pricing Data Analyst → Competition Manager → Head of Cashier</p>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">Built foundational experience in retail operations, data analysis, and team leadership.</p>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="card" style="position: relative; margin-bottom: var(--space-xl); padding: var(--space-xl); margin-left: var(--space-xl);">
+                    <div style="position: absolute; left: calc(-1 * var(--space-xl) - var(--space-md)); top: var(--space-lg); width: 12px; height: 12px; background: var(--accent-blue); border-radius: 50%; border: 3px solid var(--bg-card);"></div>
+                    <div style="color: var(--accent-blue); font-weight: 600; font-size: 0.875rem; margin-bottom: var(--space-sm);">2013-2024</div>
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-sm);">Auchan Retail</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: var(--space-sm);"><strong>Roles:</strong> Head of Cashier → Contact Center Coordinator → Business Analyst</p>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;"><strong>Focus:</strong> Salesforce, Loyalty Programs, Process Optimization</p>
+                </div>
+
+                <!-- Timeline Item 3 -->
+                <div class="card" style="position: relative; padding: var(--space-xl); margin-left: var(--space-xl); border-left: 4px solid var(--accent-green);">
+                    <div style="position: absolute; left: calc(-1 * var(--space-xl) - var(--space-md)); top: var(--space-lg); width: 12px; height: 12px; background: var(--accent-green); border-radius: 50%; border: 3px solid var(--bg-card);"></div>
+                    <div style="color: var(--accent-green); font-weight: 600; font-size: 0.875rem; margin-bottom: var(--space-sm);">2025-Present</div>
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-sm);">Full-time Python Learning & Development</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">Building automation tools and seeking freelance projects</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =============================================== -->
+    <!-- SECTION 4: WHAT I'M FOCUSING ON NOW          -->
+    <!-- =============================================== -->
+    <div style="background: var(--bg-secondary); padding: var(--space-2xl) 0;">
+        <div class="card" style="max-width: 800px; margin: 0 auto; padding: var(--space-xl); background: var(--bg-card); text-align: center;">
+            <h2 style="font-size: 1.75rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-lg);">What I'm Focusing On Now</h2>
+            <p style="font-size: 1.125rem; color: var(--text-secondary); line-height: 1.7;">
+                Currently, I'm building Python automation tools for businesses and taking on freelance projects. My goal is to combine my operational experience with technical skills to create solutions that actually work in real business environments.
+            </p>
+        </div>
+    </div>
+
+    <!-- =============================================== -->
+    <!-- SECTION 5: LET'S CONNECT                      -->
+    <!-- =============================================== -->
+    <div class="content-section" style="padding: var(--space-2xl) 0;">
+        <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+            <h2 style="font-size: 2rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-lg);">Let's Connect</h2>
+            <p style="font-size: 1.125rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-xl);">
+                If you're working on Python projects, automation tools, or are also making a career transition, I'd love to connect.
+            </p>
+            
+            <!-- Contact Options -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-lg); margin-bottom: var(--space-xl);">
+                <a href="mailto:adriana.gropan@gmail.com?subject=Project%20Inquiry" class="card" style="padding: var(--space-lg); text-decoration: none; transition: var(--transition-base); border: 2px solid var(--border-color); background: var(--bg-card);">
+                    <div style="font-size: 2rem; margin-bottom: var(--space-sm);">📧</div>
+                    <h3 style="font-size: 1.125rem; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-xs);">Email</h3>
+                    <p style="color: var(--accent-blue); font-size: 0.9rem;">adriana.gropan@gmail.com</p>
+                </a>
+                
+                <a href="https://linkedin.com/in/adrianagropan" target="_blank" class="card" style="padding: var(--space-lg); text-decoration: none; transition: var(--transition-base); border: 2px solid var(--border-color); background: var(--bg-card);">
+                    <div style="font-size: 2rem; margin-bottom: var(--space-sm);">💼</div>
+                    <h3 style="font-size: 1.125rem; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-xs);">LinkedIn</h3>
+                    <p style="color: var(--accent-blue); font-size: 0.9rem;">linkedin.com/in/adrianagropan</p>
+                </a>
+                
+                <a href="https://github.com/AdrianaGRO" target="_blank" class="card" style="padding: var(--space-lg); text-decoration: none; transition: var(--transition-base); border: 2px solid var(--border-color); background: var(--bg-card);">
+                    <div style="font-size: 2rem; margin-bottom: var(--space-sm);">💻</div>
+                    <h3 style="font-size: 1.125rem; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-xs);">GitHub</h3>
+                    <p style="color: var(--accent-blue); font-size: 0.9rem;">github.com/AdrianaGRO</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- =============================================== -->
+    <!-- SECTION 6: RECENT PROJECTS (Optional)         -->
+    <!-- =============================================== -->
+    {% if projects and projects|length > 0 %}
+    <div style="background: var(--bg-secondary); padding: var(--space-2xl) 0;">
+        <div class="content-section" style="max-width: 1000px; margin: 0 auto;">
+            <h2 style="font-size: 1.75rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-xl); text-align: center;">Recent Projects</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-xl);">
+                {% for project in projects[:3] %}
+                <article class="card" style="padding: var(--space-xl); background: var(--bg-card); transition: var(--transition-base);">
+                    <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: var(--space-md);">
+                        <a href="{{ url_for('project_detail', project_name=project.slug) }}" style="color: var(--text-primary); text-decoration: none;">{{ project.title }}</a>
+                    </h3>
+                    <p style="color: var(--text-secondary); margin-bottom: var(--space-md); line-height: 1.6;">{{ project.summary }}</p>
+                    
+                    <!-- Project tags -->
+                    <div style="display: flex; gap: var(--space-sm); flex-wrap: wrap; margin-bottom: var(--space-lg);">
+                        {% for tag in project.tags or [] %}
+                            <span style="background: var(--accent-blue-light); color: var(--accent-blue); padding: var(--space-xs) var(--space-sm); border-radius: var(--radius-sm); font-size: 0.8rem; font-weight: 500;">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                    
+                    <a href="{{ url_for('project_detail', project_name=project.slug) }}" style="color: var(--accent-blue); font-weight: 500; text-decoration: none; font-size: 0.9rem;">View Project →</a>
+                </article>
+                {% endfor %}
             </div>
             
-            <div class="card">
-                <h3 class="text-xl font-semibold" style="margin-bottom: var(--space-lg);">Goals for 2025</h3>
-                <ul style="list-style: none; padding: 0;">
-                    <li style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; gap: var(--space-sm);">
-                        <span style="color: var(--accent-green);">🔹</span>
-                        <span style="color: var(--text-secondary);">Complete numerous mini projects to apply and reinforce my skills</span>
-                    </li>
-                    <li style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; gap: var(--space-sm);">
-                        <span style="color: var(--accent-green);">🔹</span>
-                        <span style="color: var(--text-secondary);">Continue deepening my understanding of Python through focused learning</span>
-                    </li>
-                    <li style="padding: var(--space-sm) 0; display: flex; align-items: center; gap: var(--space-sm);">
-                        <span style="color: var(--accent-green);">🔹</span>
-                        <span style="color: var(--text-secondary);">Grow as a technology professional, creating solutions that bridge business needs with technology</span>
-                    </li>
-                </ul>
+            <div style="text-align: center; margin-top: var(--space-xl);">
+                <a href="{{ url_for('projects_index') }}" class="btn" style="background: var(--accent-blue); color: white; padding: var(--space-md) var(--space-xl); border-radius: var(--radius-md); text-decoration: none; font-weight: 600;">
+                    View All Projects
+                </a>
             </div>
         </div>
     </div>
+    {% endif %}
+
 {% endblock %}

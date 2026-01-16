@@ -17,32 +17,471 @@
         <div class="scroll-progress" id="scrollProgress"></div>
     </div>
 
-    <!-- Enhanced Header -->
-    <header class="header" id="header">
+    <!-- ================================================================== -->
+    <!-- ELEGANT PROFESSIONAL NAVIGATION - Client-Focused                 -->
+    <!-- ================================================================== -->
+    <header class="header">
         <div class="nav-container">
             <div class="nav-brand">
-                <a href="{{ url_for('index') }}" class="nav-logo">PyArch.dev</a>
-                <span class="nav-tagline">My Python Journey</span>
+                <a href="{{ url_for('index') }}" class="nav-logo">Adriana Gropan</a>
+                <span class="nav-tagline">Python Automation</span>
             </div>
-            <div class="nav-main">
-                <nav>
-                    <ul class="nav-links">
-                        <li><a href="{{ url_for('index') }}" class="nav-link {% if request.path == '/' %}active{% endif %}">Journal</a></li>
-                        <li><a href="{{ url_for('about') }}" class="nav-link {% if request.path == '/about' %}active{% endif %}">About</a></li>
-                        {% if session.authenticated %}
-                            <li><a href="{{ url_for('create') }}" class="nav-link {% if request.path == '/create' %}active{% endif %}">Create Post</a></li>
-                            <li><a href="{{ url_for('logout_page') }}" class="nav-link">Logout</a></li>
-                        {% else %}
-                            <li><a href="{{ url_for('login_page') }}" class="nav-link {% if request.path == '/login' %}active{% endif %}">Login</a></li>
-                        {% endif %}
-                    </ul>
-                </nav>
-                <button class="theme-toggle" aria-label="Toggle theme">
-                    <div class="theme-toggle-handle"></div>
+            
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <div class="nav-main" id="navMain">
+                <ul class="nav-links">
+                    <li>
+                        <a href="{{ url_for('projects_index') }}" 
+                           class="nav-link primary {% if request.endpoint == 'projects_index' or request.path.startswith('/projects') %}active{% endif %}">
+                           Projects
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('about') }}" 
+                           class="nav-link {% if request.endpoint == 'about' %}active{% endif %}">
+                           About
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/blog" class="nav-link">Blog</a>
+                    </li>
+                    <li>
+                        <a href="mailto:adriana.gropan@gmail.com?subject=Project%20Inquiry" 
+                           class="nav-contact-btn">
+                           Contact
+                        </a>
+                    </li>
+                </ul>
+                
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                    <span class="theme-toggle-icon"></span>
                 </button>
+                
+                {% if session.authenticated %}
+                    <div class="admin-section">
+                        <a href="{{ url_for('create') }}" 
+                           class="nav-link admin-link {% if request.path == '/create' %}active{% endif %}">
+                           Admin
+                        </a>
+                        <a href="{{ url_for('logout_page') }}" 
+                           class="nav-link admin-link">
+                           Logout
+                        </a>
+                    </div>
+                {% endif %}
             </div>
         </div>
     </header>
+
+    <!-- ================================================================== -->
+    <!-- ELEGANT NAVIGATION STYLES                                         -->
+    <!-- ================================================================== -->
+    <style>
+        /* Header - Sticky, elegant, professional */
+        .header {
+            position: sticky;
+            top: 0;
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            transition: all var(--transition-base);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-xl);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 4.5rem;
+        }
+
+        /* Professional Brand Section */
+        .nav-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .nav-logo {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color var(--transition-base);
+            letter-spacing: -0.02em;
+        }
+
+        .nav-logo::before,
+        .nav-logo::after {
+            content: none !important;
+            display: none !important;
+            visibility: hidden !important;
+        }
+
+        .nav-brand::before,
+        .nav-brand::after {
+            content: none !important;
+            display: none !important;
+            visibility: hidden !important;
+        }
+
+        /* Force-hide any possible dots from all elements in nav-brand */
+        .nav-brand *::before,
+        .nav-brand *::after {
+            content: '' !important;
+            display: none !important;
+        }
+
+        .nav-logo:hover {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+
+        .nav-tagline {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            letter-spacing: 0.02em;
+        }
+
+        /* Main Navigation */
+        .nav-main {
+            display: flex;
+            align-items: center;
+            gap: var(--space-lg);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: var(--space-sm);
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+
+        .nav-link {
+            display: inline-block;
+            padding: var(--space-sm) var(--space-md);
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.925rem;
+            font-weight: 500;
+            border-radius: var(--radius-md);
+            transition: all var(--transition-base);
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+            background: var(--bg-elevated);
+            text-decoration: none;
+            transform: translateY(-1px);
+        }
+
+        /* Primary link (Projects) - Special emphasis */
+        .nav-link.primary {
+            color: var(--accent-blue);
+            font-weight: 600;
+        }
+
+        .nav-link.primary:hover {
+            color: var(--accent-blue-hover);
+            background: var(--accent-blue-light);
+        }
+
+        /* Active state indicator */
+        .nav-link.active {
+            color: var(--accent-blue);
+            background: var(--accent-blue-light);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 2px;
+            background: var(--accent-blue);
+            border-radius: 1px;
+        }
+
+        /* Contact Button - Professional CTA */
+        .nav-contact-btn {
+            background: var(--accent-blue);
+            color: white !important;
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: all var(--transition-base);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-contact-btn:hover {
+            background: var(--accent-blue-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            text-decoration: none;
+        }
+
+        /* Dark Mode Toggle - Elegant Design */
+        .theme-toggle {
+            background: transparent;
+            border: 2px solid var(--border-color);
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all var(--transition-base);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-1px);
+            color: var(--accent-blue);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .theme-toggle:focus {
+            outline: 2px solid var(--accent-blue);
+            outline-offset: 2px;
+        }
+
+        /* Theme toggle icons */
+        .theme-toggle-icon::before {
+            content: '☀️';
+            transition: all var(--transition-base);
+        }
+
+        [data-theme="dark"] .theme-toggle-icon::before {
+            content: '🌙';
+        }
+
+        /* Admin Section - Subtle and unobtrusive */
+        .admin-section {
+            display: flex;
+            gap: var(--space-xs);
+            padding-left: var(--space-md);
+            margin-left: var(--space-md);
+            border-left: 1px solid var(--border-color);
+        }
+
+        .nav-link.admin-link {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            padding: var(--space-xs) var(--space-sm);
+        }
+
+        .nav-link.admin-link:hover {
+            color: var(--text-secondary);
+            background: var(--bg-secondary);
+        }
+
+        /* Mobile Menu Toggle - Hidden by default */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: var(--space-sm);
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .mobile-menu-toggle span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: all var(--transition-base);
+        }
+
+        /* Mobile Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .nav-container {
+                flex-direction: row;
+                justify-content: space-between;
+                height: 4.5rem;
+                padding: 0 var(--space-lg);
+            }
+            
+            .nav-main {
+                display: none; /* Hide by default on mobile */
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--bg-primary);
+                border-top: 1px solid var(--border-color);
+                padding: var(--space-lg);
+                gap: var(--space-md);
+            }
+
+            .nav-main.active {
+                display: flex;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                gap: var(--space-xs);
+            }
+            
+            .nav-link, 
+            .nav-contact-btn {
+                width: 100%;
+                text-align: center;
+                padding: var(--space-md);
+            }
+
+            .nav-link.active::after {
+                display: none;
+            }
+            
+            .admin-section {
+                flex-direction: column;
+                border-left: none;
+                border-top: 1px solid var(--border-color);
+                padding-left: 0;
+                padding-top: var(--space-md);
+                margin-left: 0;
+                margin-top: var(--space-md);
+                width: 100%;
+            }
+            
+            .nav-link.admin-link {
+                width: 100%;
+                text-align: center;
+                padding: var(--space-sm);
+            }
+
+            .theme-toggle {
+                align-self: center;
+            }
+        }
+
+        /* Dark theme specific styles */
+        [data-theme="dark"] .header {
+            background: var(--bg-primary);
+            border-bottom-color: var(--border-color);
+        }
+
+        [data-theme="dark"] .nav-logo {
+            color: var(--text-primary);
+        }
+
+        [data-theme="dark"] .nav-tagline {
+            color: var(--text-muted);
+        }
+
+        [data-theme="dark"] .nav-link {
+            color: var(--text-secondary);
+        }
+
+        [data-theme="dark"] .nav-link:hover {
+            color: var(--text-primary);
+            background: var(--bg-elevated);
+        }
+
+        [data-theme="dark"] .nav-link.primary {
+            color: var(--accent-blue);
+        }
+
+        [data-theme="dark"] .nav-contact-btn {
+            background: var(--accent-blue);
+            color: white !important;
+        }
+
+        [data-theme="dark"] .theme-toggle {
+            border-color: var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        [data-theme="dark"] .theme-toggle:hover {
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
+        }
+    </style>
+
+    <!-- ================================================================== -->
+    <!-- DARK MODE TOGGLE JAVASCRIPT                                       -->
+    <!-- ================================================================== -->
+    <script>
+        // Professional Dark Mode Toggle with localStorage persistence
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeToggle = document.getElementById('theme-toggle');
+            const html = document.documentElement;
+
+            // Check for saved theme preference or default to light
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-theme', currentTheme);
+
+            // Update toggle button state
+            function updateToggleButton(theme) {
+                const icon = themeToggle?.querySelector('.theme-toggle-icon');
+                if (icon) {
+                    // The CSS handles the icon change via ::before pseudo-element
+                    themeToggle.setAttribute('aria-label', 
+                        theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
+                    );
+                }
+            }
+
+            // Initialize toggle button
+            updateToggleButton(currentTheme);
+
+            // Theme toggle functionality
+            themeToggle?.addEventListener('click', function() {
+                const current = html.getAttribute('data-theme') || 'light';
+                const next = current === 'dark' ? 'light' : 'dark';
+                
+                // Apply theme with smooth transition
+                html.style.transition = 'all 0.3s ease';
+                html.setAttribute('data-theme', next);
+                localStorage.setItem('theme', next);
+                
+                // Update button state
+                updateToggleButton(next);
+                
+                // Remove transition after change is complete
+                setTimeout(() => {
+                    html.style.transition = '';
+                }, 300);
+            });
+
+            // Keyboard support for accessibility
+            themeToggle?.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
+                }
+            });
+        });
+    </script>
 
     <!-- Enhanced Main Content -->
     <main>
@@ -74,59 +513,176 @@
         </div>
     </main>
 
-    <!-- Enhanced Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>PyArch.dev</h3>
-                <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: var(--space-md);">
-                    Following my journey from Python beginner to developer, sharing lessons learned along the way.
-                </p>
-                <div style="display: flex; gap: var(--space-md);">
-                    <a href="https://github.com/AdrianaGRO?tab=repositories" class="social-icon github-icon" title="GitHub" target="_blank">
-                        <i class="fab fa-github" style="font-size: 1.5rem;"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/adriana-gropan/" class="social-icon linkedin-icon" title="LinkedIn" target="_blank">
-                        <i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i>
-                    </a>
-                    <a href="mailto:email.adriana.gropan@gmail.com" class="social-icon email-icon" title="Email">
-                        <i class="fas fa-envelope" style="font-size: 1.5rem;"></i>
-                    </a>
+    <!-- Professional Footer -->
+    <footer style="background: var(--bg-secondary); 
+           border-top: 1px solid var(--border-color); 
+           padding: var(--space-2xl) 0; margin-top: auto;">
+        
+        <div style="max-width: 1200px; margin: 0 auto; 
+             padding: 0 var(--space-xl);">
+            
+            <!-- Footer Grid -->
+            <div style="display: grid; 
+                 grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+                 gap: var(--space-2xl); margin-bottom: var(--space-xl);">
+                
+                <!-- Column 1: About -->
+                <div>
+                    <h3 style="font-size: var(--font-lg); font-weight: 600; 
+                        color: var(--text-primary); margin-bottom: var(--space-md);">
+                        Adriana Gropan
+                    </h3>
+                    <p style="color: var(--text-secondary); 
+                       font-size: var(--font-sm); line-height: var(--leading-relaxed); 
+                       margin-bottom: var(--space-md);">
+                        Python automation solutions for business operations. 
+                        Building efficient tools that solve real problems.
+                    </p>
+                    
+                    <!-- Social Links -->
+                    <div style="display: flex; gap: var(--space-md);">
+                        <a href="https://github.com/AdrianaGRO" target="_blank"
+                           style="color: var(--text-secondary); 
+                           font-size: 1.5rem; transition: all var(--transition-base);
+                           text-decoration: none;"
+                           aria-label="GitHub"
+                           onmouseover="this.style.color='var(--accent-blue)'"
+                           onmouseout="this.style.color='var(--text-secondary)'">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/adriana-gropan/" target="_blank"
+                           style="color: var(--text-secondary); 
+                           font-size: 1.5rem; transition: all var(--transition-base);
+                           text-decoration: none;"
+                           aria-label="LinkedIn"
+                           onmouseover="this.style.color='#0077b5'"
+                           onmouseout="this.style.color='var(--text-secondary)'">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="mailto:adriana.gropan@gmail.com?subject=Project%20Inquiry"
+                           style="color: var(--text-secondary); 
+                           font-size: 1.5rem; transition: all var(--transition-base);
+                           text-decoration: none;"
+                           aria-label="Email"
+                           onmouseover="this.style.color='var(--accent-green)'"
+                           onmouseout="this.style.color='var(--text-secondary)'">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Column 2: Quick Links -->
+                <div>
+                    <h3 style="font-size: var(--font-lg); font-weight: 600; 
+                        color: var(--text-primary); margin-bottom: var(--space-md);">
+                        Quick Links
+                    </h3>
+                    <ul style="list-style: none; padding: 0; margin: 0; 
+                        display: flex; flex-direction: column; gap: var(--space-sm);">
+                        <li>
+                            <a href="{{ url_for('projects_index') }}" 
+                               style="color: var(--text-secondary); 
+                               text-decoration: none; font-size: var(--font-sm); 
+                               transition: color var(--transition-base);"
+                               onmouseover="this.style.color='var(--accent-blue)'"
+                               onmouseout="this.style.color='var(--text-secondary)'">
+                                Projects
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('about') }}" 
+                               style="color: var(--text-secondary); 
+                               text-decoration: none; font-size: var(--font-sm); 
+                               transition: color var(--transition-base);"
+                               onmouseover="this.style.color='var(--accent-blue)'"
+                               onmouseout="this.style.color='var(--text-secondary)'">
+                                About Me
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/blog" 
+                               style="color: var(--text-secondary); 
+                               text-decoration: none; font-size: var(--font-sm); 
+                               transition: color var(--transition-base);"
+                               onmouseover="this.style.color='var(--accent-blue)'"
+                               onmouseout="this.style.color='var(--text-secondary)'">
+                                Blog
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:adriana.gropan@gmail.com?subject=Project%20Inquiry" 
+                               style="color: var(--text-secondary); 
+                               text-decoration: none; font-size: var(--font-sm); 
+                               transition: color var(--transition-base);"
+                               onmouseover="this.style.color='var(--accent-blue)'"
+                               onmouseout="this.style.color='var(--text-secondary)'">
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3: Resources -->
+                <div>
+                    <h3 style="font-size: var(--font-lg); font-weight: 600; 
+                        color: var(--text-primary); margin-bottom: var(--space-md);">
+                        Resources
+                    </h3>
+                    <ul style="list-style: none; padding: 0; margin: 0; 
+                        display: flex; flex-direction: column; gap: var(--space-sm);">
+                        <li>
+                            <a href="https://docs.python.org/3/" target="_blank"
+                               style="color: var(--text-secondary); 
+                               text-decoration: none; font-size: var(--font-sm); 
+                               transition: color var(--transition-base);"
+                               onmouseover="this.style.color='var(--accent-blue)'"
+                               onmouseout="this.style.color='var(--text-secondary)'">
+                                Python Documentation
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://flask.palletsprojects.com/" target="_blank"
+                               style="color: var(--text-secondary); 
+                               text-decoration: none; font-size: var(--font-sm); 
+                               transition: color var(--transition-base);"
+                               onmouseover="this.style.color='var(--accent-blue)'"
+                               onmouseout="this.style.color='var(--text-secondary)'">
+                                Flask Tutorial
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://git-scm.com/book/en/v2" target="_blank"
+                               style="color: var(--text-secondary); 
+                               text-decoration: none; font-size: var(--font-sm); 
+                               transition: color var(--transition-base);"
+                               onmouseover="this.style.color='var(--accent-blue)'"
+                               onmouseout="this.style.color='var(--text-secondary)'">
+                                Git Handbook
+                            </a>
+                        </li>
+                        {% if session.get('admin') %}
+                        <li>
+                            <a href="{{ url_for('create') }}" 
+                               style="color: var(--text-muted); 
+                               text-decoration: none; font-size: var(--font-xs); 
+                               transition: color var(--transition-base);"
+                               onmouseover="this.style.color='var(--accent-blue)'"
+                               onmouseout="this.style.color='var(--text-muted)'">
+                                Create Post
+                            </a>
+                        </li>
+                        {% endif %}
+                    </ul>
                 </div>
             </div>
             
-            <div class="footer-section">
-                <h3>Recent Posts</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Building My First Flask App</a></li>
-                    <li><a href="#">Understanding List Comprehensions</a></li>
-                    <li><a href="#">Personal Task Manager CLI</a></li>
-                    <li><a href="#">Git and Version Control</a></li>
-                </ul>
+            <!-- Footer Bottom -->
+            <div style="border-top: 1px solid var(--border-color); 
+                 padding-top: var(--space-lg); text-align: center;">
+                <p style="color: var(--text-muted); font-size: var(--font-sm); margin: 0;">
+                    © 2025 Adriana Gropan. Built with Flask and Python.
+                </p>
             </div>
-            
-            <div class="footer-section">
-                <h3>Learning Resources</h3>
-                <ul class="footer-links">
-                    <li><a href="https://docs.python.org/3/" target="_blank">Python Documentation</a></li>
-                    <li><a href="https://flask.palletsprojects.com/" target="_blank">Flask Tutorial</a></li>
-                    <li><a href="https://git-scm.com/book/en/v2" target="_blank">Git Handbook</a></li>
-                    <li><a href="https://www.hackerrank.com/domains/python" target="_blank">Coding Challenges</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Connect</h3>
-                <ul class="footer-links">
-                    <li><a href="{{ url_for('about') }}">About Me</a></li>
-                    <li><a href="{{ url_for('index') }}">My Journal</a></li>
-                    <li><a href="{{ url_for('create') }}">Create Post</a></li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2025 PyArch.dev. Built with Flask, styled with love, and powered by curiosity.</p>
         </div>
     </footer>
 

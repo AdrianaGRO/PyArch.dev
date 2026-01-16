@@ -1,0 +1,10 @@
+[
+  {
+    "slug": "data_cleaner",
+    "title": "Data Cleaner",
+    "summary": "A simple web tool to upload a CSV, auto-clean columns, and download a cleaned version.",
+    "tags": ["flask", "pandas", "automation"],
+    "featured": true,
+    "hero_image": "/static/projects/01_variables.png"
+  }
+]

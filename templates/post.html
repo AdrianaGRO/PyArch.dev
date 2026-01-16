@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}{{ post.title }} - PyArch.dev{% endblock %}
+{% block title %}{{ post.title }} - Adriana Gropan{% endblock %}
 {% block content %}
     <div class="page-header">
         <h1 class="page-title">{{ post.title }}</h1>
@@ -35,7 +35,7 @@
                     <button type="submit" class="delete-button" onclick="return confirm('Are you sure you want to delete this post?');">Delete Post</button>
                 </form>
                 {% endif %}
-                <a href="{{ url_for('index') }}" class="button" style="background: var(--bg-elevated); color: var(--text-primary);">Back to Journal</a>
+                <a href="{{ url_for('index') }}" class="button" style="background: var(--bg-elevated); color: var(--text-primary);">Back to Blog</a>
             </div>
         </article>
     </div>

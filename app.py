@@ -9,6 +9,10 @@ import uuid
 from werkzeug.utils import secure_filename
 from dotenv import load_dotenv
 
+# New imports for Projects section
+from utils.project_manager import load_projects as load_all_projects, get_project
+from jinja2 import TemplateNotFound
+
 # Load environment variables from .env file
 load_dotenv()
 
@@ -64,20 +68,66 @@ def handle_image_upload(file):
 
 @app.route('/')
 def index():
+    """Homepage - Shows hero, services, projects, and blog posts"""
     posts = load_posts()
-    return render_template('index.html', posts=posts)
+    projects = load_all_projects()
+    
+    # Get featured project
+    featured_project = next(
+        (p for p in projects if p.get('featured')), 
+        projects[0] if projects else None
+    )
+    
+    # Sort posts by date, newest first
+    posts_sorted = sorted(
+        posts, 
+        key=lambda x: x.get('created_at', ''), 
+        reverse=True
+    )
+    
+    return render_template(
+        'index.html', 
+        posts=posts_sorted,
+        projects=projects,
+        featured_project=featured_project
+    )
+
+@app.route('/blog')
+def blog():
+    """Dedicated blog page - all posts"""
+    posts = load_posts()
+    # Sort posts by date, newest first
+    posts_sorted = sorted(
+        posts, 
+        key=lambda x: x.get('created_at', ''), 
+        reverse=True
+    )
+    return render_template('blog.html', posts=posts_sorted)
 
 @app.route('/about')
 def about():
-    # Pass 3 most recent posts for the about page
+    """About page - Shows personal story with recent projects and posts"""
     posts = load_posts()
-    recent_posts = sorted(posts, key=lambda x: x.get('created_at', ''), reverse=True)[:3] if posts else []
-    return render_template('about.html', recent_posts=recent_posts)
+    projects = load_all_projects()
+    
+    # Get 3 most recent posts for sidebar
+    recent_posts = sorted(
+        posts, 
+        key=lambda x: x.get('created_at', ''), 
+        reverse=True
+    )[:3] if posts else []
+    
+    return render_template(
+        'about.html', 
+        recent_posts=recent_posts, 
+        projects=projects
+    )
 
 @app.route('/post/<id>')
 def post(id):
+    """Individual blog post page"""
     posts = load_posts()
-    post = next((p for p in posts if str(p['id']) == str(id)),None)
+    post = next((p for p in posts if str(p['id']) == str(id)), None)
     if post is None:
         return "<h1>Post not found</h1>", 404
     return render_template('post.html', post=post)
@@ -86,6 +136,7 @@ def post(id):
 @app.route('/create', methods=['GET', 'POST'])
 @login_required
 def create():
+    """Create new blog post (admin only)"""
     if request.method == 'POST':
         title = request.form['title']
         content = request.form['content']
@@ -110,12 +161,14 @@ def create():
             'created_at': created_at
         })
         save_posts(posts)
+        flash('Post created successfully!', 'success')
         return redirect(url_for("index"))
     return render_template('create_post.html')        
 
 @app.route('/edit/<id>', methods=['GET', 'POST'])
 @login_required
 def edit(id):
+    """Edit existing blog post (admin only)"""
     posts = load_posts()
     post = next((p for p in posts if str(p['id']) == str(id)), None) 
     if not post:
@@ -135,6 +188,7 @@ def edit(id):
                 post['content'] += image_md
         
         save_posts(posts)
+        flash('Post updated successfully!', 'success')
         return redirect(url_for('post', id=post['id']))
     return render_template('edit_post.html', post=post)
 
@@ -143,14 +197,17 @@ def edit(id):
 @app.route('/delete/<id>', methods=['POST'])
 @login_required
 def delete(id):
+    """Delete blog post (admin only)"""
     posts = load_posts()
     posts = [p for p in posts if str(p['id']) != str(id)]
     save_posts(posts)
+    flash('Post deleted successfully!', 'success')
     return redirect(url_for('index'))
 
 
 @app.route('/login', methods=['GET', 'POST'])
 def login_page():
+    """Login page for admin access"""
     if is_authenticated():
         return redirect(url_for('index'))
         
@@ -172,13 +229,32 @@ def login_page():
 
 @app.route('/logout')
 def logout_page():
+    """Logout and return to homepage"""
     logout()
     flash('You have been logged out', 'success')
     return redirect(url_for('index'))
 
 
-# Authentication has been applied directly to the route functions
+@app.route('/projects')
+def projects_index():
+    """Projects listing page"""
+    projects = load_all_projects()
+    return render_template('projects/index.html', projects=projects)
+
+@app.route('/projects/<project_name>')
+def project_detail(project_name):
+    """Project detail page with template fallback"""
+    project = get_project(project_name)
+    if not project:
+        return "<h1>Project not found</h1>", 404
+    
+    try:
+        # Try to render specific project template first
+        return render_template(f"projects/{project_name}.html", project=project)
+    except TemplateNotFound:
+        # Fall back to generic project detail template
+        return render_template("projects/detail.html", project=project)
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5003)

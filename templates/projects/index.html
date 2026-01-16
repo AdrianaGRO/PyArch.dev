@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Projects - Adriana Gropan{% endblock %}
+{% block content %}
+<div class="page-header">
+  <h1 class="page-title">Projects</h1>
+  <p class="page-subtitle">Client-focused tools and mini apps I build with Python.</p>
+</div>
+
+<div class="grid grid-3">
+  {% for project in projects %}
+  <article class="card">
+    <div class="card-media" style="height: 180px; background: var(--bg-elevated); display:flex; align-items:center; justify-content:center; overflow:hidden; border-radius: var(--radius-md);">
+      {% if project.hero_image %}
+        <img src="{{ project.hero_image }}" alt="{{ project.title }}" style="max-width:100%; max-height:100%; object-fit:cover;">
+      {% else %}
+        <div style="color: var(--text-secondary);">{{ project.title }}</div>
+      {% endif %}
+    </div>
+    <h3 class="text-xl" style="margin-top: var(--space-md);">{{ project.title }}</h3>
+    <p style="color: var(--text-secondary);">{{ project.summary }}</p>
+    <div style="display:flex; gap: .5rem; flex-wrap: wrap; margin: .5rem 0;">
+      {% for tag in project.tags or [] %}
+        <span class="post-tag">{{ tag }}</span>
+      {% endfor %}
+    </div>
+    <a class="read-more" href="{{ url_for('project_detail', project_name=project.slug) }}">View project</a>
+  </article>
+  {% endfor %}
+</div>
+{% endblock %}

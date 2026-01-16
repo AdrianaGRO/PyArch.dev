@@ -1,51 +1,352 @@
 {% extends "base.html" %}
-{% block title %}Python Journey - PyArch.dev{% endblock %}
+{% block title %}Python Automation for Business Operations - Adriana Gropan{% endblock %}
 {% block content %}
-    <div class="page-header">
-        <h1 class="page-title">Python Journey</h1>
-        <p class="page-subtitle">
-            Welcome to my learning journal. I'm documenting my path from beginner to Python developer, 
-            sharing the challenges, breakthroughs, and lessons learned along the way.
-        </p>
+
+    <!-- =============================================== -->
+    <!-- SECTION 1: SOPHISTICATED HERO SECTION         -->
+    <!-- =============================================== -->
+    <section class="hero-section" style="
+        background: linear-gradient(135deg, 
+            var(--bg-primary) 0%, 
+            var(--bg-secondary) 100%);
+        padding: calc(var(--space-2xl) + var(--space-lg)) 0 var(--space-2xl) 0;
+        position: relative;
+    ">
+        <div style="max-width: 900px; margin: 0 auto; 
+             padding: 0 var(--space-xl);">
+            
+            <!-- Elegant Status Badge -->
+            <div style="text-align: center; margin-bottom: var(--space-lg);">
+                <span style="display: inline-block; 
+                     padding: var(--space-xs) var(--space-md);
+                     background: var(--accent-blue-light);
+                     color: var(--accent-blue);
+                     border-radius: var(--radius-md);
+                     font-size: 0.875rem;
+                     font-weight: 600;
+                     letter-spacing: 0.05em;
+                     text-transform: uppercase;
+                     transition: all var(--transition-base);">
+                    Available for Projects
+                </span>
+            </div>
+            
+            <!-- Main Headline -->
+            <h1 style="font-size: clamp(2.5rem, 5vw, 3.75rem); 
+                font-weight: 800; 
+                color: var(--text-primary); 
+                margin-bottom: var(--space-lg); 
+                line-height: 1.2;
+                text-align: center;
+                letter-spacing: -0.02em;
+                transition: color var(--transition-base);">
+                I Build Python Tools<br>
+                That Actually Save Time
+            </h1>
+            
+            <!-- Subheadline -->
+            <p style="font-size: clamp(1.125rem, 2vw, 1.3rem); 
+               color: var(--text-secondary); 
+               margin-bottom: var(--space-2xl); 
+               line-height: 1.7;
+               text-align: center;
+               max-width: 650px;
+               margin-left: auto;
+               margin-right: auto;
+               transition: color var(--transition-base);">
+                Seventeen years in retail operations taught me where 
+                businesses waste hours. Now I automate those workflows.
+            </p>
+            
+            <!-- CTA Buttons -->
+            <div style="display: flex; gap: var(--space-md); 
+                 justify-content: center; margin-bottom: var(--space-2xl);
+                 flex-wrap: wrap;">
+                <a href="{{ url_for('projects_index') }}" class="btn" 
+                   style="font-size: 1rem; padding: 0.875rem 2rem;">
+                    See My Work
+                </a>
+                <a href="mailto:adriana.gropan@gmail.com?subject=Project%20Inquiry" 
+                   class="btn-outline"
+                   style="font-size: 1rem; padding: 0.875rem 2rem;">
+                    Work With Me
+                </a>
+            </div>
+            
+            <!-- Minimal Inline Stats -->
+            <div style="text-align: center; 
+                 padding-top: var(--space-xl); 
+                 border-top: 1px solid var(--border-color);
+                 transition: border-color var(--transition-base);">
+                <p style="font-size: 0.95rem; 
+                   color: var(--text-muted); 
+                   margin: 0;
+                   transition: color var(--transition-base);">
+                    Tested with 450k+ rows · Delivers in 3-10 days · Based in Bucharest
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- =============================================== -->
+    <!-- QUICK JUMP NAVIGATION - Subtle & Sticky       -->
+    <!-- =============================================== -->
+    <div style="background: var(--bg-elevated); 
+         border-bottom: 1px solid var(--border-color);
+         padding: var(--space-md) 0;
+         position: sticky;
+         top: 4.5rem;
+         z-index: 999;
+         transition: all var(--transition-base);">
+        <div style="max-width: 1200px; 
+             margin: 0 auto; 
+             padding: 0 var(--space-xl); 
+             display: flex; 
+             gap: var(--space-lg); 
+             justify-content: center;
+             flex-wrap: wrap;">
+            <a href="#featured" 
+               style="color: var(--text-secondary); 
+                      text-decoration: none; 
+                      font-size: 0.875rem;
+                      font-weight: 500;
+                      transition: color var(--transition-base);">
+                Work
+            </a>
+            <a href="#services" 
+               style="color: var(--text-secondary); 
+                      text-decoration: none; 
+                      font-size: 0.875rem;
+                      font-weight: 500;
+                      transition: color var(--transition-base);">
+                Services
+            </a>
+            <a href="/blog" 
+               style="color: var(--text-secondary); 
+                      text-decoration: none; 
+                      font-size: 0.875rem;
+                      font-weight: 500;
+                      transition: color var(--transition-base);">
+                Journal
+            </a>
+            <a href="#contact" 
+               style="color: var(--text-secondary); 
+                      text-decoration: none; 
+                      font-size: 0.875rem;
+                      font-weight: 500;
+                      transition: color var(--transition-base);">
+                Contact
+            </a>
+        </div>
     </div>
 
-    <div class="content-section">
-        <h2 class="section-title">Journal Entries</h2>
+    <!-- =============================================== -->
+    <!-- SECTION 2: FEATURED PROJECT CARD              -->
+    <!-- =============================================== -->
+    {% if featured_project %}
+    <div id="featured" class="content-section" style="padding: var(--space-2xl) 0;">
+        <div style="margin-bottom: var(--space-xl);">
+            <h2 class="section-title" style="text-align: center; font-size: 2.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-sm);">Featured Work</h2>
+        </div>
         
-        {% if posts|length == 0 %}
-            <p class="text-center">No posts available yet. Why not <a href="{{ url_for('create') }}">create one</a>?</p>
-        {% endif %}
-        
-        {% for post in posts %}
-        <article class="card post-card">
-            <h3 class="post-title">
-                <a href="{{ url_for('post', id=post['id']) }}">{{ post['title'] }}</a>
-            </h3>
-            
-            <div class="post-meta">
-                {% if post.category %}
-                <span class="post-category">{{ post['category'].split(',')[0] }}</span>
-                {% endif %}
+        <div class="card" style="display: grid; grid-template-columns: 1fr 300px; gap: var(--space-xl); align-items: center; padding: var(--space-xl); background: var(--bg-card); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); border: 1px solid var(--border-color);">
+            <!-- Left side: Project details -->
+            <div>
+                <h3 style="font-size: 1.875rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-md);">
+                    {{ featured_project.title }}
+                </h3>
+                <p style="font-size: 1.125rem; color: var(--text-secondary); margin-bottom: var(--space-md); line-height: 1.6;">
+                    Production-ready tool for cleaning and merging Excel and CSV files
+                </p>
+                <p style="color: var(--accent-green); font-weight: 600; margin-bottom: var(--space-lg);">
+                    ✓ Tested with 450,000 rows in 84 seconds
+                </p>
                 
-                {% if post.created_at %}
-                <time datetime="{{ post['created_at'] }}">{{ post['created_at'] }}</time>
-                {% endif %}
-                
-                {% if post.category %}
-                    {% for tag in post.category.split(',')[1:] %}
-                        {% if tag|trim %}
-                        <span class="post-tag">{{ tag|trim }}</span>
-                        {% endif %}
-                    {% endfor %}
-                {% endif %}
+                <!-- Technology badges -->
+                <div style="display: flex; gap: var(--space-sm); flex-wrap: wrap; margin-bottom: var(--space-xl);">
+                    <span style="background: var(--accent-blue-light); color: var(--accent-blue); padding: var(--space-xs) var(--space-sm); border-radius: var(--radius-sm); font-size: 0.875rem; font-weight: 500;">Python</span>
+                    <span style="background: var(--accent-blue-light); color: var(--accent-blue); padding: var(--space-xs) var(--space-sm); border-radius: var(--radius-sm); font-size: 0.875rem; font-weight: 500;">pandas</span>
+                    <span style="background: var(--accent-blue-light); color: var(--accent-blue); padding: var(--space-xs) var(--space-sm); border-radius: var(--radius-sm); font-size: 0.875rem; font-weight: 500;">openpyxl</span>
+                    <span style="background: var(--accent-blue-light); color: var(--accent-blue); padding: var(--space-xs) var(--space-sm); border-radius: var(--radius-sm); font-size: 0.875rem; font-weight: 500;">Automated Testing</span>
+                </div>
+
+                <!-- Action buttons -->
+                <div style="display: flex; gap: var(--space-md); flex-wrap: wrap;">
+                    <a href="{{ url_for('project_detail', project_name=featured_project.slug) }}" style="background: var(--accent-blue); color: white; padding: var(--space-sm) var(--space-lg); border-radius: var(--radius-md); text-decoration: none; font-weight: 600; transition: var(--transition-base);">
+                        View Full Details
+                    </a>
+                    <a href="https://youtu.be/4kGrJDcpQzU" target="_blank" style="background: var(--accent-green); color: white; padding: var(--space-sm) var(--space-lg); border-radius: var(--radius-md); text-decoration: none; font-weight: 600; transition: var(--transition-base);">
+                        Watch Demo Video
+                    </a>
+                </div>
+
+                <!-- Pricing info -->
+                <p style="margin-top: var(--space-lg); color: var(--text-muted); font-size: 0.875rem;">
+                    Custom implementation from $100 | 3-5 day delivery
+                </p>
             </div>
-            
-            <div class="post-excerpt">
-                {{ post['content'][:300]|md|safe }}{% if post['content']|length > 300 %}...{% endif %}
+
+            <!-- Right side: Screenshot/Visual -->
+            <div style="background: var(--bg-secondary); border-radius: var(--radius-md); padding: var(--space-xl); text-align: center; border: 2px dashed var(--border-color);">
+                <div style="font-size: 3rem; color: var(--text-muted); margin-bottom: var(--space-md);">📊</div>
+                <p style="color: var(--text-muted); font-weight: 500;">Data Processing Tool</p>
+                <p style="color: var(--text-muted); font-size: 0.875rem;">Excel & CSV Automation</p>
             </div>
-            
-            <a href="{{ url_for('post', id=post['id']) }}" class="read-more">Continue reading</a>
-        </article>
-        {% endfor %}
+        </div>
     </div>
+    {% endif %}
+
+    <!-- =============================================== -->
+    <!-- SECTION 3: WHY WORK WITH ME (Three columns)   -->
+    <!-- =============================================== -->
+    <div class="content-section" style="padding: var(--space-2xl) 0; background: var(--bg-secondary);">
+        <div style="margin-bottom: var(--space-xl);">
+            <h2 style="text-align: center; font-size: 2.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-sm);">Why Work With Me</h2>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-xl);">
+            <!-- Column 1: Operations Experience -->
+            <div class="card" style="text-align: center; padding: var(--space-xl); background: var(--bg-card); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+                <div style="font-size: 3rem; margin-bottom: var(--space-lg);">💼</div>
+                <h3 style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-md);">Operations Experience</h3>
+                <p style="color: var(--text-secondary); line-height: 1.6;">17 years in retail operations and team management. I understand business workflows and deliver practical solutions.</p>
+            </div>
+
+            <!-- Column 2: Reliable Delivery -->
+            <div class="card" style="text-align: center; padding: var(--space-xl); background: var(--bg-card); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+                <div style="font-size: 3rem; margin-bottom: var(--space-lg);">⚡</div>
+                <h3 style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-md);">Reliable Delivery</h3>
+                <p style="color: var(--text-secondary); line-height: 1.6;">Clear project scopes, transparent timelines, and regular progress updates. Your deadlines matter.</p>
+            </div>
+
+            <!-- Column 3: Production-Ready Work -->
+            <div class="card" style="text-align: center; padding: var(--space-xl); background: var(--bg-card); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+                <div style="font-size: 3rem; margin-bottom: var(--space-lg);">✓</div>
+                <h3 style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-md);">Production-Ready Work</h3>
+                <p style="color: var(--text-secondary); line-height: 1.6;">Every tool is tested with real data, comes with complete documentation, and includes post-delivery support.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- =============================================== -->
+    <!-- SECTION 4: SERVICES & PRICING                 -->
+    <!-- =============================================== -->
+    <div id="services" class="content-section" style="padding: var(--space-2xl) 0;">
+        <div style="margin-bottom: var(--space-xl);">
+            <h2 style="text-align: center; font-size: 2.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-sm);">Services & Pricing</h2>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: var(--space-xl); margin-bottom: var(--space-xl);">
+            <!-- Card 1: Data Processing Solutions -->
+            <div class="card" style="background: var(--bg-card); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); border-left: 4px solid var(--accent-blue);">
+                <div style="padding: var(--space-xl);">
+                    <h3 style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-sm);">Data Processing Solutions</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: var(--space-lg); font-size: 1.125rem;">Transform messy data into clean, standardized formats</p>
+                    
+                    <ul style="list-style: none; padding: 0; margin-bottom: var(--space-lg);">
+                        <li style="margin-bottom: var(--space-sm); color: var(--text-secondary);"><span style="color: var(--accent-green); margin-right: var(--space-sm);">✓</span>Merge Excel and CSV files from multiple sources</li>
+                        <li style="margin-bottom: var(--space-sm); color: var(--text-secondary);"><span style="color: var(--accent-green); margin-right: var(--space-sm);">✓</span>Remove duplicates and standardize formatting</li>
+                        <li style="margin-bottom: var(--space-sm); color: var(--text-secondary);"><span style="color: var(--accent-green); margin-right: var(--space-sm);">✓</span>Clean phone numbers, dates, and addresses</li>
+                        <li style="margin-bottom: var(--space-sm); color: var(--text-secondary);"><span style="color: var(--accent-green); margin-right: var(--space-sm);">✓</span>Export professional, analysis-ready files</li>
+                    </ul>
+
+                    <div style="background: var(--bg-secondary); padding: var(--space-md); border-radius: var(--radius-md);">
+                        <div style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary);">Starting at $100</div>
+                        <div style="color: var(--text-secondary); font-size: 0.875rem;">Typical delivery: 3–5 business days</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Workflow Automation -->
+            <div class="card" style="background: var(--bg-card); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); border-left: 4px solid var(--accent-green);">
+                <div style="padding: var(--space-xl);">
+                    <h3 style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-sm);">Workflow Automation</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: var(--space-lg); font-size: 1.125rem;">Build custom Python scripts for repetitive tasks</p>
+                    
+                    <ul style="list-style: none; padding: 0; margin-bottom: var(--space-lg);">
+                        <li style="margin-bottom: var(--space-sm); color: var(--text-secondary);"><span style="color: var(--accent-green); margin-right: var(--space-sm);">✓</span>Automated report generation</li>
+                        <li style="margin-bottom: var(--space-sm); color: var(--text-secondary);"><span style="color: var(--accent-green); margin-right: var(--space-sm);">✓</span>Web data collection and processing</li>
+                        <li style="margin-bottom: var(--space-sm); color: var(--text-secondary);"><span style="color: var(--accent-green); margin-right: var(--space-sm);">✓</span>File organization and batch processing</li>
+                        <li style="margin-bottom: var(--space-sm); color: var(--text-secondary);"><span style="color: var(--accent-green); margin-right: var(--space-sm);">✓</span>Custom data validation workflows</li>
+                    </ul>
+
+                    <div style="background: var(--bg-secondary); padding: var(--space-md); border-radius: var(--radius-md);">
+                        <div style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary);">Starting at $200</div>
+                        <div style="color: var(--text-secondary); font-size: 0.875rem;">Typical delivery: 5–10 business days</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Info box below both cards -->
+        <div style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border: 1px solid #f59e0b; border-radius: var(--radius-md); padding: var(--space-lg); text-align: center; max-width: 600px; margin: 0 auto;">
+            <div style="font-size: 1.5rem; margin-bottom: var(--space-sm);">💡</div>
+            <p style="color: #92400e; font-weight: 500;">Not sure what you need? Free 15-minute consultation to discuss your workflow and provide an honest estimate.</p>
+        </div>
+    </div>
+
+    <!-- =============================================== -->
+    <!-- SECTION 5: CALL TO ACTION                     -->
+    <!-- =============================================== -->
+    <div id="contact" style="background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-green) 100%); padding: var(--space-2xl) 0; text-align: center; color: white;">
+        <div style="max-width: 600px; margin: 0 auto;">
+            <h2 style="font-size: 2.25rem; font-weight: 700; margin-bottom: var(--space-md);">Ready to Automate Your Workflow?</h2>
+            <p style="font-size: 1.125rem; margin-bottom: var(--space-xl); opacity: 0.9; line-height: 1.6;">
+                Let's discuss your project. Email me with your requirements, and I'll respond within 24 hours with next steps.
+            </p>
+            
+            <div style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap; margin-bottom: var(--space-lg);">
+                <a href="mailto:adriana.gropan@gmail.com?subject=Project%20Inquiry" style="background: white; color: var(--accent-blue); padding: var(--space-md) var(--space-xl); border-radius: var(--radius-md); text-decoration: none; font-weight: 600; transition: var(--transition-base); display: inline-flex; align-items: center; gap: var(--space-sm);">
+                    📧 Email Me
+                </a>
+                <a href="https://www.linkedin.com/in/adrianagropan" target="_blank" style="background: rgba(255,255,255,0.2); color: white; border: 2px solid white; padding: var(--space-md) var(--space-xl); border-radius: var(--radius-md); text-decoration: none; font-weight: 600; transition: var(--transition-base); display: inline-flex; align-items: center; gap: var(--space-sm);">
+                    💼 LinkedIn
+                </a>
+            </div>
+            
+            <p style="font-size: 0.875rem; opacity: 0.8;">Response time: Within 24 hours on weekdays</p>
+        </div>
+    </div>
+
+    <!-- =============================================== -->
+    <!-- VISUAL DIVIDER                                -->
+    <!-- =============================================== -->
+    <div style="max-width: 1200px; margin: var(--space-2xl) auto; 
+         padding: 0 var(--space-xl);">
+        <div style="height: 1px; 
+             background: linear-gradient(90deg, 
+                 transparent, 
+                 var(--border-color) 20%, 
+                 var(--border-color) 80%, 
+                 transparent);
+             transition: background var(--transition-base);">
+        </div>
+    </div>
+
+    <!-- =============================================== -->
+    <!-- SECTION 6: BLOG TEASER                        -->
+    <!-- =============================================== -->
+    <section style="padding: var(--space-2xl) 0; background: var(--bg-secondary);">
+        <div style="max-width: 800px; margin: 0 auto; padding: 0 var(--space-xl); text-align: center;">
+            <h2 style="
+                font-size: 2rem; 
+                font-weight: 700; 
+                margin-bottom: var(--space-md);
+                color: var(--text-primary);">
+                Learning Journal
+            </h2>
+            <p style="
+                font-size: 1.125rem; 
+                color: var(--text-secondary); 
+                margin-bottom: var(--space-lg); 
+                line-height: 1.6;">
+                I document what I learn while building automation tools—
+                the wins, the bugs, and everything in between.
+            </p>
+            <a href="/blog" class="btn" style="font-size: 1rem; padding: 0.875rem 2rem;">
+                Read the Journal
+            </a>
+        </div>
+    </section>
+
 {% endblock %}
