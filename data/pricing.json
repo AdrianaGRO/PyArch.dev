@@ -1,0 +1,114 @@
+{
+  "services": {
+    "data_processing": {
+      "title": "Data Processing Solutions",
+      "description": "Transform messy data into clean, standardized formats",
+      "features": [
+        "Merge Excel and CSV files from multiple sources",
+        "Remove duplicates and standardize formatting",
+        "Clean phone numbers, dates, and addresses",
+        "Export professional, analysis-ready files"
+      ],
+      "starting_price": 100,
+      "delivery_time": "3–5 business days",
+      "color": "blue"
+    },
+    "workflow_automation": {
+      "title": "Workflow Automation",
+      "description": "Build custom Python scripts for repetitive tasks",
+      "features": [
+        "Automated report generation",
+        "Web data collection and processing",
+        "File organization and batch processing",
+        "Custom data validation workflows"
+      ],
+      "starting_price": 200,
+      "delivery_time": "5–10 business days",
+      "color": "green"
+    }
+  },
+  "pricing_tiers": {
+    "done_for_you": {
+      "title": "Done-For-You Service",
+      "subtitle": "I'll clean your files so you don't have to do anything.",
+      "popular": true,
+      "tiers": [
+        {
+          "name": "Small files (up to 10K rows)",
+          "price": 25
+        },
+        {
+          "name": "Medium files (10K - 100K rows)", 
+          "price": 50
+        },
+        {
+          "name": "Large files (100K+ rows)",
+          "price": 75
+        }
+      ],
+      "delivery": "24-48 hours, includes one revision",
+      "starting_price": 25
+    },
+    "diy_setup": {
+      "title": "DIY With Setup Help",
+      "subtitle": "I'll guide you to set it up on your computer and show you how to use it.",
+      "popular": false,
+      "price": 50,
+      "includes": [
+        "Installation & configuration",
+        "30-minute training session",
+        "3 days email support"
+      ]
+    },
+    "self_service": {
+      "title": "Self-Service",
+      "subtitle": "Download from GitHub and run it yourself anytime.",
+      "popular": false,
+      "price": 0,
+      "note": "Perfect for tech-savvy users who want full control."
+    }
+  },
+  "performance_metrics": {
+    "100_rows": "< 1 second",
+    "3000_rows": "8 seconds", 
+    "450000_rows": "84 seconds"
+  },
+  "use_cases": [
+    {
+      "department": "HR Departments",
+      "tasks": "Merge employee records, remove duplicates"
+    },
+    {
+      "department": "Sales Teams",
+      "tasks": "Combine monthly reports, clean contact lists"
+    },
+    {
+      "department": "Data Analysts",
+      "tasks": "Prepare datasets, standardize formats"
+    },
+    {
+      "department": "Finance Teams",
+      "tasks": "Merge transactions, clean vendor info"
+    }
+  ],
+  "contact": {
+    "email": "adriana.gropan@gmail.com",
+    "response_time": "Usually within 2 hours",
+    "github": "github.com/AdrianaGRO/data-cleaner"
+  },
+  "process_steps": [
+    "Email me your requirements",
+    "I confirm special pricing",
+    "You send files",
+    "I deliver clean data in 24-48 hours", 
+    "You review and approve"
+  ],
+  "demo": {
+    "sample_file": "messy_sample.xlsx",
+    "rows": 100,
+    "duplicates_percent": 10,
+    "date_formats": 3,
+    "blank_rows_percent": 5,
+    "processing_time": "5 seconds"
+  }
+}

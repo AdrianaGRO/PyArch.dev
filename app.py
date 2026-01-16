@@ -11,6 +11,7 @@ from dotenv import load_dotenv
 
 # New imports for Projects section
 from utils.project_manager import load_projects as load_all_projects, get_project
+from utils.pricing_manager import load_pricing_data, get_pricing_tiers, get_contact_info
 from jinja2 import TemplateNotFound
 
 # Load environment variables from .env file
@@ -254,6 +255,13 @@ def project_detail(project_name):
     except TemplateNotFound:
         # Fall back to generic project detail template
         return render_template("projects/detail.html", project=project)
+
+
+@app.route('/pricing')
+def pricing():
+    """Pricing and demo page for Data Cleaner tool"""
+    pricing_data = load_pricing_data()
+    return render_template('pricing.html', pricing_data=pricing_data)
 
 
 if __name__ == '__main__':

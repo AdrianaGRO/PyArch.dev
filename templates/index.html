@@ -175,14 +175,14 @@
                     <a href="{{ url_for('project_detail', project_name=featured_project.slug) }}" style="background: var(--accent-blue); color: white; padding: var(--space-sm) var(--space-lg); border-radius: var(--radius-md); text-decoration: none; font-weight: 600; transition: var(--transition-base);">
                         View Full Details
                     </a>
-                    <a href="https://youtu.be/4kGrJDcpQzU" target="_blank" style="background: var(--accent-green); color: white; padding: var(--space-sm) var(--space-lg); border-radius: var(--radius-md); text-decoration: none; font-weight: 600; transition: var(--transition-base);">
-                        Watch Demo Video
+                    <a href="{{ url_for('pricing') }}" style="background: var(--accent-green); color: white; padding: var(--space-sm) var(--space-lg); border-radius: var(--radius-md); text-decoration: none; font-weight: 600; transition: var(--transition-base);">
+                        Try Free Demo
                     </a>
                 </div>
 
                 <!-- Pricing info -->
                 <p style="margin-top: var(--space-lg); color: var(--text-muted); font-size: 0.875rem;">
-                    Custom implementation from $100 | 3-5 day delivery
+                    Custom implementation from $25 | 24-48 hour delivery | <a href="{{ url_for('pricing') }}" style="color: var(--accent-blue); text-decoration: none;">See all pricing options</a>
                 </p>
             </div>
 
@@ -251,8 +251,11 @@
                     </ul>
 
                     <div style="background: var(--bg-secondary); padding: var(--space-md); border-radius: var(--radius-md);">
-                        <div style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary);">Starting at $100</div>
-                        <div style="color: var(--text-secondary); font-size: 0.875rem;">Typical delivery: 3–5 business days</div>
+                        <div style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary);">Starting at $25</div>
+                        <div style="color: var(--text-secondary); font-size: 0.875rem;">Delivery: 24-48 hours</div>
+                        <a href="{{ url_for('pricing') }}" style="color: var(--accent-blue); text-decoration: none; font-size: 0.875rem; font-weight: 600; margin-top: var(--space-xs); display: inline-block;">
+                            Try Free Demo →
+                        </a>
                     </div>
                 </div>
             </div>
@@ -271,8 +274,11 @@
                     </ul>
 
                     <div style="background: var(--bg-secondary); padding: var(--space-md); border-radius: var(--radius-md);">
-                        <div style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary);">Starting at $200</div>
-                        <div style="color: var(--text-secondary); font-size: 0.875rem;">Typical delivery: 5–10 business days</div>
+                        <div style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary);">Starting at $50</div>
+                        <div style="color: var(--text-secondary); font-size: 0.875rem;">Custom automation solutions</div>
+                        <a href="{{ url_for('pricing') }}" style="color: var(--accent-blue); text-decoration: none; font-size: 0.875rem; font-weight: 600; margin-top: var(--space-xs); display: inline-block;">
+                            View All Options →
+                        </a>
                     </div>
                 </div>
             </div>

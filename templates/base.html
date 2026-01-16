@@ -42,6 +42,12 @@
                         </a>
                     </li>
                     <li>
+                        <a href="{{ url_for('pricing') }}" 
+                           class="nav-link {% if request.endpoint == 'pricing' %}active{% endif %}">
+                           Demo & Pricing
+                        </a>
+                    </li>
+                    <li>
                         <a href="{{ url_for('about') }}" 
                            class="nav-link {% if request.endpoint == 'about' %}active{% endif %}">
                            About
@@ -587,6 +593,16 @@
                                onmouseover="this.style.color='var(--accent-blue)'"
                                onmouseout="this.style.color='var(--text-secondary)'">
                                 Projects
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('pricing') }}" 
+                               style="color: var(--text-secondary); 
+                               text-decoration: none; font-size: var(--font-sm); 
+                               transition: color var(--transition-base);"
+                               onmouseover="this.style.color='var(--accent-blue)'"
+                               onmouseout="this.style.color='var(--text-secondary)'">
+                                Demo & Pricing
                             </a>
                         </li>
                         <li>

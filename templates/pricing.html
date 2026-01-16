@@ -1,0 +1,382 @@
+{% extends "base.html" %}
+{% block title %}Try Data Cleaner - Free Demo | Adriana Gropan{% endblock %}
+{% block content %}
+
+<!-- Hero Section -->
+<section class="hero-section" style="
+    background: linear-gradient(135deg, 
+        var(--bg-primary) 0%, 
+        var(--bg-secondary) 100%);
+    padding: calc(var(--space-xl) + var(--space-lg)) 0 var(--space-xl) 0;
+    text-align: center;
+">
+    <div style="max-width: 800px; margin: 0 auto; padding: 0 var(--space-xl);">
+        <h1 style="font-size: clamp(2rem, 4vw, 3rem); 
+            font-weight: 800; 
+            color: var(--text-primary); 
+            margin-bottom: var(--space-md); 
+            line-height: 1.2;">
+            Try Data Cleaner - Free Demo
+        </h1>
+        <p style="font-size: clamp(1.125rem, 2vw, 1.3rem); 
+           color: var(--accent-blue); 
+           margin-bottom: var(--space-lg); 
+           font-weight: 600;">
+            See it work in 3 minutes with sample data!
+        </p>
+    </div>
+</section>
+
+<!-- What You'll Learn Section -->
+<section class="content-section" style="padding: var(--space-2xl) 0;">
+    <div style="max-width: 800px; margin: 0 auto; padding: 0 var(--space-xl);">
+        <h2 style="font-size: 2rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-lg); text-align: center;">
+            🎯 What You'll Learn
+        </h2>
+        
+        <p style="font-size: 1.125rem; color: var(--text-secondary); margin-bottom: var(--space-lg); text-align: center;">
+            By trying this demo, you'll see how Data Cleaner:
+        </p>
+        
+        <div class="card" style="background: var(--bg-card); border-radius: var(--radius-lg); padding: var(--space-xl); box-shadow: var(--shadow-sm); margin-bottom: var(--space-lg);">
+            <ul style="list-style: none; padding: 0; margin: 0;">
+                <li style="margin-bottom: var(--space-md); color: var(--text-secondary); display: flex; align-items: flex-start;">
+                    <span style="color: var(--accent-green); margin-right: var(--space-sm); font-weight: 600;">✅</span>
+                    Merges multiple Excel files automatically
+                </li>
+                <li style="margin-bottom: var(--space-md); color: var(--text-secondary); display: flex; align-items: flex-start;">
+                    <span style="color: var(--accent-green); margin-right: var(--space-sm); font-weight: 600;">✅</span>
+                    Removes duplicate entries (based on email)
+                </li>
+                <li style="margin-bottom: var(--space-md); color: var(--text-secondary); display: flex; align-items: flex-start;">
+                    <span style="color: var(--accent-green); margin-right: var(--space-sm); font-weight: 600;">✅</span>
+                    Standardizes dates to YYYY-MM-DD format
+                </li>
+                <li style="margin-bottom: var(--space-md); color: var(--text-secondary); display: flex; align-items: flex-start;">
+                    <span style="color: var(--accent-green); margin-right: var(--space-sm); font-weight: 600;">✅</span>
+                    Formats phone numbers to (XXX) XXX-XXXX
+                </li>
+                <li style="margin-bottom: var(--space-md); color: var(--text-secondary); display: flex; align-items: flex-start;">
+                    <span style="color: var(--accent-green); margin-right: var(--space-sm); font-weight: 600;">✅</span>
+                    Removes blank rows
+                </li>
+                <li style="margin-bottom: 0; color: var(--text-secondary); display: flex; align-items: flex-start;">
+                    <span style="color: var(--accent-green); margin-right: var(--space-sm); font-weight: 600;">✅</span>
+                    Creates professional Excel formatting
+                </li>
+            </ul>
+        </div>
+        
+        <div style="text-align: center; background: var(--accent-blue-light); padding: var(--space-md); border-radius: var(--radius-md);">
+            <p style="color: var(--accent-blue); font-weight: 600; margin: 0; font-size: 1.125rem;">
+                All in about 5 seconds of processing time! ⚡
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- What's Included Section -->
+<section style="background: var(--bg-secondary); padding: var(--space-2xl) 0;">
+    <div style="max-width: 800px; margin: 0 auto; padding: 0 var(--space-xl);">
+        <h2 style="font-size: 2rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-lg); text-align: center;">
+            📋 What's Included
+        </h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: var(--space-lg);">
+            <div class="card" style="background: var(--bg-card); border-radius: var(--radius-lg); padding: var(--space-xl); box-shadow: var(--shadow-sm);">
+                <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-md);">
+                    messy_sample.xlsx
+                </h3>
+                <p style="color: var(--text-secondary); margin-bottom: var(--space-md);">
+                    100 rows of realistic messy business data
+                </p>
+                <ul style="list-style: none; padding: 0; margin: 0; color: var(--text-muted);">
+                    <li style="margin-bottom: var(--space-xs);">• Contains duplicates (10%)</li>
+                    <li style="margin-bottom: var(--space-xs);">• Mixed date formats (3 different styles)</li>
+                    <li style="margin-bottom: var(--space-xs);">• Various phone number formats</li>
+                    <li>• Some blank rows (5%)</li>
+                </ul>
+            </div>
+            
+            <div class="card" style="background: var(--bg-card); border-radius: var(--radius-lg); padding: var(--space-xl); box-shadow: var(--shadow-sm);">
+                <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-md);">
+                    config_sample.json
+                </h3>
+                <p style="color: var(--text-secondary); margin-bottom: var(--space-md);">
+                    Pre-configured settings
+                </p>
+                <ul style="list-style: none; padding: 0; margin: 0; color: var(--text-muted);">
+                    <li style="margin-bottom: var(--space-xs);">• Ready to use, no changes needed</li>
+                    <li>• Shows you how easy configuration is</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Start Section -->
+<section class="content-section" style="padding: var(--space-2xl) 0;">
+    <div style="max-width: 800px; margin: 0 auto; padding: 0 var(--space-xl);">
+        <h2 style="font-size: 2rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-lg); text-align: center;">
+            🚀 Quick Start (3 Steps)
+        </h2>
+        
+        <div style="display: grid; gap: var(--space-lg);">
+            <!-- Step 1 -->
+            <div class="card" style="background: var(--bg-card); border-radius: var(--radius-lg); padding: var(--space-xl); box-shadow: var(--shadow-sm); border-left: 4px solid var(--accent-blue);">
+                <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-md);">
+                    Step 1: Install Dependencies
+                </h3>
+                <div style="background: var(--bg-secondary); padding: var(--space-md); border-radius: var(--radius-sm); font-family: 'Courier New', monospace; overflow-x: auto;">
+                    <code style="color: var(--text-primary);">pip install pandas openpyxl --break-system-packages</code>
+                </div>
+            </div>
+            
+            <!-- Step 2 -->
+            <div class="card" style="background: var(--bg-card); border-radius: var(--radius-lg); padding: var(--space-xl); box-shadow: var(--shadow-sm); border-left: 4px solid var(--accent-green);">
+                <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-md);">
+                    Step 2: Set Up Demo
+                </h3>
+                <div style="background: var(--bg-secondary); padding: var(--space-md); border-radius: var(--radius-sm); font-family: 'Courier New', monospace; overflow-x: auto;">
+                    <code style="color: var(--text-primary); line-height: 1.6;">
+# Copy sample file to input folder<br>
+cp client_demo/messy_sample.xlsx data/input/<br><br>
+# Use demo configuration<br>
+cp client_demo/config_sample.json config.json
+                    </code>
+                </div>
+            </div>
+            
+            <!-- Step 3 -->
+            <div class="card" style="background: var(--bg-card); border-radius: var(--radius-lg); padding: var(--space-xl); box-shadow: var(--shadow-sm); border-left: 4px solid var(--accent-orange);">
+                <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-md);">
+                    Step 3: Run It!
+                </h3>
+                <div style="background: var(--bg-secondary); padding: var(--space-md); border-radius: var(--radius-sm); font-family: 'Courier New', monospace; overflow-x: auto; margin-bottom: var(--space-md);">
+                    <code style="color: var(--text-primary);">python3 main.py</code>
+                </div>
+                <p style="color: var(--accent-green); font-weight: 600; text-align: center; margin: 0; font-size: 1.125rem;">
+                    Watch the magic happen! ✨
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing Options Section -->
+<section style="background: var(--bg-secondary); padding: var(--space-2xl) 0;">
+    <div style="max-width: 1000px; margin: 0 auto; padding: 0 var(--space-xl);">
+        <h2 style="font-size: 2rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-md); text-align: center;">
+            🎁 Portfolio Pricing Options
+        </h2>
+        <p style="text-align: center; color: var(--text-secondary); margin-bottom: var(--space-xl); font-size: 1.125rem;">
+            I'm building my freelance portfolio and offering special rates for the first clients.
+        </p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-lg);">
+            <!-- Option 1: Done-For-You -->
+            <div class="card" style="background: var(--bg-card); border-radius: var(--radius-lg); padding: var(--space-xl); box-shadow: var(--shadow-lg); border: 2px solid var(--accent-green); position: relative;">
+                <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--accent-green); color: white; padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm); font-size: 0.875rem; font-weight: 600;">
+                    MOST POPULAR ⭐
+                </div>
+                <h3 style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-md); text-align: center;">
+                    Option 1: Done-For-You Service
+                </h3>
+                <p style="color: var(--text-secondary); margin-bottom: var(--space-lg); text-align: center;">
+                    I'll clean your files so you don't have to do anything.
+                </p>
+                
+                <div style="background: var(--bg-secondary); padding: var(--space-md); border-radius: var(--radius-md); margin-bottom: var(--space-lg);">
+                    <div style="text-align: center; margin-bottom: var(--space-md);">
+                        <span style="font-size: 2.5rem; font-weight: 700; color: var(--accent-green);">Starting at $25</span>
+                        <div style="font-size: 0.875rem; color: var(--text-muted); margin-top: var(--space-xs);">Based on data size</div>
+                    </div>
+                    <div style="margin-bottom: var(--space-sm);">
+                        <span style="font-size: 1rem; font-weight: 600; color: var(--text-primary);">Small files (up to 10K rows):</span>
+                        <span style="font-size: 1.125rem; font-weight: 700; color: var(--accent-green); margin-left: var(--space-sm);">$25</span>
+                    </div>
+                    <div style="margin-bottom: var(--space-sm);">
+                        <span style="font-size: 1rem; font-weight: 600; color: var(--text-primary);">Medium files (10K - 100K rows):</span>
+                        <span style="font-size: 1.125rem; font-weight: 700; color: var(--accent-green); margin-left: var(--space-sm);">$50</span>
+                    </div>
+                    <div>
+                        <span style="font-size: 1rem; font-weight: 600; color: var(--text-primary);">Large files (100K+ rows):</span>
+                        <span style="font-size: 1.125rem; font-weight: 700; color: var(--accent-green); margin-left: var(--space-sm);">$75</span>
+                    </div>
+                </div>
+                
+                <p style="color: var(--text-muted); text-align: center; font-size: 0.875rem;">
+                    Delivery: 24-48 hours, includes one revision
+                </p>
+            </div>
+            
+            <!-- Option 2: DIY With Setup Help -->
+            <div class="card" style="background: var(--bg-card); border-radius: var(--radius-lg); padding: var(--space-xl); box-shadow: var(--shadow-sm); border: 1px solid var(--border-color);">
+                <h3 style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-md); text-align: center;">
+                    Option 2: DIY With Setup Help
+                </h3>
+                <p style="color: var(--text-secondary); margin-bottom: var(--space-lg); text-align: center;">
+                    I'll guide you to set it up on your computer and show you how to use it.
+                </p>
+                
+                <div style="background: var(--bg-secondary); padding: var(--space-md); border-radius: var(--radius-md); margin-bottom: var(--space-lg); text-align: center;">
+                    <div style="font-size: 2.5rem; font-weight: 700; color: var(--accent-blue); margin-bottom: var(--space-xs);">$50</div>
+                    <div style="font-size: 0.875rem; color: var(--text-muted);">One-time setup fee</div>
+                </div>
+                
+                <div style="color: var(--text-secondary); font-size: 0.875rem;">
+                    <strong>Includes:</strong>
+                    <ul style="margin-top: var(--space-xs); padding-left: var(--space-md);">
+                        <li>Installation & configuration</li>
+                        <li>30-minute training session</li>
+                        <li>3 days email support</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Option 3: Self-Service -->
+            <div class="card" style="background: var(--bg-card); border-radius: var(--radius-lg); padding: var(--space-xl); box-shadow: var(--shadow-sm); border: 1px solid var(--border-color);">
+                <h3 style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-md); text-align: center;">
+                    Option 3: Self-Service
+                </h3>
+                <p style="color: var(--text-secondary); margin-bottom: var(--space-lg); text-align: center;">
+                    Download from GitHub and run it yourself anytime.
+                </p>
+                
+                <div style="background: var(--bg-secondary); padding: var(--space-md); border-radius: var(--radius-md); margin-bottom: var(--space-lg); text-align: center;">
+                    <div style="font-size: 2.5rem; font-weight: 700; color: var(--accent-green); margin-bottom: var(--space-xs);">FREE</div>
+                    <div style="font-size: 0.875rem; color: var(--text-muted);">Open source tool</div>
+                </div>
+                
+                <p style="color: var(--text-muted); text-align: center; font-size: 0.875rem;">
+                    Perfect for tech-savvy users who want full control.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Performance & Use Cases -->
+<section class="content-section" style="padding: var(--space-2xl) 0;">
+    <div style="max-width: 1000px; margin: 0 auto; padding: 0 var(--space-xl);">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: var(--space-xl);">
+            <!-- Performance -->
+            <div>
+                <h2 style="font-size: 1.75rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-lg);">
+                    📈 Performance
+                </h2>
+                <div class="card" style="background: var(--bg-card); border-radius: var(--radius-lg); padding: var(--space-xl); box-shadow: var(--shadow-sm);">
+                    <h3 style="font-size: 1.125rem; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-md);">
+                        Tested and validated:
+                    </h3>
+                    <div style="color: var(--text-secondary); line-height: 1.8;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: var(--space-xs);">
+                            <span>100 rows:</span>
+                            <span style="color: var(--accent-green); font-weight: 600;">< 1 second</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: var(--space-xs);">
+                            <span>3,000 rows:</span>
+                            <span style="color: var(--accent-green); font-weight: 600;">8 seconds</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: var(--space-md);">
+                            <span>450,000 rows:</span>
+                            <span style="color: var(--accent-green); font-weight: 600;">84 seconds ⚡</span>
+                        </div>
+                        <div style="background: var(--accent-green-light); color: var(--accent-green); padding: var(--space-md); border-radius: var(--radius-md); text-align: center; font-weight: 600;">
+                            Your data stays on YOUR computer - nothing uploaded!
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Use Cases -->
+            <div>
+                <h2 style="font-size: 1.75rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-lg);">
+                    💡 Real-World Use Cases
+                </h2>
+                <div class="card" style="background: var(--bg-card); border-radius: var(--radius-lg); padding: var(--space-xl); box-shadow: var(--shadow-sm);">
+                    <h3 style="font-size: 1.125rem; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-md);">
+                        This tool is perfect for:
+                    </h3>
+                    <div style="color: var(--text-secondary); line-height: 1.8;">
+                        <div style="margin-bottom: var(--space-md);">
+                            <strong style="color: var(--text-primary);">HR Departments:</strong><br>
+                            Merge employee records, remove duplicates
+                        </div>
+                        <div style="margin-bottom: var(--space-md);">
+                            <strong style="color: var(--text-primary);">Sales Teams:</strong><br>
+                            Combine monthly reports, clean contact lists
+                        </div>
+                        <div style="margin-bottom: var(--space-md);">
+                            <strong style="color: var(--text-primary);">Data Analysts:</strong><br>
+                            Prepare datasets, standardize formats
+                        </div>
+                        <div>
+                            <strong style="color: var(--text-primary);">Finance Teams:</strong><br>
+                            Merge transactions, clean vendor info
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section style="background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-green) 100%); padding: var(--space-2xl) 0; color: white; text-align: center;">
+    <div style="max-width: 700px; margin: 0 auto; padding: 0 var(--space-xl);">
+        <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: var(--space-md);">
+            📞 Ready to Get Started?
+        </h2>
+        
+        <div style="background: rgba(255,255,255,0.1); border-radius: var(--radius-lg); padding: var(--space-xl); margin-bottom: var(--space-xl);">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-lg); margin-bottom: var(--space-lg);">
+                <div>
+                    <div style="font-size: 1.125rem; font-weight: 600; margin-bottom: var(--space-xs);">Email:</div>
+                    <div>adriana.gropan@gmail.com</div>
+                </div>
+                <div>
+                    <div style="font-size: 1.125rem; font-weight: 600; margin-bottom: var(--space-xs);">Response time:</div>
+                    <div>Usually within 2 hours</div>
+                </div>
+            </div>
+            
+            <div style="font-size: 1.125rem; font-weight: 600; margin-bottom: var(--space-md);">Quick process:</div>
+            <ol style="text-align: left; display: inline-block; margin: 0;">
+                <li>Email me your requirements</li>
+                <li>I confirm special pricing</li>
+                <li>You send files</li>
+                <li>I deliver clean data in 24-48 hours</li>
+                <li>You review and approve</li>
+            </ol>
+        </div>
+        
+        <div style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap; margin-bottom: var(--space-lg);">
+            <a href="mailto:adriana.gropan@gmail.com?subject=Data%20Cleaner%20Project%20Inquiry" style="background: white; color: var(--accent-blue); padding: var(--space-md) var(--space-xl); border-radius: var(--radius-md); text-decoration: none; font-weight: 600; transition: var(--transition-base);">
+                📧 Email Me Now
+            </a>
+            <a href="https://github.com/AdrianaGRO/data-cleaner" target="_blank" style="background: rgba(255,255,255,0.2); color: white; border: 2px solid white; padding: var(--space-md) var(--space-xl); border-radius: var(--radius-md); text-decoration: none; font-weight: 600; transition: var(--transition-base);">
+                📱 View on GitHub
+            </a>
+        </div>
+        
+        <div style="background: rgba(255,255,255,0.1); border-radius: var(--radius-md); padding: var(--space-lg);">
+            <div style="font-size: 1.125rem; font-weight: 600; margin-bottom: var(--space-sm);">⭐ Special Bonus</div>
+            <div>Refer a friend = 50% off your next project!</div>
+        </div>
+    </div>
+</section>
+
+<script>
+// Add smooth scrolling behavior
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+</script>
+
+{% endblock %}
