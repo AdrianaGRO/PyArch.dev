@@ -3,28 +3,13 @@
 
 {% block content %}
 <!-- Blog Page Header -->
-<div style="
-    background: linear-gradient(135deg, 
-        var(--bg-primary) 0%, 
-        var(--bg-secondary) 100%);
-    padding: var(--space-2xl) 0;
-    text-align: center;">
-    <div style="max-width: 800px; margin: 0 auto; padding: 0 var(--space-xl);">
-        <h1 style="
-            font-size: clamp(2.5rem, 5vw, 3.5rem); 
-            font-weight: 800; 
-            color: var(--text-primary); 
-            margin-bottom: var(--space-md);
-            letter-spacing: -0.02em;">
-            Learning Journal
-        </h1>
-        <p style="
-            font-size: 1.25rem; 
-            color: var(--text-secondary); 
-            line-height: 1.6;">
-            What I'm learning, what breaks, what works.
-        </p>
-    </div>
+<div class="hero-unified">
+    <h1 class="hero-title-unified">
+        Learning <span style="color: var(--accent-blue);">Journal</span>
+    </h1>
+    <p class="hero-subtitle-unified">
+        What I'm learning, what breaks, what works.
+    </p>
 </div>
 
 <!-- All Blog Posts -->

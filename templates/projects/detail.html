@@ -1,32 +1,35 @@
 {% extends "base.html" %}
 {% block title %}{{ project.title }} - Adriana Gropan{% endblock %}
 {% block content %}
-<div class="page-header">
-  <h1 class="page-title">{{ project.title }}</h1>
-  {% if project.tagline %}
-    <p class="page-subtitle">{{ project.tagline }}</p>
-  {% endif %}
-  <div style="display:flex; gap:.5rem; flex-wrap:wrap; margin-top: var(--space-sm);">
-    {% if project.category %}<span class="post-category">{{ project.category }}</span>{% endif %}
-    {% if project.status %}<span class="post-tag">{{ project.status }}</span>{% endif %}
-    {% for tech in project.technologies or [] %}
-      <span class="post-tag">{{ tech }}</span>
-    {% endfor %}
-  </div>
-  <div style="display:flex; gap: var(--space-md); margin-top: var(--space-md); flex-wrap:wrap;">
-    {% if project.github_url %}
-      <a class="btn-outline" href="{{ project.github_url }}" target="_blank">📂 View on GitHub</a>
-    {% endif %}
-    {% if project.demo_url %}
-      <a class="btn-outline" href="{{ project.demo_url }}" target="_blank">🎬 Watch Demo (2 min)</a>
-    {% endif %}
-    <a class="btn" href="mailto:adriana.gropan@gmail.com?subject=Hire%20for%20{{ project.title }}">💬 Hire Me for This</a>
-  </div>
-</div>
 
-<div class="content-section">
-  <div class="card">
-    <h2 class="text-xl">What This Project Does</h2>
+<header class="hero-unified">
+  <div style="max-width: 800px; margin: 0 auto; padding: 0 var(--space-xl);">
+    <h1 class="hero-title-unified">{{ project.title }}</h1>
+    {% if project.tagline %}
+      <p class="hero-subtitle-unified" style="margin-bottom: var(--space-lg);">{{ project.tagline }}</p>
+    {% endif %}
+    <div style="display:flex; gap:.5rem; flex-wrap:wrap; margin-bottom: var(--space-lg); justify-content: center;">
+      {% if project.category %}<span class="post-category">{{ project.category }}</span>{% endif %}
+      {% if project.status %}<span class="post-tag">{{ project.status }}</span>{% endif %}
+      {% for tech in project.technologies or [] %}
+        <span class="post-tag">{{ tech }}</span>
+      {% endfor %}
+    </div>
+    <div style="display:flex; gap: var(--space-md); flex-wrap:wrap; justify-content: center;">
+      {% if project.github_url %}
+        <a class="btn-outline" href="{{ project.github_url }}" target="_blank">📂 View on GitHub</a>
+      {% endif %}
+      {% if project.demo_url %}
+        <a class="btn-outline" href="{{ project.demo_url }}" target="_blank">🎬 Watch Demo (2 min)</a>
+      {% endif %}
+      <a class="btn" href="mailto:adriana.gropan@gmail.com?subject=Hire%20for%20{{ project.title }}">💬 Hire Me for This</a>
+    </div>
+  </div>
+</header>
+
+<div class="content-section" style="background: var(--bg-primary);">
+  <div class="card" style="background: var(--bg-card); border: 1px solid var(--border-color);">
+    <h2 class="text-xl" style="color: var(--text-primary);">What This Project Does</h2>
     <p style="color: var(--text-secondary);">
       {{ project.title }} is a production-ready Python tool designed to handle the messy reality of business data. It merges Excel and CSV files, removes duplicates intelligently, standardizes dates and phone numbers, and outputs professionally formatted files—all while processing hundreds of thousands of rows in seconds.
     </p>
@@ -35,12 +38,12 @@
     </p>
   </div>
 
-  <div class="card">
-    <h3 class="text-lg">Key Features</h3>
+  <div class="card" style="background: var(--bg-card); border: 1px solid var(--border-color);">
+    <h3 class="text-lg" style="color: var(--text-primary);">Key Features</h3>
     <ul style="list-style:none; padding:0;">
       {% for feature in project.features or [] %}
-        <li style="margin-bottom:.5rem;">
-          <span>✓ {{ feature.split(':')[0] if ':' in feature else feature }}</span>
+        <li style="margin-bottom:.5rem; color: var(--text-primary);">
+          <span style="color: var(--accent-green);">✓</span> {{ feature.split(':')[0] if ':' in feature else feature }}
           {% if ':' in feature %}
             <div style="color: var(--text-secondary);">{{ feature.split(':', 1)[1].strip() }}</div>
           {% endif %}
@@ -50,26 +53,26 @@
   </div>
 
   <div class="grid grid-3">
-    <div class="card" style="text-align:center;">
-      <div class="text-3xl">{{ project.performance.rows_tested }}</div>
+    <div class="card" style="text-align:center; background: var(--bg-card); border: 1px solid var(--border-color);">
+      <div class="text-3xl" style="color: var(--accent-blue);">{{ project.performance.rows_tested }}</div>
       <div class="text-sm" style="color: var(--text-secondary);">Rows Tested</div>
       <div class="text-sm" style="color: var(--text-secondary);">Large-scale validation</div>
     </div>
-    <div class="card" style="text-align:center;">
-      <div class="text-3xl">{{ project.performance.processing_time }}</div>
+    <div class="card" style="text-align:center; background: var(--bg-card); border: 1px solid var(--border-color);">
+      <div class="text-3xl" style="color: var(--accent-green);">{{ project.performance.processing_time }}</div>
       <div class="text-sm" style="color: var(--text-secondary);">Processing Time</div>
       <div class="text-sm" style="color: var(--text-secondary);">For 450k rows</div>
     </div>
-    <div class="card" style="text-align:center;">
-      <div class="text-3xl">{{ project.performance.speed }}</div>
+    <div class="card" style="text-align:center; background: var(--bg-card); border: 1px solid var(--border-color);">
+      <div class="text-3xl" style="color: var(--accent-blue);">{{ project.performance.speed }}</div>
       <div class="text-sm" style="color: var(--text-secondary);">Speed</div>
       <div class="text-sm" style="color: var(--text-secondary);">Rows per second</div>
     </div>
   </div>
 
-  <div class="card">
-    <h3 class="text-lg">Quality Assurance</h3>
-    <ul class="footer-links">
+  <div class="card" style="background: var(--bg-card); border: 1px solid var(--border-color);">
+    <h3 class="text-lg" style="color: var(--text-primary);">Quality Assurance</h3>
+    <ul class="footer-links" style="color: var(--text-secondary);">
       <li>5 comprehensive automated test scenarios</li>
       <li>Error handling for edge cases</li>
       <li>Configuration validation</li>
@@ -77,38 +80,38 @@
     </ul>
   </div>
 
-  <div class="card">
-    <h3 class="text-lg">Real-World Applications</h3>
+  <div class="card" style="background: var(--bg-card); border: 1px solid var(--border-color);">
+    <h3 class="text-lg" style="color: var(--text-primary);">Real-World Applications</h3>
     <div>
       {% for use_case in project.use_cases or [] %}
         <div style="margin-bottom:.5rem;">
-          <strong>{{ use_case.split(':')[0] }}</strong>
+          <strong style="color: var(--text-primary);">{{ use_case.split(':')[0] }}</strong>
           <div style="color: var(--text-secondary);">{{ use_case.split(':', 1)[1].strip() if ':' in use_case else use_case }}</div>
         </div>
       {% endfor %}
     </div>
   </div>
 
-  <div class="card">
-    <h3 class="text-lg">Your Data Stays Private</h3>
+  <div class="card" style="background: var(--bg-card); border: 1px solid var(--border-color);">
+    <h3 class="text-lg" style="color: var(--text-primary);">Your Data Stays Private</h3>
     <p style="color: var(--text-secondary);">
       This tool runs on YOUR computer. Your data never leaves your system, never gets uploaded anywhere. Complete control and privacy guaranteed.
     </p>
   </div>
 
-  <div class="card">
-    <h3 class="text-lg">Technical Implementation</h3>
+  <div class="card" style="background: var(--bg-card); border: 1px solid var(--border-color);">
+    <h3 class="text-lg" style="color: var(--text-primary);">Technical Implementation</h3>
     <div style="margin-bottom: var(--space-md);">
-      <strong>Built With:</strong>
+      <strong style="color: var(--text-primary);">Built With:</strong>
       <div style="display:flex; gap:.5rem; flex-wrap:wrap; margin-top:.5rem;">
         {% for tech in project.technologies or [] %}
-          <span class="post-tag">{{ tech }}</span>
+          <span class="post-tag" style="background: var(--accent-blue-light); color: var(--accent-blue); border: 1px solid var(--border-color);">{{ tech }}</span>
         {% endfor %}
       </div>
     </div>
     <div style="margin-bottom: var(--space-md);">
-      <strong>Architecture:</strong>
-      <ul class="footer-links">
+      <strong style="color: var(--text-primary);">Architecture:</strong>
+      <ul class="footer-links" style="color: var(--text-secondary);">
         <li>Modular Design: Separate modules for merging, cleaning, formatting</li>
         <li>Configuration-Driven: JSON config file for easy customization</li>
         <li>Error Handling: Graceful failure with clear error messages</li>
@@ -116,8 +119,8 @@
       </ul>
     </div>
     <div>
-      <strong>Code Quality:</strong>
-      <ul class="footer-links">
+      <strong style="color: var(--text-primary);">Code Quality:</strong>
+      <ul class="footer-links" style="color: var(--text-secondary);">
         <li>Clear documentation and inline comments</li>
         <li>Automated test suite</li>
         <li>Production-grade error handling</li>
@@ -126,28 +129,28 @@
     </div>
   </div>
 
-  <div class="card">
-    <h3 class="text-lg">Custom Implementation Pricing</h3>
+  <div class="card" style="background: var(--bg-card); border: 1px solid var(--border-color);">
+    <h3 class="text-lg" style="color: var(--text-primary);">Custom Implementation Pricing</h3>
     <div class="grid grid-3">
-      <div class="card">
-        <div class="text-xl">{{ project.pricing.tier1.rows }}</div>
+      <div class="card" style="background: var(--bg-elevated); border: 1px solid var(--border-color);">
+        <div class="text-xl" style="color: var(--text-primary);">{{ project.pricing.tier1.rows }}</div>
         <div class="text-2xl" style="color: var(--accent-green);">{{ project.pricing.tier1.price }}</div>
         <div class="text-sm" style="color: var(--text-secondary);">3-5 day delivery</div>
       </div>
-      <div class="card">
-        <div class="text-xl">{{ project.pricing.tier2.rows }}</div>
+      <div class="card" style="background: var(--bg-elevated); border: 1px solid var(--border-color);">
+        <div class="text-xl" style="color: var(--text-primary);">{{ project.pricing.tier2.rows }}</div>
         <div class="text-2xl" style="color: var(--accent-green);">{{ project.pricing.tier2.price }}</div>
         <div class="text-sm" style="color: var(--text-secondary);">5-7 day delivery</div>
       </div>
-      <div class="card">
-        <div class="text-xl">{{ project.pricing.tier3.rows }}</div>
+      <div class="card" style="background: var(--bg-elevated); border: 1px solid var(--border-color);">
+        <div class="text-xl" style="color: var(--text-primary);">{{ project.pricing.tier3.rows }}</div>
         <div class="text-2xl" style="color: var(--accent-green);">{{ project.pricing.tier3.price }}</div>
         <div class="text-sm" style="color: var(--text-secondary);">7-10 day delivery</div>
       </div>
     </div>
     <div style="margin-top: var(--space-md);">
-      <strong>What's Included:</strong>
-      <ul class="footer-links">
+      <strong style="color: var(--text-primary);">What's Included:</strong>
+      <ul class="footer-links" style="color: var(--text-secondary);">
         <li>Custom configuration for your data structure</li>
         <li>Testing with your actual data</li>
         <li>Documentation for your team</li>
@@ -157,13 +160,13 @@
     </div>
   </div>
 
-  <div class="card">
-    <h3 class="text-lg">How We'll Work Together</h3>
+  <div class="card" style="background: var(--bg-card); border: 1px solid var(--border-color);">
+    <h3 class="text-lg" style="color: var(--text-primary);">How We'll Work Together</h3>
     <ol style="padding-left: 1rem; color: var(--text-secondary);">
-      <li><strong>Discovery Call (Free 15 min)</strong> — You describe your data and what you need. I confirm if this tool fits and estimate timeline/cost.</li>
-      <li><strong>Scope Agreement</strong> — I send you a clear project scope with deliverables, timeline, and price. You approve or we adjust.</li>
-      <li><strong>Development (50% upfront)</strong> — I customize the tool for your needs. You get updates every 2-3 days on progress.</li>
-      <li><strong>Testing & Delivery</strong> — You test with real data. I fix issues. Final payment on completion. 7 days support included.</li>
+      <li><strong style="color: var(--text-primary);">Discovery Call (Free 15 min)</strong> — You describe your data and what you need. I confirm if this tool fits and estimate timeline/cost.</li>
+      <li><strong style="color: var(--text-primary);">Scope Agreement</strong> — I send you a clear project scope with deliverables, timeline, and price. You approve or we adjust.</li>
+      <li><strong style="color: var(--text-primary);">Development (50% upfront)</strong> — I customize the tool for your needs. You get updates every 2-3 days on progress.</li>
+      <li><strong style="color: var(--text-primary);">Testing & Delivery</strong> — You test with real data. I fix issues. Final payment on completion. 7 days support included.</li>
     </ol>
     <div style="margin-top: var(--space-md); display:flex; gap: var(--space-md); flex-wrap:wrap;">
       <a class="btn" href="mailto:adriana.gropan@gmail.com?subject=Customize%20{{ project.title }}">📧 Email Me</a>

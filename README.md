@@ -1,15 +1,15 @@
-# PyArch.dev Blog
+# PyArch.dev - Professional Data Automation Services
 
-A simple and elegant Flask blog with Markdown support.
+A professional Flask-based website showcasing data automation services with an integrated blog.
 
 ## Features
 
-- Responsive and clean design
-- Markdown post content with code syntax highlighting
-- Image upload support
-- Category and tag organization
-- Authentication system for admin access
-- Dark/light theme toggle
+- **Service Pages**: Professional pricing and service information
+- **Responsive Design**: Clean, modern design that works on all devices
+- **Blog Integration**: Markdown-powered blog with syntax highlighting
+- **Image Upload**: Support for service demonstrations and blog images
+- **Authentication**: Secure admin access for content management
+- **Professional Portfolio**: Showcase of automation tools and experience
 
 ## Installation
 

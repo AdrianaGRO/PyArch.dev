@@ -9,8 +9,8 @@
         "Clean phone numbers, dates, and addresses",
         "Export professional, analysis-ready files"
       ],
-      "starting_price": 100,
-      "delivery_time": "3–5 business days",
+      "starting_price": 10,
+      "delivery_time": "24-48 hours",
       "color": "blue"
     },
     "workflow_automation": {
@@ -22,55 +22,107 @@
         "File organization and batch processing",
         "Custom data validation workflows"
       ],
-      "starting_price": 200,
-      "delivery_time": "5–10 business days",
+      "starting_price": 35,
+      "delivery_time": "3-7 business days",
       "color": "green"
     }
   },
-  "pricing_tiers": {
-    "done_for_you": {
-      "title": "Done-For-You Service",
-      "subtitle": "I'll clean your files so you don't have to do anything.",
-      "popular": true,
-      "tiers": [
-        {
-          "name": "Small files (up to 10K rows)",
-          "price": 25
-        },
-        {
-          "name": "Medium files (10K - 100K rows)", 
-          "price": 50
-        },
-        {
-          "name": "Large files (100K+ rows)",
-          "price": 75
-        }
+  "data_cleaning_packages": {
+    "quick_clean": {
+      "name": "Quick Clean",
+      "subtitle": "Perfect for small datasets",
+      "price": 10,
+      "rows": "Up to 5K rows",
+      "features": [
+        "Basic cleaning",
+        "Duplicate removal",
+        "Format standardization",
+        "24-48h delivery"
       ],
-      "delivery": "24-48 hours, includes one revision",
-      "starting_price": 25
+      "popular": false
     },
-    "diy_setup": {
-      "title": "DIY With Setup Help",
-      "subtitle": "I'll guide you to set it up on your computer and show you how to use it.",
-      "popular": false,
-      "price": 50,
-      "includes": [
-        "Installation & configuration",
-        "30-minute training session",
-        "3 days email support"
+    "deep_clean": {
+      "name": "Deep Clean",
+      "subtitle": "For medium-sized datasets",
+      "price": 25,
+      "rows": "Up to 25K rows",
+      "features": [
+        "Everything in Quick Clean",
+        "Advanced validation",
+        "Custom formatting",
+        "Priority support"
+      ],
+      "popular": true
+    },
+    "enterprise_clean": {
+      "name": "Enterprise Clean",
+      "subtitle": "For large datasets",
+      "price": 55,
+      "rows": "Up to 100K rows",
+      "features": [
+        "Everything in Deep Clean",
+        "Complex transformations",
+        "Multiple revisions",
+        "Dedicated support"
+      ],
+      "popular": false
+    },
+    "unlimited_clean": {
+      "name": "Unlimited Clean",
+      "subtitle": "For massive datasets",
+      "price": 150,
+      "rows": "100K+ rows",
+      "features": [
+        "Everything in Enterprise",
+        "Custom solutions",
+        "Unlimited revisions",
+        "Get custom quote"
+      ],
+      "popular": false
+    }
+  },
+  "workflow_automation_packages": {
+    "basic": {
+      "name": "Basic Automation",
+      "price": 35,
+      "complexity": "Simple workflows",
+      "features": [
+        "File organization",
+        "Basic data processing",
+        "Simple reports"
       ]
     },
-    "self_service": {
-      "title": "Self-Service",
-      "subtitle": "Download from GitHub and run it yourself anytime.",
-      "popular": false,
-      "price": 0,
-      "note": "Perfect for tech-savvy users who want full control."
+    "standard": {
+      "name": "Standard Automation",
+      "price": 75,
+      "complexity": "Moderate complexity",
+      "features": [
+        "API integrations",
+        "Web scraping",
+        "Automated reporting"
+      ]
+    },
+    "premium": {
+      "name": "Premium Automation",
+      "price": 150,
+      "complexity": "Complex workflows",
+      "features": [
+        "Custom solutions",
+        "Multi-system integration",
+        "Enterprise workflows"
+      ],
+      "note": "Starting price - complex projects may cost more"
     }
+  },
+  "self_service": {
+    "title": "Self-Service Option",
+    "subtitle": "Download from GitHub and run it yourself anytime.",
+    "price": 0,
+    "note": "Perfect for tech-savvy users who want full control."
   },
   "performance_metrics": {
     "100_rows": "< 1 second",
-    "3000_rows": "8 seconds", 
+    "3000_rows": "8 seconds",
     "450000_rows": "84 seconds"
   },
   "use_cases": [
@@ -98,9 +150,9 @@
   },
   "process_steps": [
     "Email me your requirements",
-    "I confirm special pricing",
+    "I confirm pricing and timeline",
     "You send files",
-    "I deliver clean data in 24-48 hours", 
+    "I deliver clean data in 24-48 hours",
     "You review and approve"
   ],
   "demo": {

@@ -1,30 +1,109 @@
 {% extends "base.html" %}
 {% block title %}Projects - Adriana Gropan{% endblock %}
 {% block content %}
-<div class="page-header">
-  <h1 class="page-title">Projects</h1>
-  <p class="page-subtitle">Client-focused tools and mini apps I build with Python.</p>
+
+<style>
+    /* Card Hover Lift Effect */
+    .project-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+    .project-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-lg);
+    }
+    .project-tag {
+        background: var(--accent-blue-light);
+        color: var(--accent-blue);
+        padding: 4px 10px;
+        border-radius: var(--radius-sm);
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    .metric-badge {
+        font-size: 0.8rem;
+        color: var(--accent-green);
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        margin-top: auto;
+        padding-top: var(--space-md);
+    }
+</style>
+
+<header class="hero-unified">
+    <div style="max-width: 1000px; margin: 0 auto; padding: 0 var(--space-xl);">
+        <h1 class="hero-title-unified">Automation <span style="color: var(--accent-blue);">Portfolio</span></h1>
+        <p class="hero-subtitle-unified">Custom Python tools designed to transform manual business workflows into efficient code.</p>
+    </div>
+</header>
+
+<div class="container" style="padding: var(--space-2xl) 0;">
+  <div class="grid grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--space-xl);">
+    {% for project in projects %}
+    <article class="card project-card" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); overflow: hidden; padding: var(--space-xl); display: flex; flex-direction: column;">
+      
+      <div class="card-media" style="height: 160px; background: var(--bg-secondary); display:flex; flex-direction: column; align-items:center; justify-content:center; border-radius: var(--radius-md); margin-bottom: var(--space-lg); border: 1px solid var(--border-color);">
+        {% if project.hero_image %}
+          <img src="{{ project.hero_image }}" alt="{{ project.title }}" style="max-width:100%; max-height:100%; object-fit:cover;">
+        {% else %}
+          <div style="font-size: 3rem; margin-bottom: 5px;">🐍</div>
+          <div style="color: var(--text-muted); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Python Tool</div>
+        {% endif %}
+      </div>
+
+      <div style="display: flex; flex-direction: column; flex-grow: 1;">
+        <h3 style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-xs);">
+          {{ project.title }}
+        </h3>
+        
+        <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: var(--space-md);">
+          {{ project.summary }}
+        </p>
+
+        <div style="display:flex; gap: 6px; flex-wrap: wrap; margin-bottom: var(--space-lg);">
+          {% for tag in project.tags or [] %}
+            <span class="project-tag" style="background: var(--accent-blue-light); color: var(--accent-blue);">{{ tag }}</span>
+          {% endfor %}
+        </div>
+
+        {% if project.performance %}
+        <div class="metric-badge" style="color: var(--accent-green); font-weight: 700; font-size: 0.85rem; margin-top: auto;">
+            <i class="fas fa-chart-line"></i> Tested with {{ project.performance.rows_tested }}
+        </div>
+        {% endif %}
+
+        <a href="{{ url_for('project_detail', project_name=project.slug) }}" 
+           style="margin-top: var(--space-lg); color: var(--accent-blue); text-decoration: none; font-weight: 700; display: flex; align-items: center; gap: 5px;">
+          Explore Solution <i class="fas fa-arrow-right" style="font-size: 0.8rem;"></i>
+        </a>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
 </div>
 
-<div class="grid grid-3">
-  {% for project in projects %}
-  <article class="card">
-    <div class="card-media" style="height: 180px; background: var(--bg-elevated); display:flex; align-items:center; justify-content:center; overflow:hidden; border-radius: var(--radius-md);">
-      {% if project.hero_image %}
-        <img src="{{ project.hero_image }}" alt="{{ project.title }}" style="max-width:100%; max-height:100%; object-fit:cover;">
-      {% else %}
-        <div style="color: var(--text-secondary);">{{ project.title }}</div>
-      {% endif %}
+<div style="background: var(--bg-secondary); padding: var(--space-3xl) 0; border-top: 1px solid var(--border-color); text-align: center;">
+    <div style="max-width: 800px; margin: 0 auto; padding: 0 var(--space-xl);">
+        
+        <div style="background: var(--bg-card); border-left: 5px solid var(--accent-blue); padding: var(--space-xl); border-radius: var(--radius-lg); max-width: 550px; margin: 0 auto var(--space-2xl); box-shadow: var(--shadow-sm); text-align: left;">
+            <p style="font-size: 1.4rem; font-style: italic; font-weight: 600; color: var(--text-primary); margin: 0; line-height: 1.4;">
+                "It's not impossible, you just haven't found a way yet."
+            </p>
+            <div style="text-align: right; margin-top: 10px; font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">— AJ</div>
+        </div>
+
+        <h2 style="font-size: 2rem; font-weight: 800; color: var(--text-primary); margin-bottom: var(--space-md);">Have a manual workflow to automate?</h2>
+        <p style="color: var(--text-secondary); margin-bottom: var(--space-xl); max-width: 500px; margin-left: auto; margin-right: auto;">
+            I specialize in turning messy operational data into clean, automated assets.
+        </p>
+        <a href="{{ url_for('contact') }}" class="nav-contact-btn" style="padding: 1rem 2.5rem; font-size: 1rem;">Get a Free Audit</a>
     </div>
-    <h3 class="text-xl" style="margin-top: var(--space-md);">{{ project.title }}</h3>
-    <p style="color: var(--text-secondary);">{{ project.summary }}</p>
-    <div style="display:flex; gap: .5rem; flex-wrap: wrap; margin: .5rem 0;">
-      {% for tag in project.tags or [] %}
-        <span class="post-tag">{{ tag }}</span>
-      {% endfor %}
-    </div>
-    <a class="read-more" href="{{ url_for('project_detail', project_name=project.slug) }}">View project</a>
-  </article>
-  {% endfor %}
 </div>
+
 {% endblock %}

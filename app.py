@@ -1,3 +1,4 @@
+
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 from utils.post_manager import load_posts, save_posts
 from utils.auth import login, logout, login_required, is_authenticated
@@ -6,6 +7,7 @@ import markdown
 import re
 import os
 import uuid
+from urllib.parse import quote_plus
 from werkzeug.utils import secure_filename
 from dotenv import load_dotenv
 
@@ -22,6 +24,7 @@ app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'your-secret-key-here')
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB max upload
 app.config['ALLOWED_EXTENSIONS'] = {'png', 'jpg', 'jpeg', 'gif', 'webp'}
+
 
 # Custom Jinja filter for markdown processing
 @app.template_filter('md')
@@ -123,6 +126,10 @@ def about():
         recent_posts=recent_posts, 
         projects=projects
     )
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
 
 @app.route('/post/<id>')
 def post(id):
