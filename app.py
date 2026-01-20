@@ -1,5 +1,6 @@
 
-from flask import Flask, render_template, request, redirect, url_for, flash, session
+from flask import Flask, render_template, request, redirect, url_for, flash, session, g
+from flask_babel import Babel, gettext as _, lazy_gettext as _l
 from utils.post_manager import load_posts, save_posts
 from utils.auth import login, logout, login_required, is_authenticated
 from datetime import datetime
@@ -24,6 +25,35 @@ app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'your-secret-key-here')
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB max upload
 app.config['ALLOWED_EXTENSIONS'] = {'png', 'jpg', 'jpeg', 'gif', 'webp'}
+
+# Configure Babel for internationalization
+def get_locale():
+    '''Determine the user's preferred language'''
+    # 1. Check if language is in URL path
+    if request.view_args and 'lang' in request.view_args:
+        lang = request.view_args['lang']
+        if lang in ['en', 'ro']:
+            session['language'] = lang
+            return lang
+
+    # 2. Check if language is stored in session
+    if 'language' in session:
+        return session['language']
+
+    # 3. Fall back to browser language preference
+    return request.accept_languages.best_match(['en', 'ro']) or 'en'
+
+# Initialize Babel
+babel = Babel(app)
+babel.init_app(app, locale_selector=get_locale)
+
+# Babel configuration
+app.config['BABEL_TRANSLATION_DIRECTORIES'] = 'translations'
+app.config['BABEL_DEFAULT_LOCALE'] = 'en'
+app.config['LANGUAGES'] = {
+    'en': {'name': 'English', 'flag': '🇺🇸'},
+    'ro': {'name': 'Română', 'flag': '🇷🇴'}
+}
 
 
 # Custom Jinja filter for markdown processing
@@ -70,8 +100,29 @@ def handle_image_upload(file):
     
     return None
 
+@app.before_request
+def before_request():
+    '''Set current language before each request'''
+    g.current_lang = get_locale()
+
+@app.context_processor
+def inject_conf_var():
+    '''Make configuration variables available to all templates'''
+    return dict(
+        LANGUAGES=app.config['LANGUAGES'],
+        current_lang=g.get('current_lang', 'en')
+    )
+
+@app.template_filter('reject_lang')
+def reject_lang_filter(view_args):
+    '''Remove lang parameter from view_args for cleaner URLs'''
+    if view_args is None:
+        return {}
+    return {k: v for k, v in view_args.items() if k != 'lang'}
+
 @app.route('/')
-def index():
+@app.route('/<lang>/')
+def index(lang='en'):
     """Homepage - Shows hero, services, projects, and blog posts"""
     posts = load_posts()
     projects = load_all_projects()
@@ -97,7 +148,8 @@ def index():
     )
 
 @app.route('/blog')
-def blog():
+@app.route('/<lang>/blog')
+def blog(lang='en'):
     """Dedicated blog page - all posts"""
     posts = load_posts()
     # Sort posts by date, newest first
@@ -109,7 +161,8 @@ def blog():
     return render_template('blog.html', posts=posts_sorted)
 
 @app.route('/about')
-def about():
+@app.route('/<lang>/about')
+def about(lang='en'):
     """About page - Shows personal story with recent projects and posts"""
     posts = load_posts()
     projects = load_all_projects()
@@ -128,7 +181,8 @@ def about():
     )
 
 @app.route('/contact')
-def contact():
+@app.route('/<lang>/contact')
+def contact(lang='en'):
     return render_template('contact.html')
 
 @app.route('/post/<id>')
@@ -244,13 +298,15 @@ def logout_page():
 
 
 @app.route('/projects')
-def projects_index():
+@app.route('/<lang>/projects')
+def projects_index(lang='en'):
     """Projects listing page"""
     projects = load_all_projects()
     return render_template('projects/index.html', projects=projects)
 
 @app.route('/projects/<project_name>')
-def project_detail(project_name):
+@app.route('/<lang>/projects/<project_name>')
+def project_detail(project_name, lang='en'):
     """Project detail page with template fallback"""
     project = get_project(project_name)
     if not project:
@@ -265,7 +321,8 @@ def project_detail(project_name):
 
 
 @app.route('/pricing')
-def pricing():
+@app.route('/<lang>/pricing')
+def pricing(lang='en'):
     """Pricing and demo page for Data Cleaner tool"""
     pricing_data = load_pricing_data()
     return render_template('pricing.html', pricing_data=pricing_data)

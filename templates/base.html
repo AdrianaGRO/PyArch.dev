@@ -184,6 +184,107 @@
             outline-offset: 2px;
         }
 
+        /* LANGUAGE SWITCHER */
+        .language-switcher {
+            position: relative;
+            display: inline-block;
+        }
+
+        .lang-toggle {
+            background: transparent;
+            border: 2px solid var(--border-color);
+            padding: 0.5rem 0.75rem;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all var(--transition-base);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            min-width: 4rem;
+        }
+
+        .lang-toggle:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-1px);
+            color: var(--accent-blue);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .lang-toggle:focus {
+            outline: 2px solid var(--accent-blue);
+            outline-offset: 2px;
+        }
+
+        .current-lang {
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+
+        .lang-arrow {
+            font-size: 0.7rem;
+            transition: transform var(--transition-base);
+        }
+
+        .language-switcher:hover .lang-arrow {
+            transform: rotate(180deg);
+        }
+
+        .lang-dropdown {
+            position: absolute;
+            top: calc(100% + 0.5rem);
+            right: 0;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+            z-index: 1000;
+            min-width: 8rem;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all var(--transition-base);
+        }
+
+        .language-switcher:hover .lang-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .lang-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: all var(--transition-base);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .lang-option:last-child {
+            border-bottom: none;
+        }
+
+        .lang-option:hover {
+            background: var(--nav-hover-bg);
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .lang-option.active {
+            background: var(--nav-active-bg);
+            color: var(--nav-active);
+            font-weight: 600;
+        }
+
+        .lang-option .flag {
+            font-size: 1rem;
+        }
+
         /* ADMIN SECTION */
         .admin-section {
             display: flex;
@@ -262,6 +363,25 @@
                 padding: var(--space-md);
             }
 
+            .theme-toggle, .language-switcher {
+                align-self: center;
+            }
+
+            .language-switcher .lang-dropdown {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                border: none;
+                background: transparent;
+                margin-top: var(--space-sm);
+            }
+
+            .language-switcher:hover .lang-arrow {
+                transform: none;
+            }
+
             .nav-link.active::after {
                 display: none;
             }
@@ -314,26 +434,26 @@
             <div class="nav-main" id="navMenu">
                 <ul class="nav-links">
                     <li>
-                        <a href="{{ url_for('projects_index') }}" 
+                        <a href="{{ url_for('projects_index', lang=current_lang) }}" 
                            class="nav-link {% if request.endpoint == 'projects_index' or request.path.startswith('/projects') %}active{% endif %}">
                            Projects
                         </a>
                     </li>
                     <li>
-                        <a href="{{ url_for('pricing') }}"
+                        <a href="{{ url_for('pricing', lang=current_lang) }}"
                            class="nav-link {% if request.endpoint == 'pricing' %}active{% endif %}">
                            Pricing
                         </a>
                     </li>
                     <li>
-                        <a href="{{ url_for('about') }}" 
+                        <a href="{{ url_for('about', lang=current_lang) }}" 
                            class="nav-link {% if request.endpoint == 'about' %}active{% endif %}">
                            About
                         </a>
                     </li>
                     <li>
-                        <a href="/blog" 
-                           class="nav-link {% if '/blog' in request.path %}active{% endif %}">
+                        <a href="{{ url_for('blog', lang=current_lang) }}" 
+                           class="nav-link {% if request.endpoint == 'blog' %}active{% endif %}">
                            Blog
                         </a>
                     </li>
@@ -343,7 +463,26 @@
                     <i class="fas fa-sun" id="theme-icon"></i>
                 </button>
 
-                <a href="{{ url_for('contact') }}" class="nav-contact-btn">Contact</a>
+                <!-- Language Switcher -->
+                <div class="language-switcher">
+                    <button class="lang-toggle" aria-label="Select language" title="Change Language">
+                        <i class="fas fa-globe"></i>
+                        <span class="current-lang">{{ current_lang.upper() }}</span>
+                        <i class="fas fa-chevron-down lang-arrow"></i>
+                    </button>
+                    <div class="lang-dropdown">
+                        {% for code, language in LANGUAGES.items() %}
+                        <a href="{{ url_for(request.endpoint, lang=code, **request.view_args|reject_lang) }}" 
+                           class="lang-option {% if current_lang == code %}active{% endif %}" 
+                           data-lang="{{ code }}">
+                            <span class="flag">{{ language.flag }}</span>
+                            <span>{{ language.name }}</span>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <a href="{{ url_for('contact', lang=current_lang) }}" class="nav-contact-btn">Contact</a>
                 
                 {% if session.authenticated %}
                     <div class="admin-section">
@@ -429,6 +568,69 @@
             // Initialize theme on load
             const savedTheme = localStorage.getItem('theme') || 'light';
             setTheme(savedTheme);
+        });
+
+        // LANGUAGE SWITCHER LOGIC
+        document.addEventListener('DOMContentLoaded', function() {
+            const langOptions = document.querySelectorAll('.lang-option');
+            const currentLangSpan = document.querySelector('.current-lang');
+            
+            // Translation data structure (for future expansion)
+            const translations = {
+                en: {
+                    projects: 'Projects',
+                    pricing: 'Pricing', 
+                    about: 'About',
+                    blog: 'Blog',
+                    contact: 'Contact'
+                },
+                ro: {
+                    projects: 'Proiecte',
+                    pricing: 'Prețuri',
+                    about: 'Despre',
+                    blog: 'Blog',
+                    contact: 'Contact'
+                }
+            };
+
+            // Set language function
+            const setLanguage = (langCode) => {
+                // Update current language display
+                if (currentLangSpan) {
+                    currentLangSpan.textContent = langCode.toUpperCase();
+                }
+                
+                // Update active state
+                langOptions.forEach(option => {
+                    option.classList.remove('active');
+                    if (option.getAttribute('data-lang') === langCode) {
+                        option.classList.add('active');
+                    }
+                });
+                
+                // Save language preference
+                localStorage.setItem('language', langCode);
+                
+                // Update HTML lang attribute
+                document.documentElement.setAttribute('lang', langCode);
+                
+                // Future: Update page content based on selected language
+                // This would integrate with your Flask i18n system
+                console.log(`Language switched to: ${langCode}`);
+            };
+
+            // Language option click handlers
+            langOptions.forEach(option => {
+                option.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const langCode = this.getAttribute('data-lang');
+                    setLanguage(langCode);
+                });
+            });
+
+            // Initialize language on load
+            const savedLanguage = localStorage.getItem('language') || 'en';
+            setLanguage(savedLanguage);
         });
     </script>
 
