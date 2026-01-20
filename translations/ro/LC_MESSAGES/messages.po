@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-01-20 19:58+0200\n"
+"POT-Creation-Date: 2026-01-20 20:03+0200\n"
 "PO-Revision-Date: 2026-01-20 19:58+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ro\n"
@@ -18,4 +18,46 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
+
+#: templates/base.html:439
+msgid "Projects"
+msgstr "Proiecte"
+
+#: templates/base.html:445
+msgid "Pricing"
+msgstr "Prețuri"
+
+#: templates/base.html:451
+msgid "About"
+msgstr "Despre"
+
+#: templates/base.html:457
+msgid "Blog"
+msgstr "Blog"
+
+#: templates/base.html:485
+msgid "Contact"
+msgstr "Contact"
+
+#: templates/index.html:38
+msgid "Available for New Projects"
+msgstr "Disponibil pentru Proiecte Noi"
+
+#: templates/index.html:43
+msgid "Stop fighting with spreadsheets."
+msgstr "Nu mai lupta cu fișierele Excel."
+
+#: templates/index.html:44
+msgid "I automate the struggle."
+msgstr "Eu automatizez această problemă."
+
+#: templates/index.html:48
+msgid ""
+"15+ years of retail operations experience meeting modern Python "
+"automation. I build custom tools that transform hours of manual data work"
+" into seconds of code execution."
+msgstr ""
+"15+ ani de experiență în operațiuni retail întâlnind automatizarea modernă Python. "
+"Construiesc instrumente personalizate care transformă ore de lucru manual cu date "
+"în secunde de execuție cod."
 

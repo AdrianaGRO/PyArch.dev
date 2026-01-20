@@ -436,25 +436,25 @@
                     <li>
                         <a href="{{ url_for('projects_index', lang=current_lang) }}" 
                            class="nav-link {% if request.endpoint == 'projects_index' or request.path.startswith('/projects') %}active{% endif %}">
-                           Projects
+                           {{ _('Projects') }}
                         </a>
                     </li>
                     <li>
                         <a href="{{ url_for('pricing', lang=current_lang) }}"
                            class="nav-link {% if request.endpoint == 'pricing' %}active{% endif %}">
-                           Pricing
+                           {{ _('Pricing') }}
                         </a>
                     </li>
                     <li>
                         <a href="{{ url_for('about', lang=current_lang) }}" 
                            class="nav-link {% if request.endpoint == 'about' %}active{% endif %}">
-                           About
+                           {{ _('About') }}
                         </a>
                     </li>
                     <li>
                         <a href="{{ url_for('blog', lang=current_lang) }}" 
                            class="nav-link {% if request.endpoint == 'blog' %}active{% endif %}">
-                           Blog
+                           {{ _('Blog') }}
                         </a>
                     </li>
                 </ul>
@@ -482,7 +482,7 @@
                     </div>
                 </div>
 
-                <a href="{{ url_for('contact', lang=current_lang) }}" class="nav-contact-btn">Contact</a>
+                <a href="{{ url_for('contact', lang=current_lang) }}" class="nav-contact-btn">{{ _('Contact') }}</a>
                 
                 {% if session.authenticated %}
                     <div class="admin-section">

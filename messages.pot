@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-01-20 19:58+0200\n"
+"POT-Creation-Date: 2026-01-20 20:03+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,4 +16,43 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
+
+#: templates/base.html:439
+msgid "Projects"
+msgstr ""
+
+#: templates/base.html:445
+msgid "Pricing"
+msgstr ""
+
+#: templates/base.html:451
+msgid "About"
+msgstr ""
+
+#: templates/base.html:457
+msgid "Blog"
+msgstr ""
+
+#: templates/base.html:485
+msgid "Contact"
+msgstr ""
+
+#: templates/index.html:38
+msgid "Available for New Projects"
+msgstr ""
+
+#: templates/index.html:43
+msgid "Stop fighting with spreadsheets."
+msgstr ""
+
+#: templates/index.html:44
+msgid "I automate the struggle."
+msgstr ""
+
+#: templates/index.html:48
+msgid ""
+"15+ years of retail operations experience meeting modern Python "
+"automation. I build custom tools that transform hours of manual data work"
+" into seconds of code execution."
+msgstr ""
 
