@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-01-20 20:03+0200\n"
-"PO-Revision-Date: 2026-01-20 19:58+0200\n"
+"POT-Creation-Date: 2026-01-21 08:58+0200\n"
+"PO-Revision-Date: 2026-01-21 08:52+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ro\n"
 "Language-Team: ro <LL@li.org>\n"
@@ -19,6 +19,43 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
+#: templates/about.html:73 templates/base.html:451
+msgid "About"
+msgstr "Despre"
+
+#: templates/about.html:73
+msgid "Me"
+msgstr "Mine"
+
+#: templates/about.html:75
+msgid ""
+"Bridging the gap between complex business operations and elegant Python "
+"automation."
+msgstr ""
+"Legătura între operațiunile de afaceri complexe și automatizarea elegantă"
+" Python."
+
+#: templates/about.html:97
+msgid "The Journey"
+msgstr "Călătoria"
+
+#: templates/about.html:99
+msgid ""
+"As a business analyst, I spent years navigating limitations. \"It's "
+"impossible\" was a phrase I heard too often when trying to optimize "
+"workflows. This frustration became my catalyst."
+msgstr ""
+"Ca analist de afaceri, am petrecut ani întregi navigând limitări. \"Este "
+"imposibil\" era o frază pe care o auzeam prea des când încercam să "
+"optimizez fluxurile de lucru. Această frustrare a devenit catalizatorul "
+"meu."
+
+#: templates/about.html:103
+msgid ""
+"I don't just write code; I translate operational pain into technical "
+"solutions."
+msgstr "Nu scriu doar cod; traduc durerea operațională în soluții tehnice."
+
 #: templates/base.html:439
 msgid "Projects"
 msgstr "Proiecte"
@@ -27,10 +64,6 @@ msgstr "Proiecte"
 msgid "Pricing"
 msgstr "Prețuri"
 
-#: templates/base.html:451
-msgid "About"
-msgstr "Despre"
-
 #: templates/base.html:457
 msgid "Blog"
 msgstr "Blog"
@@ -38,6 +71,22 @@ msgstr "Blog"
 #: templates/base.html:485
 msgid "Contact"
 msgstr "Contact"
+
+#: templates/contact.html:9
+msgid "Ready to Automate Your Workflow?"
+msgstr "Gata să-ți automatizezi fluxul de lucru?"
+
+#: templates/contact.html:14
+msgid ""
+"Let's discuss your project. Reach out directly and I'll respond within 24"
+" hours on weekdays."
+msgstr ""
+"Să discutăm despre proiectul tău. Contactează-mă direct și voi răspunde "
+"în 24 de ore în zilele lucrătoare."
+
+#: templates/contact.html:23
+msgid "Email"
+msgstr "Email"
 
 #: templates/index.html:38
 msgid "Available for New Projects"
@@ -57,7 +106,7 @@ msgid ""
 "automation. I build custom tools that transform hours of manual data work"
 " into seconds of code execution."
 msgstr ""
-"15+ ani de experiență în operațiuni retail întâlnind automatizarea modernă Python. "
-"Construiesc instrumente personalizate care transformă ore de lucru manual cu date "
-"în secunde de execuție cod."
+"15+ ani de experiență în operațiuni retail întâlnind automatizarea "
+"modernă Python. Construiesc instrumente personalizate care transformă ore"
+" de lucru manual cu date în secunde de execuție cod."
 

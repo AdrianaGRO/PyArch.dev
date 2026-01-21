@@ -1,17 +1,18 @@
-# Translations template for PROJECT.
+# Spanish translations for PROJECT.
 # Copyright (C) 2026 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2026-01-21 08:58+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2026-01-21 08:52+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,21 +20,23 @@ msgstr ""
 
 #: templates/about.html:73 templates/base.html:451
 msgid "About"
-msgstr ""
+msgstr "Acerca de"
 
 #: templates/about.html:73
 msgid "Me"
-msgstr ""
+msgstr "Mí"
 
 #: templates/about.html:75
 msgid ""
 "Bridging the gap between complex business operations and elegant Python "
 "automation."
 msgstr ""
+"Cerrando la brecha entre operaciones comerciales complejas y la elegante "
+"automatización Python."
 
 #: templates/about.html:97
 msgid "The Journey"
-msgstr ""
+msgstr "El Viaje"
 
 #: templates/about.html:99
 msgid ""
@@ -41,54 +44,62 @@ msgid ""
 "impossible\" was a phrase I heard too often when trying to optimize "
 "workflows. This frustration became my catalyst."
 msgstr ""
+"Como analista de negocios, pasé años navegando limitaciones. \"Es "
+"imposible\" era una frase que escuchaba demasiado a menudo cuando trataba"
+" de optimizar flujos de trabajo. Esta frustración se convirtió en mi "
+"catalizador."
 
 #: templates/about.html:103
 msgid ""
 "I don't just write code; I translate operational pain into technical "
 "solutions."
 msgstr ""
+"No solo escribo código; traduzco el dolor operacional en soluciones "
+"técnicas."
 
 #: templates/base.html:439
 msgid "Projects"
-msgstr ""
+msgstr "Proyectos"
 
 #: templates/base.html:445
 msgid "Pricing"
-msgstr ""
+msgstr "Precios"
 
 #: templates/base.html:457
 msgid "Blog"
-msgstr ""
+msgstr "Blog"
 
 #: templates/base.html:485
 msgid "Contact"
-msgstr ""
+msgstr "Contacto"
 
 #: templates/contact.html:9
 msgid "Ready to Automate Your Workflow?"
-msgstr ""
+msgstr "¿Listo para Automatizar tu Flujo de Trabajo?"
 
 #: templates/contact.html:14
 msgid ""
 "Let's discuss your project. Reach out directly and I'll respond within 24"
 " hours on weekdays."
 msgstr ""
+"Hablemos de tu proyecto. Contáctame directamente y te responderé dentro "
+"de 24 horas en días laborables."
 
 #: templates/contact.html:23
 msgid "Email"
-msgstr ""
+msgstr "Correo"
 
 #: templates/index.html:38
 msgid "Available for New Projects"
-msgstr ""
+msgstr "Disponible para Nuevos Proyectos"
 
 #: templates/index.html:43
 msgid "Stop fighting with spreadsheets."
-msgstr ""
+msgstr "Deja de luchar con las hojas de cálculo."
 
 #: templates/index.html:44
 msgid "I automate the struggle."
-msgstr ""
+msgstr "Yo automatizo esa lucha."
 
 #: templates/index.html:48
 msgid ""
@@ -96,4 +107,8 @@ msgid ""
 "automation. I build custom tools that transform hours of manual data work"
 " into seconds of code execution."
 msgstr ""
+"15+ años de experiencia en operaciones minoristas encontrándose con la "
+"automatización moderna de Python. Construyo herramientas personalizadas "
+"que transforman horas de trabajo manual de datos en segundos de ejecución"
+" de código."
 

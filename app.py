@@ -32,7 +32,7 @@ def get_locale():
     # 1. Check if language is in URL path
     if request.view_args and 'lang' in request.view_args:
         lang = request.view_args['lang']
-        if lang in ['en', 'ro']:
+        if lang in ['en', 'ro', 'es']:
             session['language'] = lang
             return lang
 
@@ -41,7 +41,7 @@ def get_locale():
         return session['language']
 
     # 3. Fall back to browser language preference
-    return request.accept_languages.best_match(['en', 'ro']) or 'en'
+    return request.accept_languages.best_match(['en', 'ro', 'es']) or 'en'
 
 # Initialize Babel
 babel = Babel(app)
@@ -52,7 +52,8 @@ app.config['BABEL_TRANSLATION_DIRECTORIES'] = 'translations'
 app.config['BABEL_DEFAULT_LOCALE'] = 'en'
 app.config['LANGUAGES'] = {
     'en': {'name': 'English', 'flag': '🇺🇸'},
-    'ro': {'name': 'Română', 'flag': '🇷🇴'}
+    'ro': {'name': 'Română', 'flag': '🇷🇴'},
+    'es': {'name': 'Español', 'flag': '🇪🇸'}
 }
 
 
