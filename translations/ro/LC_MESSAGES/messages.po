@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-01-21 08:58+0200\n"
+"POT-Creation-Date: 2026-01-21 09:33+0200\n"
 "PO-Revision-Date: 2026-01-21 08:52+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ro\n"
@@ -56,21 +56,70 @@ msgid ""
 "solutions."
 msgstr "Nu scriu doar cod; traduc durerea operațională în soluții tehnice."
 
-#: templates/base.html:439
+#: templates/base.html:439 templates/base.html:699
 msgid "Projects"
 msgstr "Proiecte"
 
-#: templates/base.html:445
+#: templates/base.html:445 templates/base.html:700
 msgid "Pricing"
 msgstr "Prețuri"
 
-#: templates/base.html:457
+#: templates/base.html:457 templates/base.html:702
 msgid "Blog"
 msgstr "Blog"
 
-#: templates/base.html:485
+#: templates/base.html:485 templates/base.html:703
 msgid "Contact"
 msgstr "Contact"
+
+#: templates/base.html:676
+msgid ""
+"Python automation solutions for business operations. Building efficient "
+"tools that solve real problems."
+msgstr ""
+"Soluții de automatizare Python pentru operațiuni de afaceri. Construind "
+"instrumente eficiente care rezolvă probleme reale."
+
+#: templates/base.html:696
+msgid "Quick Links"
+msgstr "Link-uri Rapide"
+
+msgid "Automation"
+msgstr "Automatizare"
+
+msgid "Portfolio"
+msgstr "Portofoliu"
+
+msgid "Custom Python tools designed to transform manual business workflows into efficient code."
+msgstr "Instrumente Python personalizate concepute pentru a transforma fluxurile de lucru manuale în cod eficient."
+
+msgid "Explore Solution"
+msgstr "Explorează Soluția"
+
+msgid "It's not impossible, you just haven't found a way yet."
+msgstr "Nu este imposibil, doar nu ai găsit încă o modalitate."
+
+msgid "Have a manual workflow to automate?"
+msgstr "Ai un flux de lucru manual de automatizat?"
+
+msgid "I specialize in turning messy operational data into clean, automated assets."
+msgstr "Mă specializez în transformarea datelor operaționale dezordonate în active automatizate și curate."
+
+msgid "Get a Free Audit"
+msgstr "Obține o Auditare Gratuită"
+
+#: templates/base.html:701
+#, fuzzy
+msgid "About Me"
+msgstr "Despre"
+
+#: templates/base.html:710
+msgid "Resources"
+msgstr ""
+
+#: templates/base.html:726
+msgid "© 2025 Adriana Gropan. Built with Flask and Python."
+msgstr ""
 
 #: templates/contact.html:9
 msgid "Ready to Automate Your Workflow?"
@@ -109,4 +158,40 @@ msgstr ""
 "15+ ani de experiență în operațiuni retail întâlnind automatizarea "
 "modernă Python. Construiesc instrumente personalizate care transformă ore"
 " de lucru manual cu date în secunde de execuție cod."
+
+#: templates/projects/index.html:41
+msgid "Automation"
+msgstr ""
+
+#: templates/projects/index.html:41
+msgid "Portfolio"
+msgstr ""
+
+#: templates/projects/index.html:42
+msgid ""
+"Custom Python tools designed to transform manual business workflows into "
+"efficient code."
+msgstr ""
+
+#: templates/projects/index.html:83
+msgid "Explore Solution"
+msgstr ""
+
+#: templates/projects/index.html:96
+msgid "It's not impossible, you just haven't found a way yet."
+msgstr ""
+
+#: templates/projects/index.html:101
+msgid "Have a manual workflow to automate?"
+msgstr ""
+
+#: templates/projects/index.html:103
+msgid ""
+"I specialize in turning messy operational data into clean, automated "
+"assets."
+msgstr ""
+
+#: templates/projects/index.html:105
+msgid "Get a Free Audit"
+msgstr ""
 

@@ -38,8 +38,8 @@
 
 <header class="hero-unified">
     <div style="max-width: 1000px; margin: 0 auto; padding: 0 var(--space-xl);">
-        <h1 class="hero-title-unified">Automation <span style="color: var(--accent-blue);">Portfolio</span></h1>
-        <p class="hero-subtitle-unified">Custom Python tools designed to transform manual business workflows into efficient code.</p>
+        <h1 class="hero-title-unified">{{ _('Automation') }} <span style="color: var(--accent-blue);">{{ _('Portfolio') }}</span></h1>
+        <p class="hero-subtitle-unified">{{ _('Custom Python tools designed to transform manual business workflows into efficient code.') }}</p>
     </div>
 </header>
 
@@ -78,9 +78,9 @@
         </div>
         {% endif %}
 
-        <a href="{{ url_for('project_detail', project_name=project.slug) }}" 
+        <a href="{{ url_for('project_detail', project_name=project.slug, lang=current_lang) }}" 
            style="margin-top: var(--space-lg); color: var(--accent-blue); text-decoration: none; font-weight: 700; display: flex; align-items: center; gap: 5px;">
-          Explore Solution <i class="fas fa-arrow-right" style="font-size: 0.8rem;"></i>
+          {{ _('Explore Solution') }} <i class="fas fa-arrow-right" style="font-size: 0.8rem;"></i>
         </a>
       </div>
     </article>
@@ -93,16 +93,16 @@
         
         <div style="background: var(--bg-card); border-left: 5px solid var(--accent-blue); padding: var(--space-xl); border-radius: var(--radius-lg); max-width: 550px; margin: 0 auto var(--space-2xl); box-shadow: var(--shadow-sm); text-align: left;">
             <p style="font-size: 1.4rem; font-style: italic; font-weight: 600; color: var(--text-primary); margin: 0; line-height: 1.4;">
-                "It's not impossible, you just haven't found a way yet."
+                "{{ _('It\'s not impossible, you just haven\'t found a way yet.') }}"
             </p>
             <div style="text-align: right; margin-top: 10px; font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">— AJ</div>
         </div>
 
-        <h2 style="font-size: 2rem; font-weight: 800; color: var(--text-primary); margin-bottom: var(--space-md);">Have a manual workflow to automate?</h2>
+        <h2 style="font-size: 2rem; font-weight: 800; color: var(--text-primary); margin-bottom: var(--space-md);">{{ _('Have a manual workflow to automate?') }}</h2>
         <p style="color: var(--text-secondary); margin-bottom: var(--space-xl); max-width: 500px; margin-left: auto; margin-right: auto;">
-            I specialize in turning messy operational data into clean, automated assets.
+            {{ _('I specialize in turning messy operational data into clean, automated assets.') }}
         </p>
-        <a href="{{ url_for('contact') }}" class="nav-contact-btn" style="padding: 1rem 2.5rem; font-size: 1rem;">Get a Free Audit</a>
+        <a href="{{ url_for('contact', lang=current_lang) }}" class="nav-contact-btn" style="padding: 1rem 2.5rem; font-size: 1rem;">{{ _('Get a Free Audit') }}</a>
     </div>
 </div>
 

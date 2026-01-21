@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-01-21 08:58+0200\n"
+"POT-Creation-Date: 2026-01-21 09:33+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -48,20 +48,42 @@ msgid ""
 "solutions."
 msgstr ""
 
-#: templates/base.html:439
+#: templates/base.html:439 templates/base.html:699
 msgid "Projects"
 msgstr ""
 
-#: templates/base.html:445
+#: templates/base.html:445 templates/base.html:700
 msgid "Pricing"
 msgstr ""
 
-#: templates/base.html:457
+#: templates/base.html:457 templates/base.html:702
 msgid "Blog"
 msgstr ""
 
-#: templates/base.html:485
+#: templates/base.html:485 templates/base.html:703
 msgid "Contact"
+msgstr ""
+
+#: templates/base.html:676
+msgid ""
+"Python automation solutions for business operations. Building efficient "
+"tools that solve real problems."
+msgstr ""
+
+#: templates/base.html:696
+msgid "Quick Links"
+msgstr ""
+
+#: templates/base.html:701
+msgid "About Me"
+msgstr ""
+
+#: templates/base.html:710
+msgid "Resources"
+msgstr ""
+
+#: templates/base.html:726
+msgid "© 2025 Adriana Gropan. Built with Flask and Python."
 msgstr ""
 
 #: templates/contact.html:9
@@ -95,5 +117,41 @@ msgid ""
 "15+ years of retail operations experience meeting modern Python "
 "automation. I build custom tools that transform hours of manual data work"
 " into seconds of code execution."
+msgstr ""
+
+#: templates/projects/index.html:41
+msgid "Automation"
+msgstr ""
+
+#: templates/projects/index.html:41
+msgid "Portfolio"
+msgstr ""
+
+#: templates/projects/index.html:42
+msgid ""
+"Custom Python tools designed to transform manual business workflows into "
+"efficient code."
+msgstr ""
+
+#: templates/projects/index.html:83
+msgid "Explore Solution"
+msgstr ""
+
+#: templates/projects/index.html:96
+msgid "It's not impossible, you just haven't found a way yet."
+msgstr ""
+
+#: templates/projects/index.html:101
+msgid "Have a manual workflow to automate?"
+msgstr ""
+
+#: templates/projects/index.html:103
+msgid ""
+"I specialize in turning messy operational data into clean, automated "
+"assets."
+msgstr ""
+
+#: templates/projects/index.html:105
+msgid "Get a Free Audit"
 msgstr ""
 
