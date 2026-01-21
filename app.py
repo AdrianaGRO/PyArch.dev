@@ -43,9 +43,8 @@ def get_locale():
     # 3. Fall back to browser language preference
     return request.accept_languages.best_match(['en', 'ro', 'es']) or 'en'
 
-# Initialize Babel
-babel = Babel(app)
-babel.init_app(app, locale_selector=get_locale)
+# Initialize Babel (single initialization)
+babel = Babel(app, locale_selector=get_locale)
 
 # Babel configuration
 app.config['BABEL_TRANSLATION_DIRECTORIES'] = 'translations'

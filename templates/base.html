@@ -423,7 +423,7 @@
     <header class="header">
         <nav class="nav-container" aria-label="Main Navigation">
             <div class="nav-brand">
-                <a href="{{ url_for('index') }}" class="nav-logo">Adriana Gropan</a>
+                <a href="{{ url_for('index', lang=current_lang) }}" class="nav-logo">Adriana Gropan</a>
                 <span class="nav-tagline">Python Automation</span>
             </div>
             
@@ -673,7 +673,7 @@
                         Adriana Gropan
                     </h3>
                     <p style="color: var(--text-secondary); font-size: var(--font-sm); line-height: var(--leading-relaxed); margin-bottom: var(--space-md);">
-                        Python automation solutions for business operations. Building efficient tools that solve real problems.
+                        {{ _('Python automation solutions for business operations. Building efficient tools that solve real problems.') }}
                     </p>
                     
                     <!-- Social Links -->
@@ -693,21 +693,21 @@
                 <!-- Quick Links -->
                 <div>
                     <h3 style="font-size: var(--font-lg); font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-md);">
-                        Quick Links
+                        {{ _('Quick Links') }}
                     </h3>
                     <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-sm);">
-                        <li><a href="{{ url_for('projects_index') }}" style="color: var(--text-secondary); text-decoration: none; font-size: var(--font-sm); transition: color var(--transition-base);">Projects</a></li>
-                        <li><a href="{{ url_for('pricing') }}" style="color: var(--text-secondary); text-decoration: none; font-size: var(--font-sm); transition: color var(--transition-base);">Pricing</a></li>
-                        <li><a href="{{ url_for('about') }}" style="color: var(--text-secondary); text-decoration: none; font-size: var(--font-sm); transition: color var(--transition-base);">About Me</a></li>
-                        <li><a href="/blog" style="color: var(--text-secondary); text-decoration: none; font-size: var(--font-sm); transition: color var(--transition-base);">Blog</a></li>
-                        <li><a href="{{ url_for('contact') }}" style="color: var(--text-secondary); text-decoration: none; font-size: var(--font-sm); transition: color var(--transition-base);">Contact</a></li>
+                        <li><a href="{{ url_for('projects_index', lang=current_lang) }}" style="color: var(--text-secondary); text-decoration: none; font-size: var(--font-sm); transition: color var(--transition-base);">{{ _('Projects') }}</a></li>
+                        <li><a href="{{ url_for('pricing', lang=current_lang) }}" style="color: var(--text-secondary); text-decoration: none; font-size: var(--font-sm); transition: color var(--transition-base);">{{ _('Pricing') }}</a></li>
+                        <li><a href="{{ url_for('about', lang=current_lang) }}" style="color: var(--text-secondary); text-decoration: none; font-size: var(--font-sm); transition: color var(--transition-base);">{{ _('About Me') }}</a></li>
+                        <li><a href="{{ url_for('blog', lang=current_lang) }}" style="color: var(--text-secondary); text-decoration: none; font-size: var(--font-sm); transition: color var(--transition-base);">{{ _('Blog') }}</a></li>
+                        <li><a href="{{ url_for('contact', lang=current_lang) }}" style="color: var(--text-secondary); text-decoration: none; font-size: var(--font-sm); transition: color var(--transition-base);">{{ _('Contact') }}</a></li>
                     </ul>
                 </div>
                 
                 <!-- Resources -->
                 <div>
                     <h3 style="font-size: var(--font-lg); font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-md);">
-                        Resources
+                        {{ _('Resources') }}
                     </h3>
                     <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-sm);">
                         <li><a href="https://docs.python.org/3/" target="_blank" style="color: var(--text-secondary); text-decoration: none; font-size: var(--font-sm); transition: color var(--transition-base);">Python Documentation</a></li>
@@ -723,7 +723,7 @@
             <!-- Footer Bottom -->
             <div style="border-top: 1px solid var(--border-color); padding-top: var(--space-lg); text-align: center;">
                 <p style="color: var(--text-muted); font-size: var(--font-sm); margin: 0;">
-                    © 2025 Adriana Gropan. Built with Flask and Python.
+                    {{ _('© 2025 Adriana Gropan. Built with Flask and Python.') }}
                 </p>
             </div>
         </div>
