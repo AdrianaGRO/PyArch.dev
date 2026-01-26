@@ -1,0 +1,543 @@
+# Translations template for PROJECT.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-01-22 11:35+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: templates/about.html:73 templates/base.html:451
+msgid "About"
+msgstr ""
+
+#: templates/about.html:73
+msgid "Me"
+msgstr ""
+
+#: templates/about.html:75
+msgid ""
+"Bridging the gap between complex business operations and elegant Python "
+"automation."
+msgstr ""
+
+#: templates/about.html:97
+msgid "The Journey"
+msgstr ""
+
+#: templates/about.html:99
+msgid ""
+"As a business analyst, I spent years navigating limitations. \"It's "
+"impossible\" was a phrase I heard too often when trying to optimize "
+"workflows. This frustration became my catalyst."
+msgstr ""
+
+#: templates/about.html:103
+msgid ""
+"I don't just write code; I translate operational pain into technical "
+"solutions."
+msgstr ""
+
+#: templates/about.html:111
+msgid "Professional Roadmap"
+msgstr ""
+
+#: templates/about.html:118
+msgid "Head of Cashier & Pricing Analyst @ real,- Hypermarket"
+msgstr ""
+
+#: templates/about.html:120
+msgid ""
+"Managed diverse teams across pricing and front-end operations. I "
+"established data foundations for pricing strategies and served as Head of"
+" Cashier, where I managed high-volume store operations and team "
+"development plans for over 100 employees."
+msgstr ""
+
+#: templates/about.html:127
+msgid "Business Analyst & Coordinator @ Auchan Retail"
+msgstr ""
+
+#: templates/about.html:129
+msgid ""
+"The Catalyst: In 2013, I led the front-end integration during the Auchan "
+"acquisition of real,-. I managed the transition for the cashier "
+"department, training 100+ staff on new systems and procedures to ensure a"
+" seamless merger."
+msgstr ""
+
+#: templates/about.html:132
+msgid ""
+"This path led me to become a Contact Center Coordinator and Business "
+"Analyst for the Loyalty & Care department. As a Salesforce specialist, I "
+"audited complex datasets and managed KPIs. I identified massive friction "
+"in manual processes and decided to stop just analyzing problems and start"
+" coding the solutions."
+msgstr ""
+
+#: templates/about.html:139
+msgid "Software & Automation Engineer"
+msgstr ""
+
+#: templates/about.html:141
+msgid ""
+"Leveraging 15+ years of operational experience to build technical "
+"solutions that solve real business problems. I focus on developing Python"
+" automation tools, custom data cleaning scripts, and AI-driven workflows "
+"(RAG) that eliminate the repetitive tasks I spent my earlier career "
+"navigating. I turn complex business logic into production-ready code."
+msgstr ""
+
+#: templates/about.html:150
+msgid "Let's build something efficient."
+msgstr ""
+
+#: templates/about.html:151
+msgid ""
+"Whether you have a messy spreadsheet or a manual process that needs to "
+"disappear, I'm ready to help."
+msgstr ""
+
+#: templates/about.html:154
+msgid "Get in Touch"
+msgstr ""
+
+#: templates/about.html:155
+msgid "View My Work →"
+msgstr ""
+
+#: templates/base.html:439 templates/base.html:699
+msgid "Projects"
+msgstr ""
+
+#: templates/base.html:445 templates/base.html:700
+msgid "Pricing"
+msgstr ""
+
+#: templates/base.html:457 templates/base.html:702
+msgid "Blog"
+msgstr ""
+
+#: templates/base.html:485 templates/base.html:703
+msgid "Contact"
+msgstr ""
+
+#: templates/base.html:676
+msgid ""
+"Python automation solutions for business operations. Building efficient "
+"tools that solve real problems."
+msgstr ""
+
+#: templates/base.html:696
+msgid "Quick Links"
+msgstr ""
+
+#: templates/base.html:701
+msgid "About Me"
+msgstr ""
+
+#: templates/base.html:710
+msgid "Resources"
+msgstr ""
+
+#: templates/base.html:726
+msgid "© 2025 Adriana Gropan. Built with Flask and Python."
+msgstr ""
+
+#: templates/blog.html:2 templates/blog.html:18
+msgid "Automation Wins"
+msgstr ""
+
+#: templates/blog.html:26
+msgid "Short stories. Real fixes. Zero fluff."
+msgstr ""
+
+#: templates/blog.html:93
+msgid "Read more"
+msgstr ""
+
+#: templates/blog.html:119
+msgid "From 450,000 messy rows to a clean dashboard in 84 seconds"
+msgstr ""
+
+#: templates/blog.html:127
+msgid "January 22, 2026"
+msgstr ""
+
+#: templates/blog.html:135
+msgid ""
+"I'd been drowning in Excel files scattered across 12 folders. One Python "
+"script changed everything."
+msgstr ""
+
+#: templates/blog.html:143 templates/blog.html:184
+msgid "Coming soon"
+msgstr ""
+
+#: templates/blog.html:160
+msgid "Why I stopped using Excel for client reports (and what I use now)"
+msgstr ""
+
+#: templates/blog.html:168
+msgid "January 20, 2026"
+msgstr ""
+
+#: templates/blog.html:176
+msgid ""
+"Manual formatting was killing my productivity. Here's the automated "
+"solution that saves 4 hours per report."
+msgstr ""
+
+#: templates/blog.html:204
+msgid "Need me to fix yours?"
+msgstr ""
+
+#: templates/blog.html:220
+msgid "Click for free audit"
+msgstr ""
+
+#: templates/contact.html:9
+msgid "Ready to Automate Your Workflow?"
+msgstr ""
+
+#: templates/contact.html:14
+msgid ""
+"Let's discuss your project. Reach out directly and I'll respond within 24"
+" hours on weekdays."
+msgstr ""
+
+#: templates/contact.html:23
+msgid "Email"
+msgstr ""
+
+#: templates/index.html:38
+msgid "Available for New Projects"
+msgstr ""
+
+#: templates/index.html:43
+msgid "Stop fighting with spreadsheets."
+msgstr ""
+
+#: templates/index.html:44
+msgid "I automate the struggle."
+msgstr ""
+
+#: templates/index.html:48
+msgid ""
+"15+ years of retail operations experience meeting modern Python "
+"automation. I build custom tools that transform hours of manual data work"
+" into seconds of code execution."
+msgstr ""
+
+#: templates/index.html:59
+msgid "Explore Solutions"
+msgstr ""
+
+#: templates/index.html:60
+msgid "Request Audit"
+msgstr ""
+
+#: templates/index.html:66
+msgid "Rows Processed"
+msgstr ""
+
+#: templates/index.html:70
+msgid "Execution Time"
+msgstr ""
+
+#: templates/index.html:74
+msgid "Ops Experience"
+msgstr ""
+
+#: templates/index.html:78
+msgid "Manual Error"
+msgstr ""
+
+#: templates/index.html:88
+msgid "Core Capabilities"
+msgstr ""
+
+#: templates/index.html:89
+msgid "Transforming operational pain into structured technical assets."
+msgstr ""
+
+#: templates/index.html:95
+msgid "Data Scrubbing"
+msgstr ""
+
+#: templates/index.html:96
+msgid ""
+"Merging fragmented CSV/Excel files, removing duplicates, and "
+"standardizing messy columns for professional reporting."
+msgstr ""
+
+#: templates/index.html:98
+msgid "File Merging (100+ files)"
+msgstr ""
+
+#: templates/index.html:99
+msgid "Format Standardization"
+msgstr ""
+
+#: templates/index.html:100
+msgid "Duplicate & Error Removal"
+msgstr ""
+
+#: templates/index.html:106
+msgid "Custom Workflow"
+msgstr ""
+
+#: templates/index.html:107
+msgid ""
+"Automating repetitive daily tasks like report generation, file "
+"organization, or data syncing between systems."
+msgstr ""
+
+#: templates/index.html:109
+msgid "Automated PDF Reports"
+msgstr ""
+
+#: templates/index.html:110
+msgid "Web Scraping & Collection"
+msgstr ""
+
+#: templates/index.html:111
+msgid "Custom Logic Integration"
+msgstr ""
+
+#: templates/index.html:121
+msgid "Code meets Operations"
+msgstr ""
+
+#: templates/index.html:123
+msgid ""
+"Most developers only see the syntax. Having spent 15+ years managing "
+"retail teams and data, I see the business impact."
+msgstr ""
+
+#: templates/index.html:126
+msgid ""
+"I don't just provide a script; I provide a solution that fits your actual"
+" day-to-day workflow."
+msgstr ""
+
+#: templates/index.html:131
+msgid "Production Ready"
+msgstr ""
+
+#: templates/index.html:132
+msgid "Tested, Documented, Supported"
+msgstr ""
+
+#: templates/index.html:135
+msgid "Fast Turnaround"
+msgstr ""
+
+#: templates/index.html:136
+msgid "2-5 Day Average Delivery"
+msgstr ""
+
+#: templates/index.html:139
+msgid "Secure Handling"
+msgstr ""
+
+#: templates/index.html:140
+msgid "Local Processing (No Cloud Risks)"
+msgstr ""
+
+#: templates/index.html:148
+msgid "Ready to save those hours?"
+msgstr ""
+
+#: templates/index.html:149
+msgid ""
+"Send me a brief description of your manual process. I'll tell you within "
+"24 hours if it can be automated."
+msgstr ""
+
+#: templates/index.html:150 templates/projects/index.html:105
+msgid "Get a Free Audit"
+msgstr ""
+
+#: templates/pricing.html:2 templates/pricing.html:75
+msgid "Data Cleaning Services"
+msgstr ""
+
+#: templates/pricing.html:76
+msgid ""
+"I transform messy, fragmented Excel and CSV files into structured, "
+"reliable datasets."
+msgstr ""
+
+#: templates/pricing.html:88
+msgid "Quick Cleanup"
+msgstr ""
+
+#: templates/pricing.html:91
+msgid "Perfect for one-off tasks"
+msgstr ""
+
+#: templates/pricing.html:100
+msgid "Up to 5,000 rows"
+msgstr ""
+
+#: templates/pricing.html:101
+msgid "Remove duplicates"
+msgstr ""
+
+#: templates/pricing.html:102
+msgid "Format standardization"
+msgstr ""
+
+#: templates/pricing.html:103
+msgid "24–48h delivery"
+msgstr ""
+
+#: templates/pricing.html:108 templates/pricing.html:136
+msgid "Get Started"
+msgstr ""
+
+#: templates/pricing.html:114
+msgid "Most Popular"
+msgstr ""
+
+#: templates/pricing.html:116
+msgid "Business Dataset"
+msgstr ""
+
+#: templates/pricing.html:119
+msgid "For professional reporting"
+msgstr ""
+
+#: templates/pricing.html:128
+msgid "Up to 25,000 rows"
+msgstr ""
+
+#: templates/pricing.html:129
+msgid "Custom logic & rules"
+msgstr ""
+
+#: templates/pricing.html:130
+msgid "Data validation"
+msgstr ""
+
+#: templates/pricing.html:131
+msgid "Quality audit summary"
+msgstr ""
+
+#: templates/pricing.html:143
+msgid "Complex Project"
+msgstr ""
+
+#: templates/pricing.html:146
+msgid "Large scale automation"
+msgstr ""
+
+#: templates/pricing.html:155
+msgid "Up to 100,000 rows"
+msgstr ""
+
+#: templates/pricing.html:156
+msgid "Merging multiple files"
+msgstr ""
+
+#: templates/pricing.html:157
+msgid "Advanced Python scripts"
+msgstr ""
+
+#: templates/pricing.html:158
+msgid "Technical documentation"
+msgstr ""
+
+#: templates/pricing.html:163
+msgid "Inquire Now"
+msgstr ""
+
+#: templates/pricing.html:175
+msgid "How the process works"
+msgstr ""
+
+#: templates/pricing.html:182
+msgid "1. Upload"
+msgstr ""
+
+#: templates/pricing.html:185
+msgid "Email your messy file and explain what needs cleaning"
+msgstr ""
+
+#: templates/pricing.html:192
+msgid "2. Clean"
+msgstr ""
+
+#: templates/pricing.html:195
+msgid "I apply Python automation to scrub and structure your data"
+msgstr ""
+
+#: templates/pricing.html:202
+msgid "3. Deliver"
+msgstr ""
+
+#: templates/pricing.html:205
+msgid "Receive clean files and a summary of all changes made"
+msgstr ""
+
+#: templates/pricing.html:212
+msgid "One revision included if adjustments are needed"
+msgstr ""
+
+#: templates/pricing.html:223
+msgid "Not sure which option you need?"
+msgstr ""
+
+#: templates/pricing.html:226
+msgid ""
+"Send me a sample of your data, and I'll give you a free assessment within"
+" 24 hours."
+msgstr ""
+
+#: templates/pricing.html:230
+msgid "Get a Free Assessment →"
+msgstr ""
+
+#: templates/projects/index.html:41
+msgid "Automation"
+msgstr ""
+
+#: templates/projects/index.html:41
+msgid "Portfolio"
+msgstr ""
+
+#: templates/projects/index.html:42
+msgid ""
+"Custom Python tools designed to transform manual business workflows into "
+"efficient code."
+msgstr ""
+
+#: templates/projects/index.html:83
+msgid "Explore Solution"
+msgstr ""
+
+#: templates/projects/index.html:96
+msgid "It's not impossible, you just haven't found a way yet."
+msgstr ""
+
+#: templates/projects/index.html:101
+msgid "Have a manual workflow to automate?"
+msgstr ""
+
+#: templates/projects/index.html:103
+msgid ""
+"I specialize in turning messy operational data into clean, automated "
+"assets."
+msgstr ""
+

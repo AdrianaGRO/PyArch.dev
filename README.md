@@ -1,92 +1,108 @@
-# PyArch.dev - Professional Data Automation Services
+# PyArch.dev - Professional Data Automation Portfolio
 
-A professional Flask-based website showcasing data automation services with an integrated blog.
+A modern Flask-based portfolio website showcasing data automation services with integrated blog functionality and professional service offerings.
 
-## Features
+## 🏗️ Project Structure
 
-- **Service Pages**: Professional pricing and service information
-- **Responsive Design**: Clean, modern design that works on all devices
-- **Blog Integration**: Markdown-powered blog with syntax highlighting
-- **Image Upload**: Support for service demonstrations and blog images
-- **Authentication**: Secure admin access for content management
-- **Professional Portfolio**: Showcase of automation tools and experience
-
-## Installation
-
-1. Clone this repository:
-```bash
-git clone https://github.com/yourusername/pyarch.dev.git
-cd pyarch.dev
+```
+PyArch.dev/
+├── app/                    # Core application logic
+│   ├── app.py              # Flask routes and configuration
+│   ├── helpers.py          # Utility functions (auth, data management)
+│   └── config.py           # Application configuration
+├── content/                # Business data (JSON)
+│   ├── posts.json          # Blog posts content
+│   ├── projects.json       # Portfolio projects
+│   └── pricing.json        # Service pricing tiers
+├── frontend/               # User interface
+│   ├── templates/          # Jinja2 HTML templates
+│   └── static/             # CSS, JavaScript, images
+├── tools/                  # Development utilities
+│   ├── babel.cfg           # Translation configuration
+│   ├── setup_translations.sh   # New language setup
+│   └── translations/       # i18n language files
+├── run.py                  # Application entry point
+└── requirements.txt        # Python dependencies
 ```
 
-2. Install the requirements:
-```bash
-pip install -r requirements.txt
-```
+## 🚀 Quick Start
 
-3. Create a `.env` file in the root directory with your credentials:
-```
-FLASK_APP=app.py
-FLASK_ENV=development
-BLOG_ADMIN_USERNAME=your_username
-BLOG_ADMIN_PASSWORD=your_secure_password
-SECRET_KEY=your_secret_key_here
-```
+### Prerequisites
+- Python 3.8+
+- Virtual environment (recommended)
 
-4. Run the application:
-```bash
-flask run
-```
+### Setup & Installation
 
-## Deploying to PythonAnywhere
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/AdrianaGRO/PyArch.dev.git
+   cd PyArch.dev
+   ```
 
-1. Sign up for a free [PythonAnywhere](https://www.pythonanywhere.com) account.
+2. **Create virtual environment**
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+   ```
 
-2. Go to the Dashboard and click on "Web" > "Add a new web app".
+3. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-3. Choose "Flask" and the latest Python version.
+4. **Configure environment**
+   ```bash
+   cp .env.example .env  # Create your .env file
+   # Edit .env with your configuration
+   ```
 
-4. In "Files" section, upload your project files or clone from your git repository:
-```bash
-git clone https://github.com/yourusername/pyarch.dev.git
-```
+5. **Run the application**
+   ```bash
+   python run.py
+   ```
 
-5. Create a virtual environment and install dependencies:
-```bash
-mkvirtualenv --python=python3.9 myflaskblog
-cd pyarch.dev
-pip install -r requirements.txt
-```
+6. **Access the website**
+   ```
+   http://localhost:5003
+   ```
 
-6. Configure environment variables:
-   - Go to the "Web" tab
-   - Click on "Environment" under your web app configuration
-   - Add the following variables:
-     - BLOG_ADMIN_USERNAME
-     - BLOG_ADMIN_PASSWORD
-     - SECRET_KEY
+## ✨ Key Features
 
-7. Update the WSGI configuration file to point to your app:
-```python
-import sys
-import os
+- **🎯 Professional Portfolio** - Showcase of data automation projects and services
+- **📝 Dynamic Blog** - Markdown-powered blog with syntax highlighting
+- **🔐 Admin Dashboard** - Secure content management system
+- **📱 Responsive Design** - Mobile-first, modern UI/UX
+- **🌐 Internationalization** - Multi-language support infrastructure
+- **⚡ Performance Optimized** - Clean, efficient Flask architecture
+- **📊 Service Pages** - Professional pricing and service information
+- **🖼️ Media Support** - Image upload and management capabilities
 
-path = '/home/yourusername/pyarch.dev'
-if path not in sys.path:
-    sys.path.append(path)
+## 🌐 Internationalization (i18n)
 
-from app import app as application
-```
+Translation infrastructure is located in the `tools/` directory:
 
-8. Reload your web app, and it should be live at yourusername.pythonanywhere.com
+- **Translation Management**: Use scripts in `tools/` for adding new languages
+- **Current Status**: English-only (Romanian/Spanish temporarily disabled for quality assurance)
+- **Adding Languages**: Run `./tools/setup_translations.sh <language_code>`
+- **Documentation**: See `tools/README.md` for detailed translation workflow
 
-## Security Notes
+## 🛠️ Development
 
-- Always use strong, unique passwords for your admin login
-- In production, ensure your SECRET_KEY is a complex random string
-- Never expose your .env file or credentials in public repositories
-- Regularly update dependencies to address security vulnerabilities
+### Project Philosophy
+This project prioritizes **clarity and maintainability** over architectural complexity. The structure is designed for:
+- **Easy Navigation** - Clear separation of concerns
+- **Beginner Friendly** - Minimal abstraction, maximum clarity  
+- **Professional Quality** - Clean, production-ready code
 
-## License
+### Architecture Decisions
+- **Consolidated Helpers** - All utilities in single `helpers.py` file
+- **Content-Driven** - Business data separated from application logic
+- **Template-First** - Frontend assets organized for easy modification
 
-MIT License
+## 📄 License
+
+MIT License - See LICENSE file for details
+
+---
+
+**Live Demo**: [pyarch.dev](https://pyarch.dev) | **Author**: [Adriana Gropan](https://github.com/AdrianaGRO)

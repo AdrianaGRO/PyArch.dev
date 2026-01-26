@@ -1,0 +1,762 @@
+# Romanian translations for PROJECT.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-01-22 11:35+0200\n"
+"PO-Revision-Date: 2026-01-21 08:52+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ro\n"
+"Language-Team: ro <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100"
+" < 20)) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: templates/about.html:73 templates/base.html:451
+msgid "About"
+msgstr "Despre"
+
+#: templates/about.html:73
+msgid "Me"
+msgstr "Mine"
+
+#: templates/about.html:75
+msgid ""
+"Bridging the gap between complex business operations and elegant Python "
+"automation."
+msgstr ""
+"Expertiza operațională întâlnește automatizarea Python de nivel "
+"enterprise."
+
+#: templates/about.html:97
+msgid "The Journey"
+msgstr "Parcursul profesional"
+
+#: templates/about.html:99
+msgid ""
+"As a business analyst, I spent years navigating limitations. \"It's "
+"impossible\" was a phrase I heard too often when trying to optimize "
+"workflows. This frustration became my catalyst."
+msgstr ""
+"În calitate de analist de afaceri, am petrecut ani întregi depășind "
+"limitări tehnice. \"Este imposibil\" era răspunsul pe care îl auzeam prea"
+" des când propuneam optimizări de proces. Această frustrare a devenit "
+"motorul transformării mele profesionale."
+
+#: templates/about.html:103
+msgid ""
+"I don't just write code; I translate operational pain into technical "
+"solutions."
+msgstr ""
+"Nu dezvol doar cod. Transform complexitatea operațională în soluții "
+"tehnice scalabile."
+
+# Premium Romanian translations - Additional entries
+#: templates/about.html:111
+msgid "Professional Roadmap"
+msgstr "Traiectorie profesională"
+
+#: templates/about.html:118
+msgid "Head of Cashier & Pricing Analyst @ real,- Hypermarket"
+msgstr "Șef Departament Casieri & Analist Prețuri @ real,- Hypermarket"
+
+#: templates/about.html:120
+msgid ""
+"Managed diverse teams across pricing and front-end operations. I "
+"established data foundations for pricing strategies and served as Head of"
+" Cashier, where I managed high-volume store operations and team "
+"development plans for over 100 employees."
+msgstr ""
+"Am coordonat echipe multifuncționale în operațiuni front-end și strategii"
+" de prețuri. Am stabilit infrastructura de date pentru strategiile de "
+"pricing și am gestionat operațiunile în magazine cu volum ridicat, "
+"inclusiv planurile de dezvoltare pentru peste 100 de angajați."
+
+#: templates/about.html:127
+msgid "Business Analyst & Coordinator @ Auchan Retail"
+msgstr "Analist de Afaceri & Coordonator @ Auchan Retail"
+
+#: templates/about.html:129
+msgid ""
+"The Catalyst: In 2013, I led the front-end integration during the Auchan "
+"acquisition of real,-. I managed the transition for the cashier "
+"department, training 100+ staff on new systems and procedures to ensure a"
+" seamless merger."
+msgstr ""
+"Punctul de cotitură: În 2013, am coordonat integrarea operațională în "
+"cadrul achiziției real,- de către Auchan. Am gestionat tranziția pentru "
+"departamentul de casieri, instruind peste 100 de angajați pe noi sisteme "
+"și proceduri pentru a asigura o fuziune fără probleme."
+
+#: templates/about.html:132
+msgid ""
+"This path led me to become a Contact Center Coordinator and Business "
+"Analyst for the Loyalty & Care department. As a Salesforce specialist, I "
+"audited complex datasets and managed KPIs. I identified massive friction "
+"in manual processes and decided to stop just analyzing problems and start"
+" coding the solutions."
+msgstr ""
+"Acest rol m-a condus către poziția de Coordonator Contact Center și "
+"Analist de Afaceri pentru departamentul Loyalty & Care. Ca specialist "
+"Salesforce, am auditat seturi complexe de date și am gestionat KPI-uri "
+"operaționale. Am identificat fricțiuni masive în procesele manuale și am "
+"decis să nu mai analizez doar problemele, ci să dezvolt soluțiile "
+"tehnice."
+
+#: templates/about.html:139
+msgid "Software & Automation Engineer"
+msgstr "Inginer Software & Automatizare"
+
+#: templates/about.html:141
+msgid ""
+"Leveraging 15+ years of operational experience to build technical "
+"solutions that solve real business problems. I focus on developing Python"
+" automation tools, custom data cleaning scripts, and AI-driven workflows "
+"(RAG) that eliminate the repetitive tasks I spent my earlier career "
+"navigating. I turn complex business logic into production-ready code."
+msgstr ""
+"Valorific 15+ ani de experiență operațională pentru a dezvolta soluții "
+"tehnice care rezolvă probleme reale de business. Mă concentrez pe "
+"instrumente de automatizare Python, scripturi personalizate de curățare a"
+" datelor și fluxuri de lucru bazate pe inteligență artificială (RAG) care"
+" elimină sarcinile repetitive cu care m-am confruntat în cariera "
+"operațională. Transform logica de afaceri complexă în cod production-"
+"ready."
+
+#: templates/about.html:150
+msgid "Let's build something efficient."
+msgstr "Să construim împreună eficiență operațională."
+
+#: templates/about.html:151
+msgid ""
+"Whether you have a messy spreadsheet or a manual process that needs to "
+"disappear, I'm ready to help."
+msgstr ""
+"Indiferent dacă aveți fișiere Excel dezorganizate sau procese manuale ce "
+"necesită automatizare, sunt pregătită să ajut."
+
+#: templates/about.html:154
+msgid "Get in Touch"
+msgstr "Ia legătura"
+
+#: templates/about.html:155
+msgid "View My Work →"
+msgstr "Vezi portofoliul →"
+
+#: templates/base.html:439 templates/base.html:699
+msgid "Projects"
+msgstr "Proiecte"
+
+#: templates/base.html:445 templates/base.html:700
+msgid "Pricing"
+msgstr "Prețuri"
+
+#: templates/base.html:457 templates/base.html:702
+msgid "Blog"
+msgstr "Blog"
+
+#: templates/base.html:485 templates/base.html:703
+msgid "Contact"
+msgstr "Contact"
+
+#: templates/base.html:676
+msgid ""
+"Python automation solutions for business operations. Building efficient "
+"tools that solve real problems."
+msgstr ""
+"Soluții de automatizare Python pentru operațiuni de afaceri. Construind "
+"instrumente eficiente care rezolvă probleme reale."
+
+#: templates/base.html:696
+msgid "Quick Links"
+msgstr "Link-uri rapide"
+
+#: templates/base.html:701
+msgid "About Me"
+msgstr "Despre mine"
+
+#: templates/base.html:710
+msgid "Resources"
+msgstr "Resurse"
+
+#: templates/base.html:726
+msgid "© 2025 Adriana Gropan. Built with Flask and Python."
+msgstr "© 2025 Adriana Gropan. Construit cu Flask și Python."
+
+#: templates/blog.html:2 templates/blog.html:18
+#, fuzzy
+msgid "Automation Wins"
+msgstr "Automatizare"
+
+#: templates/blog.html:26
+msgid "Short stories. Real fixes. Zero fluff."
+msgstr "Povești scurte. Soluții reale. Fără flecăreală."
+
+#: templates/blog.html:93
+msgid "Read more"
+msgstr "Citește mai mult"
+
+#: templates/blog.html:119
+msgid "From 450,000 messy rows to a clean dashboard in 84 seconds"
+msgstr "De la 450.000 de rânduri dezordonate la un dashboard curat în 84 de secunde"
+
+#: templates/blog.html:127
+msgid "January 22, 2026"
+msgstr "22 ianuarie 2026"
+
+#: templates/blog.html:135
+msgid ""
+"I'd been drowning in Excel files scattered across 12 folders. One Python "
+"script changed everything."
+msgstr ""
+
+#: templates/blog.html:143 templates/blog.html:184
+msgid "Coming soon"
+msgstr "În curând"
+
+#: templates/blog.html:160
+msgid "Why I stopped using Excel for client reports (and what I use now)"
+msgstr "De ce am renunțat la Excel pentru rapoartele clienților (și ce folosesc acum)"
+
+#: templates/blog.html:168
+msgid "January 20, 2026"
+msgstr "20 ianuarie 2026"
+
+#: templates/blog.html:176
+msgid ""
+"Manual formatting was killing my productivity. Here's the automated "
+"solution that saves 4 hours per report."
+msgstr ""
+
+#: templates/blog.html:204
+msgid "Need me to fix yours?"
+msgstr "Ai nevoie să îți rezolv problema?"
+
+#: templates/blog.html:220
+#, fuzzy
+msgid "Click for free audit"
+msgstr "Solicită audit gratuit"
+
+#: templates/contact.html:9
+msgid "Ready to Automate Your Workflow?"
+msgstr "Pregătit să automatizezi fluxurile de lucru?"
+
+#: templates/contact.html:14
+msgid ""
+"Let's discuss your project. Reach out directly and I'll respond within 24"
+" hours on weekdays."
+msgstr ""
+"Să discutăm despre proiectul dumneavoastră. Contactați-mă direct și voi "
+"răspunde în 24 de ore în zilele lucrătoare."
+
+#: templates/contact.html:23
+msgid "Email"
+msgstr "Email"
+
+#: templates/index.html:38
+msgid "Available for New Projects"
+msgstr "Disponibilă pentru proiecte noi"
+
+#: templates/index.html:43
+msgid "Stop fighting with spreadsheets."
+msgstr "Sisteme de afaceri care funcționează fără intervenție manuală."
+
+#: templates/index.html:44
+msgid "I automate the struggle."
+msgstr "Automatizare Python pentru operațiuni eficiente."
+
+#: templates/index.html:48
+msgid ""
+"15+ years of retail operations experience meeting modern Python "
+"automation. I build custom tools that transform hours of manual data work"
+" into seconds of code execution."
+msgstr ""
+"Cu peste 15 ani de experiență în managementul operațiunilor de retail, "
+"dezvolt soluții personalizate de automatizare prin Python care transformă"
+" procesarea manuală a datelor, consumatoare de timp, în execuții rapide, "
+"scalabile și fără erori."
+
+#: templates/index.html:59
+msgid "Explore Solutions"
+msgstr "Explorează soluțiile"
+
+#: templates/index.html:60
+msgid "Request Audit"
+msgstr "Solicită audit gratuit"
+
+#: templates/index.html:66
+msgid "Rows Processed"
+msgstr "Rânduri procesate"
+
+#: templates/index.html:70
+msgid "Execution Time"
+msgstr "Timp de execuție"
+
+#: templates/index.html:74
+msgid "Ops Experience"
+msgstr "Experiență operațională"
+
+#: templates/index.html:78
+msgid "Manual Error"
+msgstr "Eroare umană"
+
+#: templates/index.html:88
+msgid "Core Capabilities"
+msgstr "Competențe principale"
+
+#: templates/index.html:89
+msgid "Transforming operational pain into structured technical assets."
+msgstr "Transformăm provocările operaționale în infrastructură digitală eficientă."
+
+#: templates/index.html:95
+msgid "Data Scrubbing"
+msgstr "Curățare date profesională"
+
+#: templates/index.html:96
+msgid ""
+"Merging fragmented CSV/Excel files, removing duplicates, and "
+"standardizing messy columns for professional reporting."
+msgstr ""
+"Consolidare fișiere CSV și Excel fragmentate, eliminarea duplicatelor și "
+"standardizarea structurii de date pentru raportare de nivel enterprise."
+
+#: templates/index.html:98
+msgid "File Merging (100+ files)"
+msgstr "Consolidare fișiere (100+ surse)"
+
+#: templates/index.html:99
+msgid "Format Standardization"
+msgstr "Standardizare formate"
+
+#: templates/index.html:100
+msgid "Duplicate & Error Removal"
+msgstr "Eliminare duplicate și erori"
+
+#: templates/index.html:106
+msgid "Custom Workflow"
+msgstr "Automatizare fluxuri de lucru"
+
+#: templates/index.html:107
+msgid ""
+"Automating repetitive daily tasks like report generation, file "
+"organization, or data syncing between systems."
+msgstr ""
+"Automatizarea sarcinilor repetitive: generarea de rapoarte, organizarea "
+"fișierelor sau sincronizarea datelor între sisteme operaționale."
+
+#: templates/index.html:109
+msgid "Automated PDF Reports"
+msgstr "Rapoarte PDF automate"
+
+#: templates/index.html:110
+msgid "Web Scraping & Collection"
+msgstr "Extracție date web"
+
+#: templates/index.html:111
+msgid "Custom Logic Integration"
+msgstr "Integrare logică personalizată"
+
+#: templates/index.html:121
+msgid "Code meets Operations"
+msgstr "Tehnologie aplicată operațiunilor de afaceri"
+
+#: templates/index.html:123
+msgid ""
+"Most developers only see the syntax. Having spent 15+ years managing "
+"retail teams and data, I see the business impact."
+msgstr ""
+"Majoritatea dezvoltatorilor văd doar codul. Cu 15+ ani de experiență în "
+"managementul echipelor și proceselor de retail, înțeleg impactul direct "
+"asupra eficienței operaționale."
+
+#: templates/index.html:126
+msgid ""
+"I don't just provide a script; I provide a solution that fits your actual"
+" day-to-day workflow."
+msgstr ""
+"Nu furnizez doar scripturi. Livrez soluții integrate în fluxul "
+"dumneavoastră de lucru cotidian, adaptate nevoilor reale ale afacerii."
+
+#: templates/index.html:131
+msgid "Production Ready"
+msgstr "Gata de implementare"
+
+#: templates/index.html:132
+msgid "Tested, Documented, Supported"
+msgstr "Testat, documentat, suportat"
+
+#: templates/index.html:135
+msgid "Fast Turnaround"
+msgstr "Livrare rapidă"
+
+#: templates/index.html:136
+msgid "2-5 Day Average Delivery"
+msgstr "2-5 zile în medie"
+
+#: templates/index.html:139
+msgid "Secure Handling"
+msgstr "Procesare securizată"
+
+#: templates/index.html:140
+msgid "Local Processing (No Cloud Risks)"
+msgstr "Execuție locală, fără riscuri cloud"
+
+#: templates/index.html:148
+msgid "Ready to save those hours?"
+msgstr "Pregătit să economisești ore valoroase?"
+
+#: templates/index.html:149
+msgid ""
+"Send me a brief description of your manual process. I'll tell you within "
+"24 hours if it can be automated."
+msgstr ""
+"Trimite o descriere scurtă a procesului tău manual. Voi răspunde în 24 de"
+" ore dacă poate fi automatizat și cum."
+
+#: templates/index.html:150 templates/projects/index.html:105
+msgid "Get a Free Audit"
+msgstr "Solicită audit gratuit"
+
+#: templates/pricing.html:2 templates/pricing.html:75
+msgid "Data Cleaning Services"
+msgstr "Servicii de curățare și structurare date"
+
+#: templates/pricing.html:76
+msgid ""
+"I transform messy, fragmented Excel and CSV files into structured, "
+"reliable datasets."
+msgstr ""
+"Transform fișiere Excel și CSV fragmentate, dezorganizate în seturi de "
+"date structurate, de încredere, ready for analysis."
+
+#: templates/pricing.html:88
+msgid "Quick Cleanup"
+msgstr "Curățare rapidă"
+
+#: templates/pricing.html:91
+msgid "Perfect for one-off tasks"
+msgstr "Ideal pentru sarcini punctuale"
+
+#: templates/pricing.html:100
+msgid "Up to 5,000 rows"
+msgstr "Până la 5.000 de rânduri"
+
+#: templates/pricing.html:101
+msgid "Remove duplicates"
+msgstr "Eliminare duplicate"
+
+#: templates/pricing.html:102
+msgid "Format standardization"
+msgstr "Standardizare formate"
+
+#: templates/pricing.html:103
+msgid "24–48h delivery"
+msgstr "Livrare în 24–48h"
+
+#: templates/pricing.html:108 templates/pricing.html:136
+msgid "Get Started"
+msgstr "Începe acum"
+
+#: templates/pricing.html:114
+msgid "Most Popular"
+msgstr "Cel mai solicitat"
+
+#: templates/pricing.html:116
+msgid "Business Dataset"
+msgstr "Set de date pentru afaceri"
+
+#: templates/pricing.html:119
+msgid "For professional reporting"
+msgstr "Pentru raportare profesională"
+
+#: templates/pricing.html:128
+msgid "Up to 25,000 rows"
+msgstr "Până la 25.000 de rânduri"
+
+#: templates/pricing.html:129
+msgid "Custom logic & rules"
+msgstr "Logică și reguli personalizate"
+
+#: templates/pricing.html:130
+msgid "Data validation"
+msgstr "Validare date"
+
+#: templates/pricing.html:131
+msgid "Quality audit summary"
+msgstr "Raport de audit calitate"
+
+#: templates/pricing.html:143
+msgid "Complex Project"
+msgstr "Proiect complex"
+
+#: templates/pricing.html:146
+msgid "Large scale automation"
+msgstr "Automatizare la scară largă"
+
+#: templates/pricing.html:155
+msgid "Up to 100,000 rows"
+msgstr "Până la 100.000 de rânduri"
+
+#: templates/pricing.html:156
+msgid "Merging multiple files"
+msgstr "Consolidare fișiere multiple"
+
+#: templates/pricing.html:157
+msgid "Advanced Python scripts"
+msgstr "Scripturi Python avansate"
+
+#: templates/pricing.html:158
+msgid "Technical documentation"
+msgstr "Documentație tehnică"
+
+#: templates/pricing.html:163
+msgid "Inquire Now"
+msgstr "Solicită ofertă"
+
+#: templates/pricing.html:175
+msgid "How the process works"
+msgstr "Cum funcționează procesul"
+
+#: templates/pricing.html:182
+msgid "1. Upload"
+msgstr "1. Încărcare"
+
+#: templates/pricing.html:185
+msgid "Email your messy file and explain what needs cleaning"
+msgstr "Trimite fișierele tale dezorganizate și explică ce necesită curățare"
+
+#: templates/pricing.html:192
+msgid "2. Clean"
+msgstr "2. Procesare"
+
+#: templates/pricing.html:195
+msgid "I apply Python automation to scrub and structure your data"
+msgstr "Aplic automatizare Python pentru curățarea și structurarea datelor"
+
+#: templates/pricing.html:202
+msgid "3. Deliver"
+msgstr "3. Livrare"
+
+#: templates/pricing.html:205
+msgid "Receive clean files and a summary of all changes made"
+msgstr "Primești fișiere curate și un raport complet al modificărilor"
+
+#: templates/pricing.html:212
+msgid "One revision included if adjustments are needed"
+msgstr "O revizuire inclusă dacă sunt necesare ajustări"
+
+#: templates/pricing.html:223
+msgid "Not sure which option you need?"
+msgstr "Nu știi ce opțiune este potrivită?"
+
+#: templates/pricing.html:226
+msgid ""
+"Send me a sample of your data, and I'll give you a free assessment within"
+" 24 hours."
+msgstr ""
+"Trimite un eșantion al datelor tale și voi oferi o evaluare gratuită în "
+"24 de ore."
+
+#: templates/pricing.html:230
+msgid "Get a Free Assessment →"
+msgstr "Solicită evaluare gratuită →"
+
+#: templates/projects/index.html:41
+msgid "Automation"
+msgstr "Automatizare"
+
+#: templates/projects/index.html:41
+msgid "Portfolio"
+msgstr "Portofoliu"
+
+#: templates/projects/index.html:42
+msgid ""
+"Custom Python tools designed to transform manual business workflows into "
+"efficient code."
+msgstr ""
+"Instrumente Python personalizate concepute pentru a transforma fluxurile "
+"de lucru manuale în procese automatizate eficiente."
+
+#: templates/projects/index.html:83
+msgid "Explore Solution"
+msgstr "Explorează soluția"
+
+#: templates/projects/index.html:96
+msgid "It's not impossible, you just haven't found a way yet."
+msgstr "Nu este imposibil, doar nu ai găsit încă o modalitate."
+
+#: templates/projects/index.html:101
+msgid "Have a manual workflow to automate?"
+msgstr "Ai un flux de lucru manual de automatizat?"
+
+#: templates/projects/index.html:103
+msgid ""
+"I specialize in turning messy operational data into clean, automated "
+"assets."
+msgstr ""
+"Mă specializez în transformarea datelor operaționale dezorganizate în "
+"active automatizate și curate."
+
+#~ msgid "Response Time"
+#~ msgstr "Timp de răspuns"
+
+#~ msgid "Within 24 hours on weekdays"
+#~ msgstr "În 24 de ore în zilele lucrătoare"
+
+#~ msgid "Based in Bucharest • Available for remote automation projects"
+#~ msgstr ""
+#~ "Cu sediul în București • Disponibilă "
+#~ "pentru proiecte de automatizare la "
+#~ "distanță"
+
+#~ msgid "Read post →"
+#~ msgstr "Citește articolul →"
+
+#~ msgid "No Posts Yet"
+#~ msgstr "Niciun articol încă"
+
+#~ msgid "Check back soon for updates on my automation journey."
+#~ msgstr ""
+#~ "Revino în curând pentru actualizări "
+#~ "despre parcursul meu în automatizare."
+
+#~ msgid "Edit Post"
+#~ msgstr "Editează articolul"
+
+#~ msgid "Delete Post"
+#~ msgstr "Șterge articolul"
+
+#~ msgid "← Back to Blog"
+#~ msgstr "← Înapoi la Blog"
+
+#~ msgid "Login"
+#~ msgstr "Autentificare"
+
+#~ msgid "Please log in to manage posts"
+#~ msgstr "Vă rugăm să vă autentificați pentru a gestiona articolele"
+
+#~ msgid "Username"
+#~ msgstr "Nume utilizator"
+
+#~ msgid "Password"
+#~ msgstr "Parolă"
+
+#~ msgid "Create New Post"
+#~ msgstr "Creează articol nou"
+
+#~ msgid "Share your latest Python learnings, projects, or thoughts."
+#~ msgstr ""
+#~ "Împărtășește cele mai recente învățături "
+#~ "Python, proiecte sau reflecții."
+
+#~ msgid "Title"
+#~ msgstr "Titlu"
+
+#~ msgid "Content (Supports Markdown formatting)"
+#~ msgstr "Conținut (Suportă formatare Markdown)"
+
+#~ msgid "Categories & Tags"
+#~ msgstr "Categorii și etichete"
+
+#~ msgid ""
+#~ "Format: Main category, tag1, tag2, etc."
+#~ " The first item will be the "
+#~ "main category."
+#~ msgstr ""
+#~ "Format: Categorie principală, etichetă1, "
+#~ "etichetă2, etc. Primul element va fi "
+#~ "categoria principală."
+
+#~ msgid "Upload Image (Optional)"
+#~ msgstr "Încarcă imagine (Opțional)"
+
+#~ msgid "Choose an image"
+#~ msgstr "Alege o imagine"
+
+#~ msgid "Markdown Formatting Guide"
+#~ msgstr "Ghid formatare Markdown"
+
+#~ msgid "Heading 1"
+#~ msgstr "Titlu 1"
+
+#~ msgid "Heading 2"
+#~ msgstr "Titlu 2"
+
+#~ msgid "Bold"
+#~ msgstr "Bold"
+
+#~ msgid "Italic"
+#~ msgstr "Italic"
+
+#~ msgid "Link"
+#~ msgstr "Link"
+
+#~ msgid "Image"
+#~ msgstr "Imagine"
+
+#~ msgid "List"
+#~ msgstr "Listă"
+
+#~ msgid "Numbered"
+#~ msgstr "Numerotată"
+
+#~ msgid "Code"
+#~ msgstr "Cod"
+
+#~ msgid "Quote"
+#~ msgstr "Citat"
+
+#~ msgid "Adding Images"
+#~ msgstr "Adăugare imagini"
+
+#~ msgid "You can add images to your post in two ways:"
+#~ msgstr "Poți adăuga imagini în articol în două moduri:"
+
+#~ msgid ""
+#~ "1. Direct Upload: Use the file "
+#~ "upload field above to directly upload"
+#~ " an image"
+#~ msgstr ""
+#~ "1. Încărcare directă: Folosește câmpul "
+#~ "de încărcare fișiere de mai sus "
+#~ "pentru a încărca direct o imagine"
+
+#~ msgid ""
+#~ "2. External Image: If you want to"
+#~ " use an image from the web, use"
+#~ " the syntax: ![description](image-url)"
+#~ msgstr ""
+#~ "2. Imagine externă: Dacă vrei să "
+#~ "folosești o imagine de pe web, "
+#~ "folosește sintaxa: ![descriere](url-imagine)"
+
+#~ msgid "Supported formats: JPEG, PNG, GIF, WEBP (Max 16MB)"
+#~ msgstr "Formate suportate: JPEG, PNG, GIF, WEBP (Max 16MB)"
+
+#~ msgid "Create Post"
+#~ msgstr "Creează articol"
+
+#~ msgid "Cancel"
+#~ msgstr "Anulează"
+
+#~ msgid "Update your post content, categories, or add new images."
+#~ msgstr ""
+#~ "Actualizează conținutul articolului, categoriile "
+#~ "sau adaugă imagini noi."
+
+#~ msgid "Save Changes"
+#~ msgstr "Salvează modificările"
+
+#~ msgid "Learning Journal"
+#~ msgstr "Jurnal de învățare"
+
+#~ msgid "What I'm learning, what breaks, what works."
+#~ msgstr "Ce învăț, ce nu funcționează, ce funcționează."
+

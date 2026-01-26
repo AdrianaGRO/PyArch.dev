@@ -1,0 +1,160 @@
+{% extends "base.html" %}
+{% block title %}About Me - Adriana Gropan{% endblock %}
+{% block content %}
+
+<style>
+    /* Elegant Code Window */
+    .code-window {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-lg);
+        font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        padding: var(--space-lg);
+        margin: var(--space-xl) 0;
+        position: relative;
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+    }
+
+    .code-header {
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 30px;
+        background: var(--bg-elevated);
+        border-bottom: 1px solid var(--border-color);
+        display: flex;
+        align-items: center;
+        padding: 0 15px;
+        gap: 8px;
+    }
+
+    .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .red { background: #ff5f56; } .yellow { background: #ffbd2e; } .green { background: #27ca3f; }
+
+    .code-content { margin-top: 25px; color: var(--text-primary); }
+    .code-key { color: var(--accent-blue); }
+    .code-string { color: var(--accent-green); }
+    .code-comment { color: var(--text-muted); font-style: italic; }
+
+    /* Timeline Improvements */
+    .timeline-item {
+        position: relative;
+        margin-bottom: var(--space-lg);
+        padding: var(--space-xl);
+        margin-left: var(--space-xl);
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-lg);
+        transition: transform 0.3s ease;
+    }
+    .timeline-item:hover { transform: translateX(10px); border-color: var(--accent-blue); }
+    .timeline-dot {
+        position: absolute;
+        left: calc(-1 * var(--space-xl) - var(--space-md) - 6px);
+        top: var(--space-lg);
+        width: 16px; height: 16px;
+        background: var(--accent-blue);
+        border-radius: 50%;
+        border: 3px solid var(--bg-card);
+    }
+    .timeline-dot.current { background: var(--accent-green); box-shadow: 0 0 0 5px var(--accent-green-light); }
+
+    .capability-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--space-lg);
+        margin-top: var(--space-xl);
+    }
+</style>
+
+<div class="hero-unified">
+    <h1 class="hero-title-unified">{{ _('About') }} <span style="color: var(--accent-blue);">{{ _('Me') }}</span></h1>
+    <p class="hero-subtitle-unified" style="max-width: 600px; margin: 0 auto var(--space-xl);">
+        {{ _('Bridging the gap between complex business operations and elegant Python automation.') }}
+    </p>
+
+    <div class="code-window" style="max-width: 500px; margin: 0 auto; text-align: left;">
+        <div class="code-header">
+            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+            <span style="font-size: 0.7rem; color: var(--text-muted); margin-left: 10px;">adriana_profile.py</span>
+        </div>
+        <div class="code-content">
+            <div><span class="code-comment"># The Hybrid Advantage</span></div>
+            <div>capabilities = {</div>
+            <div>&nbsp;&nbsp;<span class="code-key">"logic"</span>: <span class="code-string">"15+ Years Retail Ops"</span>,</div>
+            <div>&nbsp;&nbsp;<span class="code-key">"engine"</span>: <span class="code-string">"Python / Pandas / SQL"</span>,</div>
+            <div>&nbsp;&nbsp;<span class="code-key">"focus"</span>: <span class="code-string">"Automation & Data Cleaning"</span>,</div>
+            <div>&nbsp;&nbsp;<span class="code-key">"status"</span>: <span class="code-string">"Available for Projects"</span></div>
+            <div>}</div>
+        </div>
+    </div>
+</div>
+
+<section class="content-section" style="padding: var(--space-xl) 0; background: var(--bg-primary);">
+    <div style="max-width: 800px; margin: 0 auto; padding: 0 var(--space-xl);">
+        <h2 style="font-size: 1.75rem; font-weight: 700; margin-bottom: var(--space-lg); text-align: center; color: var(--text-primary);">{{ _('The Journey') }}</h2>
+        <p style="font-size: 1.1rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: var(--space-lg);">
+            {{ _('As a business analyst, I spent years navigating limitations. "It\'s impossible" was a phrase I heard too often when trying to optimize workflows. This frustration became my catalyst.') }}
+        </p>
+        <div style="background: var(--bg-card); padding: var(--space-xl); border-radius: var(--radius-lg); border-left: 4px solid var(--accent-blue); margin-bottom: var(--space-lg); border: 1px solid var(--border-color);">
+            <p style="margin: 0; font-weight: 600; color: var(--text-primary);">
+                "{{ _('I don\'t just write code; I translate operational pain into technical solutions.') }}"
+            </p>
+        </div>
+    </div>
+</section>
+
+<section style="background: var(--bg-secondary); padding: var(--space-2xl) 0;">
+    <div style="max-width: 900px; margin: 0 auto; padding: 0 var(--space-xl);">
+        <h2 style="text-align: center; margin-bottom: var(--space-xl); color: var(--text-primary);">{{ _('Professional Roadmap') }}</h2>
+
+        <div style="position: relative; padding-left: var(--space-xl); border-left: 2px solid var(--border-color);">
+
+            <div class="timeline-item" style="position: relative; margin-bottom: var(--space-lg); padding: var(--space-xl); background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg);">
+                <div class="timeline-dot" style="position: absolute; left: calc(-1 * var(--space-xl) - 11px); top: var(--space-lg); width: 16px; height: 16px; background: var(--accent-blue); border-radius: 50%; border: 3px solid var(--bg-card);"></div>
+                <div style="color: var(--accent-blue); font-weight: 700; font-size: 0.8rem;">2007 — 2013</div>
+                <h3 style="font-size: 1.1rem; margin: 4px 0; color: var(--text-primary);">{{ _('Head of Cashier & Pricing Analyst @ real,- Hypermarket') }}</h3>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">
+                    {{ _('Managed diverse teams across pricing and front-end operations. I established data foundations for pricing strategies and served as Head of Cashier, where I managed high-volume store operations and team development plans for over 100 employees.') }}
+                </p>
+            </div>
+
+            <div class="timeline-item" style="position: relative; margin-bottom: var(--space-lg); padding: var(--space-xl); background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg);">
+                <div class="timeline-dot" style="position: absolute; left: calc(-1 * var(--space-xl) - 11px); top: var(--space-lg); width: 16px; height: 16px; background: var(--accent-blue); border-radius: 50%; border: 3px solid var(--bg-card);"></div>
+                <div style="color: var(--accent-blue); font-weight: 700; font-size: 0.8rem;">2013 — 2024</div>
+                <h3 style="font-size: 1.1rem; margin: 4px 0; color: var(--text-primary);">{{ _('Business Analyst & Coordinator @ Auchan Retail') }}</h3>
+                <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
+                    {{ _('The Catalyst: In 2013, I led the front-end integration during the Auchan acquisition of real,-. I managed the transition for the cashier department, training 100+ staff on new systems and procedures to ensure a seamless merger.') }}
+                </p>
+                <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-top: 10px;">
+                    {{ _('This path led me to become a Contact Center Coordinator and Business Analyst for the Loyalty & Care department. As a Salesforce specialist, I audited complex datasets and managed KPIs. I identified massive friction in manual processes and decided to stop just analyzing problems and start coding the solutions.') }}
+                </p>
+            </div>
+
+            <div class="timeline-item" style="position: relative; margin-bottom: var(--space-lg); padding: var(--space-xl); background: var(--bg-card); border: 2px solid var(--accent-green); border-radius: var(--radius-lg);">
+                <div class="timeline-dot" style="position: absolute; left: calc(-1 * var(--space-xl) - 11px); top: var(--space-lg); width: 16px; height: 16px; background: var(--accent-green); border-radius: 50%; border: 3px solid var(--bg-card); box-shadow: 0 0 0 5px var(--accent-green-light);"></div>
+                <div style="color: var(--accent-green); font-weight: 700; font-size: 0.8rem;">2025 — PRESENT</div>
+                <h3 style="font-size: 1.1rem; margin: 4px 0; color: var(--text-primary);">{{ _('Software & Automation Engineer') }}</h3>
+                <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
+                    {{ _('Leveraging 15+ years of operational experience to build technical solutions that solve real business problems. I focus on developing Python automation tools, custom data cleaning scripts, and AI-driven workflows (RAG) that eliminate the repetitive tasks I spent my earlier career navigating. I turn complex business logic into production-ready code.') }}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section style="padding: var(--space-3xl) 0; text-align: center; background: var(--bg-primary);">
+    <div style="max-width: 600px; margin: 0 auto; padding: 0 var(--space-xl);">
+        <h2 style="font-size: 2rem; font-weight: 800; margin-bottom: var(--space-md); color: var(--text-primary);">{{ _('Let\'s build something efficient.') }}</h2>
+        <p style="color: var(--text-secondary); margin-bottom: var(--space-xl);">{{ _('Whether you have a messy spreadsheet or a manual process that needs to disappear, I\'m ready to help.') }}</p>
+
+        <div style="display: flex; justify-content: center; gap: var(--space-md);">
+            <a href="{{ url_for('contact', lang=current_lang) }}" class="btn" style="background: var(--accent-blue); color: white; padding: 12px 24px; border-radius: var(--radius-md); text-decoration: none; font-weight: 700;">{{ _('Get in Touch') }}</a>
+            <a href="{{ url_for('projects_index', lang=current_lang) }}" style="padding: 12px 24px; color: var(--text-primary); text-decoration: none; font-weight: 600;">{{ _('View My Work →') }}</a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

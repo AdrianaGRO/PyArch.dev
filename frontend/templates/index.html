@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+{% block title %}Python Automation for Business Operations - Adriana Gropan{% endblock %}
+{% block content %}
+
+<style>
+    /* Premium Animations & Textures */
+    .hero-gradient {
+        background: radial-gradient(circle at top right, var(--accent-blue-light) 0%, transparent 40%),
+                    radial-gradient(circle at bottom left, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    }
+    .trust-bar {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--space-xl);
+        padding: var(--space-xl) 0;
+        border-top: 1px solid var(--border-color);
+        margin-top: var(--space-2xl);
+    }
+    .stat-item { text-align: center; }
+    .stat-number { display: block; font-size: 1.75rem; font-weight: 800; color: var(--text-primary); }
+    .stat-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); }
+
+    .service-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        height: 100%;
+    }
+    .service-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-lg);
+    }
+</style>
+
+<section class="hero-section hero-gradient" style="padding: calc(var(--space-3xl) + var(--space-lg)) 0 var(--space-2xl) 0; position: relative;">
+    <div style="max-width: 1000px; margin: 0 auto; padding: 0 var(--space-xl);">
+        
+        <div style="text-align: center; margin-bottom: var(--space-lg);">
+            <span style="padding: 6px 16px; background: var(--accent-blue); color: white; border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+                {{ _('Available for New Projects') }}
+            </span>
+        </div>
+        
+        <h1 style="font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 900; color: var(--text-primary); margin-bottom: var(--space-md); line-height: 1.1; text-align: center; letter-spacing: -0.03em;">
+            {{ _('Stop fighting with spreadsheets.') }}<br>
+            <span style="color: var(--accent-blue);">{{ _('I automate the struggle.') }}</span>
+        </h1>
+        
+        <p style="font-size: 1.25rem; color: var(--text-secondary); margin: 0 auto var(--space-2xl); line-height: 1.6; text-align: center; max-width: 700px;">
+            {{ _('15+ years of retail operations experience meeting modern Python automation. I build custom tools that transform hours of manual data work into seconds of code execution.') }}
+        </p>
+
+        <div style="background: var(--bg-card); border-left: 5px solid var(--accent-blue); padding: var(--space-xl); border-radius: var(--radius-lg); max-width: 550px; margin: 0 auto var(--space-2xl); box-shadow: var(--shadow-md);">
+            <p style="font-size: 1.5rem; font-style: italic; font-weight: 600; color: var(--text-primary); margin: 0; text-align: center; line-height: 1.4;">
+                "It's not impossible, you just haven't found a way yet."
+            </p>
+            <div style="text-align: right; margin-top: 10px; font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">— AJ</div>
+        </div>
+
+        <div style="display: flex; gap: var(--space-md); justify-content: center; margin-bottom: var(--space-2xl);">
+            <a href="{{ url_for('projects_index') }}" class="btn" style="padding: 1rem 2.5rem; font-weight: 700;">{{ _('Explore Solutions') }}</a>
+            <a href="{{ url_for('contact') }}" class="btn-outline" style="padding: 1rem 2.5rem; font-weight: 700;">{{ _('Request Audit') }}</a>
+        </div>
+
+        <div class="trust-bar">
+            <div class="stat-item">
+                <span class="stat-number">450k+</span>
+                <span class="stat-label">{{ _('Rows Processed') }}</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">84s</span>
+                <span class="stat-label">{{ _('Execution Time') }}</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">17 Yrs</span>
+                <span class="stat-label">{{ _('Ops Experience') }}</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">0%</span>
+                <span class="stat-label">{{ _('Manual Error') }}</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="services" style="padding: var(--space-3xl) 0; background: var(--bg-base);">
+    <div style="max-width: 1100px; margin: 0 auto; padding: 0 var(--space-xl);">
+        <div style="text-align: center; margin-bottom: var(--space-3xl);">
+            <h2 style="font-size: 2.5rem; font-weight: 800; color: var(--text-primary);">{{ _('Core Capabilities') }}</h2>
+            <p style="color: var(--text-secondary);">{{ _('Transforming operational pain into structured technical assets.') }}</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--space-xl);">
+            <div class="card service-card" style="padding: var(--space-2xl); border-top: 4px solid var(--accent-blue);">
+                <div style="font-size: 2.5rem; margin-bottom: var(--space-md);">📊</div>
+                <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: var(--space-sm);">{{ _('Data Scrubbing') }}</h3>
+                <p style="color: var(--text-secondary); margin-bottom: var(--space-lg); line-height: 1.6;">{{ _('Merging fragmented CSV/Excel files, removing duplicates, and standardizing messy columns for professional reporting.') }}</p>
+                <ul style="list-style: none; padding: 0; font-size: 0.95rem; color: var(--text-secondary);">
+                    <li style="margin-bottom: 8px;">✓ {{ _('File Merging (100+ files)') }}</li>
+                    <li style="margin-bottom: 8px;">✓ {{ _('Format Standardization') }}</li>
+                    <li>✓ {{ _('Duplicate & Error Removal') }}</li>
+                </ul>
+            </div>
+
+            <div class="card service-card" style="padding: var(--space-2xl); border-top: 4px solid var(--accent-green);">
+                <div style="font-size: 2.5rem; margin-bottom: var(--space-md);">🐍</div>
+                <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: var(--space-sm);">{{ _('Custom Workflow') }}</h3>
+                <p style="color: var(--text-secondary); margin-bottom: var(--space-lg); line-height: 1.6;">{{ _('Automating repetitive daily tasks like report generation, file organization, or data syncing between systems.') }}</p>
+                <ul style="list-style: none; padding: 0; font-size: 0.95rem; color: var(--text-secondary);">
+                    <li style="margin-bottom: 8px;">✓ {{ _('Automated PDF Reports') }}</li>
+                    <li style="margin-bottom: 8px;">✓ {{ _('Web Scraping & Collection') }}</li>
+                    <li>✓ {{ _('Custom Logic Integration') }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section style="padding: var(--space-3xl) 0; background: var(--bg-secondary);">
+    <div style="max-width: 900px; margin: 0 auto; padding: 0 var(--space-xl); display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-2xl); align-items: center;">
+        <div>
+            <h2 style="font-size: 2.25rem; font-weight: 800; color: var(--text-primary); margin-bottom: var(--space-md);">{{ _('Code meets Operations') }}</h2>
+            <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7; margin-bottom: var(--space-lg);">
+                {{ _('Most developers only see the syntax. Having spent 15+ years managing retail teams and data, I see the business impact.') }}
+            </p>
+            <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7;">
+                {{ _('I don\'t just provide a script; I provide a solution that fits your actual day-to-day workflow.') }}
+            </p>
+        </div>
+        <div style="background: var(--bg-card); padding: var(--space-xl); border-radius: var(--radius-xl); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);">
+            <div style="margin-bottom: var(--space-md);">
+                <div style="font-weight: 700; color: var(--text-primary);">{{ _('Production Ready') }}</div>
+                <div style="font-size: 0.85rem; color: var(--text-muted);">{{ _('Tested, Documented, Supported') }}</div>
+            </div>
+            <div style="margin-bottom: var(--space-md);">
+                <div style="font-weight: 700; color: var(--text-primary);">{{ _('Fast Turnaround') }}</div>
+                <div style="font-size: 0.85rem; color: var(--text-muted);">{{ _('2-5 Day Average Delivery') }}</div>
+            </div>
+            <div>
+                <div style="font-weight: 700; color: var(--text-primary);">{{ _('Secure Handling') }}</div>
+                <div style="font-size: 0.85rem; color: var(--text-muted);">{{ _('Local Processing (No Cloud Risks)') }}</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section style="padding: var(--space-3xl) 0; text-align: center;">
+    <div style="max-width: 700px; margin: 0 auto; padding: 0 var(--space-xl);">
+        <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: var(--space-md);">{{ _('Ready to save those hours?') }}</h2>
+        <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: var(--space-2xl);">{{ _('Send me a brief description of your manual process. I\'ll tell you within 24 hours if it can be automated.') }}</p>
+        <a href="{{ url_for('contact') }}" class="btn" style="padding: 1.25rem 3rem; font-size: 1.1rem; font-weight: 800;">{{ _('Get a Free Audit') }}</a>
+    </div>
+</section>
+
+{% endblock %}

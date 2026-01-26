@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Contact | Adriana Gropan{% endblock %}
+{% block content %}
+
+<section class="content-section" style="max-width: 600px; margin: 0 auto; padding: var(--space-2xl) 0; text-align: center;">
+    <!-- Blue Gradient Title Block -->
+    <div style="background: linear-gradient(135deg, var(--accent-blue-light), var(--bg-card)); border-left: 4px solid var(--accent-blue); padding: var(--space-xl); border-radius: var(--radius-lg); max-width: 500px; margin: 0 auto; box-shadow: var(--shadow-md);">
+        <h1 style="font-size: 2.5rem; font-weight: 700; color: var(--text-primary); margin: 0; line-height: 1.2;">
+            {{ _('Ready to Automate Your Workflow?') }}
+        </h1>
+    </div>
+    
+    <p style="font-size: 1.125rem; color: var(--text-secondary); margin: var(--space-xl) auto var(--space-2xl); line-height: 1.6; max-width: 500px;">
+        {{ _('Let\'s discuss your project. Reach out directly and I\'ll respond within 24 hours on weekdays.') }}
+    </p>
+
+    <!-- Business Card -->
+    <div style="background: var(--bg-card); border-radius: var(--radius-lg); padding: var(--space-2xl); box-shadow: var(--shadow-lg); border: 1px solid var(--border-color); max-width: 400px; margin: 0 auto;">
+        
+        <!-- Email -->
+        <div style="margin-bottom: var(--space-xl);">
+            <div style="font-size: 3rem; margin-bottom: var(--space-md);">📧</div>
+            <div style="font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-sm);">{{ _('Email') }}</div>
+            <a href="mailto:adriana.gropan@gmail.com" style="color: var(--accent-blue); text-decoration: none; font-size: 1.125rem; font-weight: 500; transition: color var(--transition-base);">
+                adriana.gropan@gmail.com
+            </a>
+        </div>
+
+        <!-- LinkedIn -->
+        <div style="margin-bottom: var(--space-xl);">
+            <div style="font-size: 3rem; margin-bottom: var(--space-md);">💼</div>
+            <div style="font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-sm);">LinkedIn</div>
+            <a href="https://www.linkedin.com/in/adriana-gropan/" target="_blank" style="color: var(--accent-blue); text-decoration: none; font-size: 1.125rem; font-weight: 500; transition: color var(--transition-base);">
+                linkedin.com/in/adrianagropan
+            </a>
+        </div>
+
+        <!-- Response Time -->
+        <div>
+            <div style="font-size: 3rem; margin-bottom: var(--space-md);">⏱️</div>
+            <div style="font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-sm);">Response Time</div>
+            <div style="color: var(--text-secondary); font-size: 1.125rem;">
+                Within 24 hours on weekdays
+            </div>
+        </div>
+    </div>
+
+    <!-- Additional Info -->
+    <div style="margin-top: var(--space-2xl); padding: var(--space-lg); background: var(--bg-secondary); border-radius: var(--radius-md);">
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin: 0; text-align: center;">
+            Based in Bucharest • Available for remote automation projects
+        </p>
+    </div>
+</section>
+
+{% endblock %}
