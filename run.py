@@ -19,4 +19,9 @@ if __name__ == '__main__':
     print("📁 Project structure: app/ | content/ | frontend/")
     print("🌐 Server will be available at: http://localhost:5003")
     print("=" * 50)
-    app.run(debug=True, port=5003)
+    
+    # Check if running in production
+    port = int(os.environ.get('PORT', 5003))
+    debug = os.environ.get('FLASK_ENV') != 'production'
+    
+    app.run(debug=debug, host='0.0.0.0', port=port)

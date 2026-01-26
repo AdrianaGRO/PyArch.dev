@@ -1,0 +1,14 @@
+# Render deployment configuration
+services:
+  - type: web
+    name: pyarch-dev
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn wsgi:application
+    healthCheckPath: /
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: PYTHONPATH
+        value: .
