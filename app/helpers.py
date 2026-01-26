@@ -53,9 +53,13 @@ _PROJECT_ROOT = os.path.dirname(_APP_DIR)  # /path/to/PyArch.dev/
 POSTS_FILE = os.path.join(_PROJECT_ROOT, 'content', 'posts.json')
 
 def load_posts():
-    """Load blog posts from JSON file"""
+    """Load blog posts from JSON file, filtering out unpublished posts"""
     with open(POSTS_FILE, 'r') as f:
-        return json.load(f)
+        all_posts = json.load(f)
+    
+    # Filter out unpublished posts for public display
+    published_posts = [post for post in all_posts if post.get('published', True)]
+    return published_posts
     
 def save_posts(posts):
     """Save blog posts to JSON file"""
