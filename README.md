@@ -105,4 +105,4 @@ MIT License - See LICENSE file for details
 
 ---
 
-**Live Demo**: [pyarch.dev](https://pyarch.dev) | **Author**: [Adriana Gropan](https://github.com/AdrianaGRO)
+**Live Demo**: [adrianagropan.com](https://adrianagropan.com) | **Author**: [Adriana Gropan](https://github.com/AdrianaGRO)
