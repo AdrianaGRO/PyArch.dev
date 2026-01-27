@@ -68,18 +68,21 @@ PyArch.dev/
 
 ## ✨ Key Features
 
-- **🎯 Professional Portfolio** - Showcase of data automation projects and services
-- **📝 Dynamic Blog** - Markdown-powered blog with syntax highlighting
-- **🔐 Admin Dashboard** - Secure content management system
-- **📱 Responsive Design** - Mobile-first, modern UI/UX
-- **🌐 Internationalization** - Multi-language support infrastructure
+<!-- Admin Dashboard feature not present -->
+**🌐 Internationalization** - Multi-language support infrastructure (currently hidden/disabled)
 - **⚡ Performance Optimized** - Clean, efficient Flask architecture
 - **📊 Service Pages** - Professional pricing and service information
 - **🖼️ Media Support** - Image upload and management capabilities
 
 ## 🌐 Internationalization (i18n)
+## 🌐 Internationalization (i18n)
 
 Translation infrastructure is located in the `tools/` directory:
+
+- **Translation Management**: Use scripts in `tools/` for adding new languages
+- **Current Status**: English-only (other languages are hidden/disabled for quality assurance)
+- **Adding Languages**: Run `./tools/setup_translations.sh <language_code>` (feature currently disabled)
+- **Documentation**: See `tools/README.md` for detailed translation workflow
 
 - **Translation Management**: Use scripts in `tools/` for adding new languages
 - **Current Status**: English-only (Romanian/Spanish temporarily disabled for quality assurance)
