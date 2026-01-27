@@ -1,0 +1,115 @@
+/* Enhanced Image Handling - Fixes for large/broken images */
+
+/* Project card images - responsive and contained */
+.project-card .card-media img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    border-radius: var(--radius-md);
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect for project images */
+.project-card:hover .card-media img {
+    transform: scale(1.05);
+}
+
+/* Fallback for broken images */
+.project-card .card-media img[src=""], 
+.project-card .card-media img:not([src]) {
+    display: none;
+}
+
+/* General responsive image rules */
+.responsive-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Container for images that might be too large */
+.image-container {
+    max-width: 100%;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    position: relative;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+/* Image loading states */
+.image-loading {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+    min-height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+}
+
+@keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Image error state */
+.image-error {
+    background: var(--bg-secondary);
+    border: 2px dashed var(--border-color);
+    min-height: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.image-error::before {
+    content: "🖼️";
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Debug mode - shows image paths */
+.debug-mode .image-container::after {
+    content: attr(data-src);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    font-size: 0.7rem;
+    padding: 0.25rem 0.5rem;
+    word-break: break-all;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .project-card .card-media {
+        height: 120px !important;
+    }
+    
+    .image-container {
+        border-radius: var(--radius-sm);
+    }
+}
+
+/* Print-friendly images */
+@media print {
+    .project-card .card-media img,
+    .image-container img {
+        max-height: 200px;
+        page-break-inside: avoid;
+    }
+}

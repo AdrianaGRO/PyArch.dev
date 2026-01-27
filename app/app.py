@@ -1,4 +1,3 @@
-
 from flask import Flask, render_template, request, redirect, url_for, flash, session, g
 from flask_babel import Babel, gettext as _, lazy_gettext as _l
 from helpers import (
@@ -362,6 +361,31 @@ def pricing(lang='en'):
     pricing_data = load_pricing_data()
     return render_template('pricing.html', pricing_data=pricing_data)
 
+# Add this route for debugging static files during development
+@app.route('/debug/static')
+def debug_static():
+    """Debug endpoint to check static file configuration"""
+    if not app.debug:
+        return "Debug mode only", 403
+    
+    from helpers import debug_static_configuration, check_common_image_issues
+    
+    # Create debug output
+    import io
+    import sys
+    from contextlib import redirect_stdout
+    
+    output = io.StringIO()
+    with redirect_stdout(output):
+        debug_static_configuration(app)
+        print("\n")
+        issues = check_common_image_issues(app)
+        print("Issues report:", issues)
+    
+    debug_text = output.getvalue()
+    
+    # Return as HTML with preformatted text
+    return f"<html><body><pre>{debug_text}</pre></body></html>"
 
 if __name__ == '__main__':
     app.run(debug=True, port=5003)

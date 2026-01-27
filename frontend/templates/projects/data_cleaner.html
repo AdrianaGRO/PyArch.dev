@@ -1,188 +1,293 @@
 {% extends "base.html" %}
 {% block title %}{{ project.title }} - Adriana Gropan{% endblock %}
 {% block content %}
-<div class="page-header">
-  <h1 class="page-title">{{ project.title }}</h1>
-  {% if project.tagline %}
-    <p class="page-subtitle">{{ project.tagline }}</p>
-  {% endif %}
-  <div style="display:flex; gap:.5rem; flex-wrap:wrap; margin-top: var(--space-sm);">
-    {% if project.category %}<span class="post-category">{{ project.category }}</span>{% endif %}
-    {% if project.status %}<span class="post-tag">{{ project.status }}</span>{% endif %}
-    {% for tech in project.technologies or [] %}
-      <span class="post-tag">{{ tech }}</span>
-    {% endfor %}
-  </div>
-  <div style="display:flex; gap: var(--space-md); margin-top: var(--space-md); flex-wrap:wrap;">
-    {% if project.github_url %}
-      <a class="btn-outline" href="{{ project.github_url }}" target="_blank">📂 View on GitHub</a>
+
+<style>
+    .project-card {
+        transition: transform var(--transition-base), box-shadow var(--transition-base);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+    .project-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-lg);
+    }
+    .check-list {
+        list-style: none;
+        padding: 0;
+        margin: var(--space-lg) 0;
+    }
+    .check-list li {
+        margin-bottom: var(--space-sm);
+        display: flex;
+        align-items: center;
+        gap: var(--space-xs);
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+        line-height: 1.4;
+    }
+    .check-list li::before {
+        content: "✓";
+        color: var(--accent-green);
+        font-weight: bold;
+        font-size: 1rem;
+    }
+    
+    /* Enhanced Button Styles */
+    .btn-primary-enhanced {
+        background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-blue-hover) 100%);
+        color: var(--text-inverse);
+        padding: 1rem 2rem;
+        border-radius: var(--radius-lg);
+        font-size: var(--font-md);
+        font-weight: 700;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-sm);
+        transition: all var(--transition-base);
+        border: none;
+        box-shadow: var(--shadow-md);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .btn-primary-enhanced::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transition: left var(--transition-slow);
+    }
+    
+    .btn-primary-enhanced:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-xl);
+        color: var(--text-inverse);
+        text-decoration: none;
+    }
+    
+    .btn-primary-enhanced:hover::before {
+        left: 100%;
+    }
+    
+    .btn-outline-enhanced {
+        background: transparent;
+        color: var(--accent-blue);
+        border: 2px solid var(--accent-blue);
+        padding: 0.875rem 1.75rem;
+        border-radius: var(--radius-lg);
+        font-size: var(--font-sm);
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-sm);
+        transition: all var(--transition-base);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .btn-outline-enhanced::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background: var(--accent-blue);
+        transition: width var(--transition-base);
+        z-index: -1;
+    }
+    
+    .btn-outline-enhanced:hover {
+        color: var(--text-inverse);
+        text-decoration: none;
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+    }
+    
+    .btn-outline-enhanced:hover::before {
+        width: 100%;
+    }
+</style>
+
+<header class="hero-unified">
+  <div style="max-width: 800px; margin: 0 auto; padding: 0 var(--space-xl);">
+    <h1 class="hero-title-unified">{{ project.title }}</h1>
+    {% if project.tagline %}
+      <p class="hero-subtitle-unified">{{ project.tagline }}</p>
     {% endif %}
-    {% if project.demo_url %}
-      <a class="btn-outline" href="{{ project.demo_url }}" target="_blank">🎬 Watch Demo (2 min)</a>
+    <div style="display:flex; gap:.5rem; flex-wrap:wrap; margin-top: var(--space-lg); justify-content: center;">
+      {% if project.category %}<span class="post-category">{{ project.category }}</span>{% endif %}
+      {% if project.status %}<span class="post-tag">{{ project.status }}</span>{% endif %}
+      {% for tech in project.technologies or [] %}
+        <span class="post-tag">{{ tech }}</span>
+      {% endfor %}
+    </div>
+    <div style="display:flex; gap: var(--space-md); margin-top: var(--space-lg); flex-wrap:wrap; justify-content: center;">
+      {% if project.github_url %}
+        <a class="btn-outline-enhanced" href="{{ project.github_url }}" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          View on GitHub
+        </a>
+      {% endif %}
+      {% if project.demo_url %}
+        <a class="btn-outline-enhanced" href="{{ project.demo_url }}" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          Watch Demo (2 min)
+        </a>
+      {% endif %}
+      <a class="btn-primary-enhanced" href="mailto:adriana.gropan@gmail.com?subject=Hire%20for%20{{ project.title }}">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        Hire Me for This
+      </a>
+    </div>
+  </div>
+</header>
+
+<section style="padding: var(--space-3xl) 0; margin-top: calc(-1 * var(--space-xl));">
+  <div style="max-width: 1100px; margin: 0 auto; padding: 0 var(--space-xl);">
+    
+    <div class="card project-card" style="background: var(--bg-card); border-radius: var(--radius-lg); padding: var(--space-xl); border: 1px solid var(--border-color); margin-bottom: var(--space-xl);">
+      <h2 style="font-size: var(--font-xl); font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-md);">What This Project Does</h2>
+      <p style="color: var(--text-secondary); margin-bottom: var(--space-md);">
+        {{ project.title }} is a production-ready Python tool designed to handle the messy reality of business data. It merges Excel and CSV files, removes basic duplicates, standardizes dates and phone numbers, and outputs professionally formatted files—all while processing hundreds of thousands of rows in seconds.
+      </p>
+      <p style="color: var(--text-secondary);">
+        This tool automates what would take hours into a process that takes seconds. It uses pandas for efficient data processing and handles the most common data cleaning tasks reliably.
+      </p>
+    </div>
+
+    {% if project.features %}
+    <div class="card project-card" style="background: var(--bg-card); border-radius: var(--radius-lg); padding: var(--space-xl); border: 1px solid var(--border-color); margin-bottom: var(--space-xl);">
+      <h3 style="font-size: var(--font-lg); font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-md);">Key Features</h3>
+      <ul class="check-list">
+        {% for feature in project.features %}
+          <li>
+            {{ feature.split(':')[0] if ':' in feature else feature }}
+            {% if ':' in feature %}
+              <div style="color: var(--text-secondary); margin-top: var(--space-xs);">{{ feature.split(':', 1)[1].strip() }}</div>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
     {% endif %}
-    <a class="btn" href="mailto:adriana.gropan@gmail.com?subject=Hire%20for%20{{ project.title }}">💬 Hire Me for This</a>
-  </div>
-</div>
 
-<div class="content-section">
-  <div class="card">
-    <h2 class="text-xl">What This Project Does</h2>
-    <p style="color: var(--text-secondary);">
-      {{ project.title }} is a production-ready Python tool designed to handle the messy reality of business data. It merges Excel and CSV files, removes duplicates intelligently, standardizes dates and phone numbers, and outputs professionally formatted files—all while processing hundreds of thousands of rows in seconds.
-    </p>
-    <p style="color: var(--text-secondary);">
-      Built after years of seeing businesses struggle with manual data cleaning, this tool automates what would take hours into a process that takes seconds.
-    </p>
-  </div>
-
-  {% if project.features %}
-  <div class="card">
-    <h3 class="text-lg">Key Features</h3>
-    <ul style="list-style:none; padding:0;">
-      {% for feature in project.features %}
-        <li style="margin-bottom:.5rem;">
-          <span>✓ {{ feature.split(':')[0] if ':' in feature else feature }}</span>
-          {% if ':' in feature %}
-            <div style="color: var(--text-secondary);">{{ feature.split(':', 1)[1].strip() }}</div>
-          {% endif %}
-        </li>
-      {% endfor %}
-    </ul>
-  </div>
-  {% endif %}
-
-  {% if project.performance %}
-  <div class="grid grid-3">
-    <div class="card" style="text-align:center;">
-      <div class="text-3xl">{{ project.performance.rows_tested }}</div>
-      <div class="text-sm" style="color: var(--text-secondary);">Rows Tested</div>
-      <div class="text-sm" style="color: var(--text-secondary);">Large-scale validation</div>
+    {% if project.performance %}
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-lg); margin-bottom: var(--space-xl);">
+      <div class="card project-card" style="background: var(--bg-card); border-radius: var(--radius-lg); padding: var(--space-xl); border: 1px solid var(--border-color); text-align: center;">
+        <div style="font-size: 2.5rem; font-weight: 800; color: var(--accent-blue); margin-bottom: var(--space-xs);">{{ project.performance.rows_tested }}</div>
+        <div style="font-size: var(--font-sm); color: var(--text-secondary); font-weight: 600;">Rows Tested</div>
+        <div style="font-size: var(--font-xs); color: var(--text-muted); margin-top: var(--space-xs);">Large-scale validation</div>
+      </div>
+      <div class="card project-card" style="background: var(--bg-card); border-radius: var(--radius-lg); padding: var(--space-xl); border: 1px solid var(--border-color); text-align: center;">
+        <div style="font-size: 2.5rem; font-weight: 800; color: var(--accent-green); margin-bottom: var(--space-xs);">{{ project.performance.processing_time }}</div>
+        <div style="font-size: var(--font-sm); color: var(--text-secondary); font-weight: 600;">Processing Time</div>
+        <div style="font-size: var(--font-xs); color: var(--text-muted); margin-top: var(--space-xs);">For 450k rows</div>
+      </div>
+      <div class="card project-card" style="background: var(--bg-card); border-radius: var(--radius-lg); padding: var(--space-xl); border: 1px solid var(--border-color); text-align: center;">
+        <div style="font-size: 2.5rem; font-weight: 800; color: var(--accent-blue); margin-bottom: var(--space-xs);">{{ project.performance.speed }}</div>
+        <div style="font-size: var(--font-sm); color: var(--text-secondary); font-weight: 600;">Speed</div>
+        <div style="font-size: var(--font-xs); color: var(--text-muted); margin-top: var(--space-xs);">Rows per second</div>
+      </div>
     </div>
-    <div class="card" style="text-align:center;">
-      <div class="text-3xl">{{ project.performance.processing_time }}</div>
-      <div class="text-sm" style="color: var(--text-secondary);">Processing Time</div>
-      <div class="text-sm" style="color: var(--text-secondary);">For 450k rows</div>
+    {% endif %}
+
+    <div class="card project-card" style="background: var(--bg-card); border-radius: var(--radius-lg); padding: var(--space-xl); border: 1px solid var(--border-color); margin-bottom: var(--space-xl);">
+      <h3 style="font-size: var(--font-lg); font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-md);">Quality Assurance</h3>
+      <ul class="check-list">
+        <li>5 comprehensive automated test scenarios</li>
+        <li>Error handling for edge cases</li>
+        <li>Configuration validation</li>
+        <li>Complete documentation</li>
+      </ul>
+      
+      <div style="margin-top: var(--space-lg); padding: var(--space-md); background: var(--accent-blue-light); border: 1px solid var(--accent-blue); border-radius: var(--radius-md);">
+        <p style="color: var(--accent-blue); font-size: var(--font-sm); margin: 0;">
+          <strong>Technical Note:</strong> This tool performs basic duplicate removal using pandas' drop_duplicates() method based on specified columns, and simple column name mapping for predefined variations (customer/client/company). For advanced fuzzy matching or complex data relationships, I can customize the solution for your specific needs.
+        </p>
+      </div>
     </div>
-    <div class="card" style="text-align:center;">
-      <div class="text-3xl">{{ project.performance.speed }}</div>
-      <div class="text-sm" style="color: var(--text-secondary);">Speed</div>
-      <div class="text-sm" style="color: var(--text-secondary);">Rows per second</div>
-    </div>
-  </div>
-  {% endif %}
 
-  <div class="card">
-    <h3 class="text-lg">Quality Assurance</h3>
-    <ul class="footer-links">
-      <li>5 comprehensive automated test scenarios</li>
-      <li>Error handling for edge cases</li>
-      <li>Configuration validation</li>
-      <li>Complete documentation</li>
-    </ul>
-  </div>
-
-  {% if project.use_cases %}
-  <div class="card">
-    <h3 class="text-lg">Real-World Applications</h3>
-    <div>
-      {% for use_case in project.use_cases %}
-        <div style="margin-bottom:.5rem;">
-          <strong>{{ use_case.split(':')[0] }}</strong>
-          <div style="color: var(--text-secondary);">{{ use_case.split(':', 1)[1].strip() if ':' in use_case else use_case }}</div>
-        </div>
-      {% endfor %}
-    </div>
-  </div>
-  {% endif %}
-
-  <div class="card">
-    <h3 class="text-lg">Your Data Stays Private</h3>
-    <p style="color: var(--text-secondary);">
-      This tool runs on YOUR computer. Your data never leaves your system, never gets uploaded anywhere. Complete control and privacy guaranteed.
-    </p>
-  </div>
-
-  <div class="card">
-    <h3 class="text-lg">Technical Implementation</h3>
-    <div style="margin-bottom: var(--space-md);">
-      <strong>Built With:</strong>
-      <div style="display:flex; gap:.5rem; flex-wrap:wrap; margin-top:.5rem;">
-        {% for tech in project.technologies or [] %}
-          <span class="post-tag">{{ tech }}</span>
+    {% if project.use_cases %}
+    <div class="card project-card" style="background: var(--bg-card); border-radius: var(--radius-lg); padding: var(--space-xl); border: 1px solid var(--border-color); margin-bottom: var(--space-xl);">
+      <h3 style="font-size: var(--font-lg); font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-md);">Real-World Applications</h3>
+      <div>
+        {% for use_case in project.use_cases %}
+          <div style="margin-bottom: var(--space-md);">
+            <strong style="color: var(--text-primary);">{{ use_case.split(':')[0] }}</strong>
+            <div style="color: var(--text-secondary); margin-top: var(--space-xs);">{{ use_case.split(':', 1)[1].strip() if ':' in use_case else use_case }}</div>
+          </div>
         {% endfor %}
       </div>
     </div>
-    <div style="margin-bottom: var(--space-md);">
-      <strong>Architecture:</strong>
-      <ul class="footer-links">
-        <li>Modular Design: Separate modules for merging, cleaning, formatting</li>
-        <li>Configuration-Driven: JSON config file for easy customization</li>
-        <li>Error Handling: Graceful failure with clear error messages</li>
-        <li>Extensible: Easy to add new cleaning rules or data types</li>
-      </ul>
-    </div>
-    <div>
-      <strong>Code Quality:</strong>
-      <ul class="footer-links">
-        <li>Clear documentation and inline comments</li>
-        <li>Automated test suite</li>
-        <li>Production-grade error handling</li>
-        <li>Professional logging and progress tracking</li>
-      </ul>
-    </div>
-  </div>
+    {% endif %}
 
-  {% if project.pricing %}
-  <div class="card">
-    <h3 class="text-lg">Custom Implementation Pricing</h3>
-    <div class="grid grid-3">
-      {% if project.pricing.tier1 %}
-      <div class="card">
-        <div class="text-xl">{{ project.pricing.tier1.rows }}</div>
-        <div class="text-2xl" style="color: var(--accent-green);">{{ project.pricing.tier1.price }}</div>
-        <div class="text-sm" style="color: var(--text-secondary);">3-5 day delivery</div>
+    <div class="card project-card" style="background: var(--bg-card); border-radius: var(--radius-lg); padding: var(--space-xl); border: 1px solid var(--border-color); margin-bottom: var(--space-xl);">
+      <h3 style="font-size: var(--font-lg); font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-md);">Want to Try It?</h3>
+      <p style="color: var(--text-secondary); margin-bottom: var(--space-md);">
+        This tool runs locally on YOUR computer. Your data never leaves your system, never gets uploaded anywhere. Complete control and privacy guaranteed. You just need to copy the repo and use it locally.
+      </p>
+      <div style="margin-bottom: var(--space-lg);">
+        <strong style="color: var(--text-primary);">Why try it locally:</strong>
+        <ul class="check-list" style="margin-top: var(--space-sm);">
+          <li>Test with your actual data files</li>
+          <li>See exactly how it handles your specific format</li>
+          <li>No data privacy concerns</li>
+          <li>Full control over the cleaning process</li>
+        </ul>
       </div>
-      {% endif %}
-      {% if project.pricing.tier2 %}
-      <div class="card">
-        <div class="text-xl">{{ project.pricing.tier2.rows }}</div>
-        <div class="text-2xl" style="color: var(--accent-green);">{{ project.pricing.tier2.price }}</div>
-        <div class="text-sm" style="color: var(--text-secondary);">5-7 day delivery</div>
+      <div style="padding: var(--space-lg); background: var(--bg-secondary); border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+        <strong style="color: var(--text-primary); font-size: var(--font-md);">Two Ways to Use This Tool:</strong>
+        
+        <div style="margin-top: var(--space-lg);">
+          <p style="color: var(--text-primary); font-weight: 600; margin-bottom: var(--space-sm);">If you're a developer:</p>
+          <ol style="padding-left: var(--space-lg); color: var(--text-secondary); margin: var(--space-sm) 0;">
+            <li style="margin-bottom: var(--space-xs);">Clone the repository from GitHub</li>
+            <li style="margin-bottom: var(--space-xs);">Install dependencies: <code style="background: var(--bg-primary); padding: 0.2rem 0.4rem; border-radius: 3px;">pip install -r requirements.txt</code></li>
+            <li style="margin-bottom: var(--space-xs);">Run: <code style="background: var(--bg-primary); padding: 0.2rem 0.4rem; border-radius: 3px;">python main.py</code></li>
+            <li style="margin-bottom: var(--space-xs);">Upload your files in <code style="background: var(--bg-primary); padding: 0.2rem 0.4rem; border-radius: 3px;">data_cleaner/data/input</code> and watch it work</li>
+          </ol>
+        </div>
+        
+        <div style="margin-top: var(--space-lg); padding-top: var(--space-lg); border-top: 1px solid var(--border-color);">
+          <p style="color: var(--text-primary); font-weight: 600; margin-bottom: var(--space-sm);">If you're not a developer:</p>
+          <p style="color: var(--text-secondary); margin: var(--space-sm) 0;">
+            Don't worry about the technical setup, I can handle everything for you. I'll customize this tool for your specific needs, set it up to work with your data, and deliver a ready-to-use solution with clear instructions.
+          </p>
+          <a class="btn-primary-enhanced" href="mailto:adriana.gropan@gmail.com?subject=Help%20with%20Data%20Cleaner" style="margin-top: var(--space-md); display: inline-block;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+            Let Me Handle It For You
+          </a>
+        </div>
       </div>
-      {% endif %}
-      {% if project.pricing.tier3 %}
-      <div class="card">
-        <div class="text-xl">{{ project.pricing.tier3.rows }}</div>
-        <div class="text-2xl" style="color: var(--accent-green);">{{ project.pricing.tier3.price }}</div>
-        <div class="text-sm" style="color: var(--text-secondary);">7-10 day delivery</div>
-      </div>
-      {% endif %}
     </div>
-    <div style="margin-top: var(--space-md);">
-      <strong>What's Included:</strong>
-      <ul class="footer-links">
-        <li>Custom configuration for your data structure</li>
-        <li>Testing with your actual data</li>
-        <li>Documentation for your team</li>
-        <li>One round of revisions</li>
-        <li>7 days of email support</li>
-      </ul>
-    </div>
-  </div>
-  {% endif %}
 
-  <div class="card">
-    <h3 class="text-lg">How We'll Work Together</h3>
-    <ol style="padding-left: 1rem; color: var(--text-secondary);">
-      <li><strong>Discovery Call (Free 15 min)</strong> — You describe your data and what you need. I confirm if this tool fits and estimate timeline/cost.</li>
-      <li><strong>Scope Agreement</strong> — I send you a clear project scope with deliverables, timeline, and price. You approve or we adjust.</li>
-      <li><strong>Development (50% upfront)</strong> — I customize the tool for your needs. You get updates every 2-3 days on progress.</li>
-      <li><strong>Testing & Delivery</strong> — You test with real data. I fix issues. Final payment on completion. 7 days support included.</li>
-    </ol>
-    <div style="margin-top: var(--space-md); display:flex; gap: var(--space-md); flex-wrap:wrap;">
-      <a class="btn" href="mailto:adriana.gropan@gmail.com?subject=Customize%20{{ project.title }}">📧 Email Me</a>
-      <a class="btn-outline" href="{{ url_for('projects_index') }}">← Back to Projects</a>
+    <div class="card project-card" style="background: var(--bg-card); border-radius: var(--radius-lg); padding: var(--space-xl); border: 1px solid var(--border-color);">
+      <h3 style="font-size: var(--font-lg); font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-md);">How We'll Work Together</h3>
+      <ol style="padding-left: var(--space-lg); color: var(--text-secondary);">
+        <li style="margin-bottom: var(--space-sm);"><strong style="color: var(--text-primary);">Discovery Call (Free 15 min)</strong> — You describe your data and what you need. I confirm if this tool fits and estimate timeline/cost.</li>
+        <li style="margin-bottom: var(--space-sm);"><strong style="color: var(--text-primary);">Scope Agreement</strong> — I send you a clear project scope with deliverables, timeline, and price. You approve or we adjust.</li>
+        <li style="margin-bottom: var(--space-sm);"><strong style="color: var(--text-primary);">Development (50% upfront)</strong> — I customize the tool for your needs. You get updates every 2-3 days on progress.</li>
+        <li style="margin-bottom: var(--space-sm);"><strong style="color: var(--text-primary);">Testing & Delivery</strong> — You test with real data. I fix issues. Final payment on completion. 7 days support included.</li>
+      </ol>
+      <div style="display:flex; gap: var(--space-md); margin-top: var(--space-xl); flex-wrap:wrap;">
+        <a class="btn-primary-enhanced" href="mailto:adriana.gropan@gmail.com?subject=Customize%20{{ project.title }}">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          Email Me
+        </a>
+        <a class="btn-outline-enhanced" href="{{ url_for('projects_index') }}">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+          Back to Projects
+        </a>
+      </div>
     </div>
   </div>
-</div>
+</section>
 {% endblock %}

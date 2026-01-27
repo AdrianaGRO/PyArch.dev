@@ -44,18 +44,9 @@
 </header>
 
 <div class="container" style="padding: var(--space-2xl) 0;">
-  <div class="grid grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--space-xl);">
+  <div class="grid grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--space-xl); max-width: 900px; margin: 0 auto;">
     {% for project in projects %}
     <article class="card project-card" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); overflow: hidden; padding: var(--space-xl); display: flex; flex-direction: column;">
-      
-      <div class="card-media" style="height: 160px; background: var(--bg-secondary); display:flex; flex-direction: column; align-items:center; justify-content:center; border-radius: var(--radius-md); margin-bottom: var(--space-lg); border: 1px solid var(--border-color);">
-        {% if project.hero_image %}
-          <img src="{{ project.hero_image }}" alt="{{ project.title }}" style="max-width:100%; max-height:100%; object-fit:cover;">
-        {% else %}
-          <div style="font-size: 3rem; margin-bottom: 5px;">🐍</div>
-          <div style="color: var(--text-muted); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Python Tool</div>
-        {% endif %}
-      </div>
 
       <div style="display: flex; flex-direction: column; flex-grow: 1;">
         <h3 style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-xs);">

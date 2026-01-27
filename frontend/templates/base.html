@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/social-icons.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/blog-images.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/enhanced-images.css') }}">
     
     <style>
         /* NAVIGATION CSS VARIABLES FOR THEME CONSISTENCY */
@@ -454,7 +455,7 @@
                     <li>
                         <a href="{{ url_for('blog', lang=current_lang) }}" 
                            class="nav-link {% if request.endpoint == 'blog' %}active{% endif %}">
-                           {{ _('Blog') }}
+                           {{ _('Case Studies') }}
                         </a>
                     </li>
                 </ul>
@@ -588,14 +589,14 @@
                     projects: 'Projects',
                     pricing: 'Pricing', 
                     about: 'About',
-                    blog: 'Blog',
+                    blog: 'Case Studies',
                     contact: 'Contact'
                 },
                 ro: {
                     projects: 'Proiecte',
                     pricing: 'Prețuri',
                     about: 'Despre',
-                    blog: 'Blog',
+                    blog: 'Studii de Caz',
                     contact: 'Contact'
                 }
             };
@@ -706,7 +707,7 @@
                         <li><a href="{{ url_for('projects_index', lang=current_lang) }}" style="color: var(--text-secondary); text-decoration: none; font-size: var(--font-sm); transition: color var(--transition-base);">{{ _('Projects') }}</a></li>
                         <li><a href="{{ url_for('pricing', lang=current_lang) }}" style="color: var(--text-secondary); text-decoration: none; font-size: var(--font-sm); transition: color var(--transition-base);">{{ _('Pricing') }}</a></li>
                         <li><a href="{{ url_for('about', lang=current_lang) }}" style="color: var(--text-secondary); text-decoration: none; font-size: var(--font-sm); transition: color var(--transition-base);">{{ _('About Me') }}</a></li>
-                        <li><a href="{{ url_for('blog', lang=current_lang) }}" style="color: var(--text-secondary); text-decoration: none; font-size: var(--font-sm); transition: color var(--transition-base);">{{ _('Blog') }}</a></li>
+                        <li><a href="{{ url_for('blog', lang=current_lang) }}" style="color: var(--text-secondary); text-decoration: none; font-size: var(--font-sm); transition: color var(--transition-base);">{{ _('Case Studies') }}</a></li>
                         <li><a href="{{ url_for('contact', lang=current_lang) }}" style="color: var(--text-secondary); text-decoration: none; font-size: var(--font-sm); transition: color var(--transition-base);">{{ _('Contact') }}</a></li>
                     </ul>
                 </div>

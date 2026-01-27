@@ -2,9 +2,52 @@
   {
     "slug": "data_cleaner",
     "title": "Data Cleaner",
-    "summary": "A simple web tool to upload a CSV, auto-clean columns, and download a cleaned version.",
-    "tags": ["flask", "pandas", "automation"],
+    "tagline": "Production-ready Python tool for messy business data",
+    "summary": "Merges Excel and CSV files, removes duplicates intelligently, and outputs clean data—processing hundreds of thousands of rows in seconds.",
+    "category": "Data Engineering",
+    "status": "Production Ready",
+    "tags": ["python", "pandas", "automation"],
+    "technologies": ["Python", "Pandas", "JSON Config"],
     "featured": true,
-    "hero_image": "/static/projects/01_variables.png"
+    "hero_image": "/static/projects/data_cleaner.png",
+    "github_url": "https://github.com/AdrianaGRO/data-cleaner",
+    "demo_url": "https://www.youtube.com/watch?v=4kGrJDcpQzU",
+    "features": [
+      "Basic Duplicate Removal: Removes exact duplicates based on specified column combinations",
+      "Multi-Format Support: Handles Excel (.xlsx), CSV, and mixed file types seamlessly", 
+      "Date Standardization: Converts messy date formats into consistent ISO standards",
+      "Phone Number Cleaning: Standardizes phone numbers across different formats",
+      "Simple Column Mapping: Maps predefined column name variations (customer/client/company)",
+      "Batch Processing: Process multiple files simultaneously with progress tracking",
+      "Error Handling: Graceful failure with detailed error reporting and recovery suggestions",
+      "Configuration-Driven: JSON config file for easy customization without code changes"
+    ],
+    "performance": {
+      "rows_tested": "450,000+",
+      "processing_time": "84 seconds",
+      "speed": "5,357 rows/sec"
+    },
+    "use_cases": [
+      "Sales Data Consolidation: Merge quarterly sales reports from different regions",
+      "Customer Database Cleanup: Remove duplicates and standardize customer information", 
+      "Inventory Management: Combine product data from multiple suppliers",
+      "Financial Reporting: Consolidate transaction data from various payment systems",
+      "Marketing Analytics: Merge campaign data from different platforms",
+      "HR Data Processing: Standardize employee records from multiple systems"
+    ],
+    "pricing": {
+      "tier1": {
+        "rows": "Up to 100k rows",
+        "price": "$500"
+      },
+      "tier2": {
+        "rows": "100k - 500k rows", 
+        "price": "$800"
+      },
+      "tier3": {
+        "rows": "500k+ rows",
+        "price": "$1,200"
+      }
+    }
   }
 ]
