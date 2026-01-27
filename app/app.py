@@ -24,13 +24,20 @@ from jinja2 import TemplateNotFound
 load_dotenv()
 
 # Define paths relative to project root
-_APP_DIR = os.path.dirname(__file__)  # /path/to/app/
+_APP_DIR = os.path.dirname(os.path.abspath(__file__))  # /path/to/app/
 _PROJECT_ROOT = os.path.dirname(_APP_DIR)  # /path/to/PyArch.dev/
 _FRONTEND_DIR = os.path.join(_PROJECT_ROOT, 'frontend')
+_TEMPLATE_DIR = os.path.join(_FRONTEND_DIR, 'templates')
+
+# Debug: Print paths on startup
+print(f"APP_DIR: {_APP_DIR}")
+print(f"PROJECT_ROOT: {_PROJECT_ROOT}")
+print(f"TEMPLATE_DIR: {_TEMPLATE_DIR}")
+print(f"Template exists: {os.path.exists(os.path.join(_TEMPLATE_DIR, 'index.html'))}")
 
 # Initialize Flask with correct template and static paths
-app = Flask(__name__, 
-           template_folder=os.path.join(_FRONTEND_DIR, 'templates'),
+app = Flask(__name__,
+           template_folder=_TEMPLATE_DIR,
            static_folder=os.path.join(_FRONTEND_DIR, 'static'))
 
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'your-secret-key-here')
